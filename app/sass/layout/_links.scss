@@ -1,0 +1,33 @@
+/*------------------------------------*\
+	LINKS AND SELECTIONS
+\*------------------------------------*/
+
+a {
+	color: colors("link");
+	transition: $transitionOutFast;
+	text-decoration: none;
+	
+	&:visited {
+		color: colors("link-visited");
+	}
+	
+	&:hover {
+		color: colors("link-hover");
+		text-decoration: none;
+		outline: 0;
+		transition: $transitionInFast;
+	}
+	
+	&:focus {
+		outline: 0;
+	}
+	
+	&:active {
+		color: colors("link-active");
+	}
+}
+
+::selection {
+	color: colors("selection");
+	background-color: colors("selection-background");
+}

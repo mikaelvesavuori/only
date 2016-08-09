@@ -1,0 +1,35 @@
+/*------------------------------------*\
+	BASE: Colors
+\*------------------------------------*/
+
+$offwhite: #f8f8f8;
+$offblack: #1e1e1e;
+
+$black: #000;
+$white: #fff;
+$gray: #b2b2b2;
+$lightgray: #f2f2f2;
+$darkgray: #404040;
+
+$blue: #00acf0;
+$purple: #7e54d1;
+$green: #14d26e;
+$yellow: #ffd200;
+$red: #d82a4e;
+
+$base-color: $black;
+
+@function colors($key) {
+	@return map-get($colors, $key);
+}
+
+$colors: (
+	"font": $offblack,
+	"selection": $white,
+	"selection-background": $blue,
+	"link": $blue,
+	"link-visited": $purple,
+	"link-active": $yellow,
+	"link-hover": $darkgray,
+	"background": $offwhite
+);

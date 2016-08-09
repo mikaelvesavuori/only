@@ -1,0 +1,31 @@
+/*------------------------------------*\
+	ERRORS
+\*------------------------------------*/
+
+noscript {
+	& > p {
+		@include errorMessage;
+	}
+}
+
+.error--browserUnsupported {
+	display: none;
+	
+	& > p {
+		@include errorMessage;
+	}
+}
+
+.error--message {
+	margin: 0 auto;
+	padding: 0;
+	max-width: $size-tablet;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	height: 100vh;
+	
+	& > p {
+		@include errorMessage;
+	}
+}

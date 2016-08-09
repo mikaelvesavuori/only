@@ -1,0 +1,43 @@
+/*------------------------------------*\
+	MIXINS
+\*------------------------------------*/
+
+// For resetting to full width size, specifically for small screen sizes
+@mixin setFullWidth {
+	width: 100%;
+	max-width: $size-tablet;
+	padding: 0;
+	margin: 0;
+	float: left;
+	clear: both;
+	height: auto;
+	position: relative;
+}
+
+// For setting cursor to pointer/hand
+@mixin setPointer {
+	cursor: pointer;
+	cursor: hand;
+}
+
+@mixin setPointerOff {
+	user-select: none;
+	pointer-events: none;
+}
+
+@mixin setTransitionIn {
+	transition: 0.25s ease-in-out;
+}
+
+@mixin setTransitionOut {
+	transition: 0.35s ease-in-out;
+}
+
+@mixin setBorderRadius {
+	border-radius: 3px;
+}
+
+@mixin errorMessage {
+	padding: 1em;
+	background-color: $lightgray;
+}

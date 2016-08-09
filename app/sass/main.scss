@@ -1,0 +1,36 @@
+/*------------------------------------*\
+	MAIN: [Sitename], using Only Framework 2.0
+\*------------------------------------*/
+
+@import "compass";
+
+// Base
+@import "base/reset";
+@import "base/global";
+@import "base/fonts";
+@import "base/colors";
+@import "base/animations";
+@import "base/mixins";
+@import "base/utilities";
+
+// Layout
+@import "layout/errors";
+@import "layout/layout";
+@import "layout/grids";
+@import "layout/typography";
+@import "layout/links";
+@import "layout/navigation";
+@import "layout/header";
+@import "layout/footer";
+@import "layout/media";
+@import "layout/forms";
+@import "layout/buttons";
+@import "layout/tables";
+@import "layout/styleguide";
+@import "layout/print";
+
+// Components
+//@import "components/your-component-name";
+
+// Addons and external libraries
+//@import "addons/name";

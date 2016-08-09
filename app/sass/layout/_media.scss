@@ -1,0 +1,25 @@
+/*------------------------------------*\
+	MEDIA
+\*------------------------------------*/
+
+img, picture, video, iframe, svg, canvas {
+	max-width: 100%; 
+}
+
+/* Aspect ratios for media objects i.e canvas, iframe, video, svg etc. - defaults to 16x9 */
+.aspectratio {
+	height: 0;
+	padding-top: 56.25%;
+	position: relative;
+}
+
+.aspectratio--object {
+	height: 100%;
+	position: absolute;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	width: 100%;
+	z-index: 100;
+}
