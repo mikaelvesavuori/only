@@ -51,6 +51,7 @@ bower_components
 
 ### CodeKit ###
 # General CodeKit files to ignore
+config.rb
 config.codekit
 .codekit-cache
 /min
