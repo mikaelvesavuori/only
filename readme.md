@@ -41,9 +41,9 @@ Only is not supported by Being, and is frequently updated. If we are distributin
 - Adjusted size of header image (the Only logo).
 - Added !important to the margin and padding utility classes, so you always get the values you want.
 - Added an ARIA role to the header SVG image for better accessibility.
-- Added $margin-small (1em) to utilities.scss.
+- Added $margin-small (1em) to `utilities.scss`.
 - Fixed buttons that were all-white on Safari mobile (and probably some other platforms).
-- Added new screen size ($size-mobilemid) to _global.scss.
+- Added new screen size ($size-mobilemid) to `_global.scss`.
 
 ### 2.0 (20160715)
 A huge number of changes have happened for this release. Some of the most important ones are listed below:
@@ -54,7 +54,7 @@ A huge number of changes have happened for this release. Some of the most import
 - Dist folder are added into the css and scripts folders for your production ready code.
 - Updated favicon code with more sizes.
 - Created new templates (`styleguide.html`, `designer.html` and `index.html`) and cleaned out old ones: size is down from around 7mb to 1mb!
-- Added the template componentexample.html for you to modify for your own buttons and other component stuff.
+- Added the template `componentexample.html` for you to modify for your own buttons and other component stuff.
 - New, simplified images for testing responsive images or loading placeholder images.
 - More error pages (400, 401, 403, 404, 408, 503).
 - New libraries added into the minified `scripts.min.js` (LoadCSS, Font Face Observer, HTML5Shiv, Respimage, Lazysizes, Fastclick, Fragment.js).

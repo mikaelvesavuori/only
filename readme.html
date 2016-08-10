@@ -9,11 +9,11 @@
 <h2 id="currentversion">Current version</h2>
 
 <p>Version: 2.0.3
-Latest revision: 20160731</p>
+Latest revision: 20160810</p>
 
 <h2 id="whatisonlyframework">What is Only Framework?</h2>
 
-<p>Only Framework is a framework that provides 1) a responsive, modular, high-performance, secure boilerplate and scaffold together with a 2) styleguide that supports development from a foundational ground towards clear visual deliveries and 3) a simple Component Designer that encourages object-based composition of elements for total separation of design and development. The mantra behind Only Framework has been to make it super easy for designers, developers and stakeholders/clients alike to always have access to the current state of development—fast, fun, no-bullshit design and development.</p>
+<p>Only Framework is a framework that provides 1) a responsive, modular, high-performance, secure boilerplate and scaffold together with 2) a styleguide that supports development from a foundational ground towards clear visual deliveries and 3) a simple Component Designer that encourages object-based composition of elements for total separation of design and development. The mantra behind Only Framework has been to make it super easy for designers, developers and stakeholders/clients alike to always have access to the current state of development—through fast, fun, no-bullshit design and development.</p>
 
 <h2 id="author">Author</h2>
 
@@ -45,11 +45,10 @@ Latest revision: 20160731</p>
 
 <h2 id="versionhistory">Version history</h2>
 
-<h3 id="2.0.320160731">2.0.3 (20160731)</h3>
+<h3 id="2.0.320160810">2.0.3 (20160810)</h3>
 
 <ul>
-<li>Update(d) .htaccess file with the Content Security Policy rules that did not work inlined in the <meta> tag</li>
-<li>Update(d) favicon setup for delivery from another service (http://realfavicongenerator.net)</li>
+<li>Updated .htaccess file with the Content Security Policy rules that did not work inlined in the <code>&lt;meta&gt;</code> tag previously. <strong>If you are experiencing trouble loading external fonts or other resources, make sure to check the settings (specifically the CSP ones) in <code>.htaccess</code>!</strong></li>
 </ul>
 
 <h3 id="2.0.220160716">2.0.2 (20160716)</h3>
@@ -66,25 +65,25 @@ Latest revision: 20160731</p>
 <li>Adjusted size of header image (the Only logo).</li>
 <li>Added !important to the margin and padding utility classes, so you always get the values you want.</li>
 <li>Added an ARIA role to the header SVG image for better accessibility.</li>
-<li>Added $margin-small (1em) to utilities.scss.</li>
+<li>Added $margin-small (1em) to <code>utilities.scss</code>.</li>
 <li>Fixed buttons that were all-white on Safari mobile (and probably some other platforms).</li>
-<li>Added new screen size ($size-mobilemid) to _global.scss.</li>
+<li>Added new screen size ($size-mobilemid) to <code>_global.scss</code>.</li>
 </ul>
 
 <h3 id="2.020160715">2.0 (20160715)</h3>
 
 <p>A huge number of changes have happened for this release. Some of the most important ones are listed below:
 - There is no more separation between framework and scaffold—it&#8217;s now a one-stop shop which should simplify most development. However, if you ran Only as a Codekit framework this will now be troublesome as the SCSS is not separated from the rest of the content.
-- We tried making Only based around a design-centric principle, so its intended workflow now concerns building a styleguide (driven by variables set in SCSS) and building components in the Component Designer (designer.html) which uses Fragment.js to load HTML files inside the wrapper. Use live reloading on one screen and write your code on the other and it all works like magic!
+- We tried making Only based around a design-centric principle, so its intended workflow now concerns building a styleguide (driven by variables set in SCSS) and building components in the Component Designer (<code>designer.html</code>) which uses Fragment.js to load HTML files inside the wrapper. Use live reloading on one screen and write your code on the other and it all works like magic!
 - Only tries to make as few assumptions and have as few opinions as humanly possible about what you do as, how a standard template should look and how you do your work as a web designer/developer and what your technology stack is. Our focus has been on integrating industry-leading libraries to give maximum performance (like LoadCSS and Font Face Observer) as well as providing some hints about how to do things like critical CSS inlining on top of an extensible, modular scaffold.
 - A logo has been created for Only Framework.
 - Dist folder are added into the css and scripts folders for your production ready code.
 - Updated favicon code with more sizes.
-- Created new templates (styleguide.html, designer.html and index.html) and cleaned out old ones: size is down from around 7mb to 1mb!
-- Added the template componentexample.html for you to modify for your own buttons and other component stuff.
+- Created new templates (<code>styleguide.html</code>, <code>designer.html</code> and <code>index.html</code>) and cleaned out old ones: size is down from around 7mb to 1mb!
+- Added the template <code>componentexample.html</code> for you to modify for your own buttons and other component stuff.
 - New, simplified images for testing responsive images or loading placeholder images.
 - More error pages (400, 401, 403, 404, 408, 503).
-- New libraries added into the minified scripts.min.js (LoadCSS, Font Face Observer, HTML5Shiv, Respimage, Lazysizes, Fastclick, Fragment.js).
+- New libraries added into the minified <code>scripts.min.js</code> (LoadCSS, Font Face Observer, HTML5Shiv, Respimage, Lazysizes, Fastclick, Fragment.js).
 - Content security policy somewhat updated.
 - Some of the SCSS files have moved around a bit.
 - Added the components folder both in the root as well as in the sass folder.</p>
@@ -92,8 +91,8 @@ Latest revision: 20160731</p>
 <h3 id="1.420160415">1.4 (20160415)</h3>
 
 <ul>
-<li>Moved colors (in _colors.scss) into a Sass map rather than as variables.</li>
-<li>Improved typescaling and added typography settings into Sass map/mixin rather than as variables (see _fonts.scss).</li>
+<li>Moved colors (in <code>_colors.scss</code>) into a Sass map rather than as variables.</li>
+<li>Improved typescaling and added typography settings into Sass map/mixin rather than as variables (see <code>_fonts.scss</code>).</li>
 </ul>
 
 <h3 id="1.3.120160405">1.3.1 (20160405)</h3>
@@ -110,7 +109,7 @@ Latest revision: 20160731</p>
 <li>Tweaked some of the values for the responsive type scaling</li>
 <li>Synchronized most/all of the formatting in the framework with the stuff found in the scaffold styles, because this makes it much easier for you to change &#8220;hidden&#8221; stuff that is being affected by the base style; this adds some bulk but is at least way easier to read, understand and change when needed</li>
 <li>Added OpenGraph and Twitter card meta blocks in header of scaffold template page</li>
-<li>Broke up SCSS files into further modularized partials (_header.scss etc.)</li>
+<li>Broke up SCSS files into further modularized partials (<code>_header.scss</code> etc.)</li>
 <li>Added modularized SCSS files (partials) to scaffold</li>
 <li>All files in framework now use tabbed indentation</li>
 </ul>
@@ -124,17 +123,17 @@ Latest revision: 20160731</p>
 <li>Added section for Planned future development in the readme document.</li>
 <li>Added notes on how to upgrade your Only version, both for the scaffold and the framework.</li>
 <li>Updated .htaccess with an optional hotlink protection block (at mod_rewrite.c section)</li>
-<li>Broke out styling content from broader-scope partials into more specific ones, for example _links.scss</li>
+<li>Broke out styling content from broader-scope partials into more specific ones, for example <code>_links.scss</code></li>
 </ul>
 
 <h3 id="1.120151201">1.1 (20151201)</h3>
 
 <ul>
 <li>Cleaned and separated the framework from the scaffold to reduce duplicate files and to make it all really super smooth for you to use.</li>
-<li>Switched to BEM style notation in _global.scss which may break dependencies if you&#8217;ve used those globals (for typography and sizing etc).</li>
-<li>There is now automatic font scaling for tablet, mobile and desktop in _global.scss. Easy to use: just edit the percentage number and you should be all clear.</li>
-<li>Added two &#8220;hide&#8221; helper classes for print and mobile in _layout.scss if you want to remove visibility on such devices for any reason.</li>
-<li>Added a few more scaffold elements in _global.scss so you can adjust sizing, selection color and other colors a bit quicker if you use the scaffold.</li>
+<li>Switched to BEM style notation in <code>_global.scss</code> which may break dependencies if you&#8217;ve used those globals (for typography and sizing etc).</li>
+<li>There is now automatic font scaling for tablet, mobile and desktop in <code>_global.scss</code>. Easy to use: just edit the percentage number and you should be all clear.</li>
+<li>Added two &#8220;hide&#8221; helper classes for print and mobile in <code>_layout.scss</code> if you want to remove visibility on such devices for any reason.</li>
+<li>Added a few more scaffold elements in <code>_global.scss</code> so you can adjust sizing, selection color and other colors a bit quicker if you use the scaffold.</li>
 <li>Added another breakpoint: $break-mobilexl, which is used for devices up to iPhone 6 Plus in landscape mode. Please note that the breakpoints are always set to 1 pixel below the actual size of a display.</li>
 </ul>
 
@@ -148,7 +147,7 @@ Latest revision: 20160731</p>
 
 <h3 id="note">Note!</h3>
 
-<p>At Being, we use it with Compass through Codekit. You will need to remove the import for Compass in only-framework.scss if you don&#8217;t use Compass.</p>
+<p>At Being, we use it with Compass through Codekit. You will need to remove the import for Compass in <code>main.scss</code> if you don&#8217;t use Compass.</p>
 
 <h2 id="contents">Contents</h2>
 
@@ -156,11 +155,11 @@ Latest revision: 20160731</p>
 
 <h4 id="cssscss">CSS/SCSS</h4>
 
-<p>Uses bits and pieces from HTML 5 Boilerplate (https://html5boilerplate.com) and incorporates Normalize 4.2.0 in _reset.scss.</p>
+<p>Uses bits and pieces from HTML 5 Boilerplate (https://html5boilerplate.com) and incorporates Normalize 4.2.0 in <code>_reset.scss</code>.</p>
 
 <h4 id="javascript">Javascript</h4>
 
-<p>The file scripts.min.js loads minified versions of:</p>
+<p>The file <code>scripts.min.js</code> loads minified versions of:</p>
 
 <ul>
 <li>LoadCSS 1.2.0</li>
@@ -171,37 +170,6 @@ Latest revision: 20160731</p>
 <li>Fastclick 1.0.6</li>
 <li>Fragment.js</li>
 </ul>
-
-<h3 id="structure">Structure</h3>
-
-<p>/components Store your component code (probably HTML files) here
-/css Place your CSS here (Not using Sass? Use main.css instead of the sass folder)
-/css/dist Minified production code here
-/fonts
-/media
-/media/gfx
-/media/icons
-/media/img Includes a variety of images to do resolution checks etc
-/media/video
-/regions Empty PHP files for standard elements if you want more modular setup for recurring bits
-/sass Styling
-/scripts Place your JS and other interactive code here
-/scripts/dist Minified production code here
-.htaccess
-400.html
-401.html
-403.html
-404.html
-408.html
-503.html
-browserconfig.xml
-crossdomain.xml
-designer.html
-index.html
-readme.html
-readme.md
-robots.txt
-styleguide.html</p>
 
 </body>
 </html>
