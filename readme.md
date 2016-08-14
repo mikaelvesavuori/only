@@ -164,15 +164,15 @@ A huge number of changes have happened for this release. Some of the most import
 ## Contents
 ### Libraries
 #### CSS/SCSS
-Uses bits and pieces from HTML 5 Boilerplate (https://html5boilerplate.com) and incorporates Normalize 4.2.0 in `_reset.scss`.
+Uses bits and pieces from [HTML 5 Boilerplate](https://html5boilerplate.com) and incorporates [Normalize](https://necolas.github.io/normalize.css/) 4.2.0 in `_reset.scss`.
 
 #### Javascript
 The file `scripts.min.js` loads minified versions of:
 
-- LoadCSS 1.2.0
-- Font Face Observer 2.0.1
-- HTML5Shiv 3.7.3
-- Respimage 1.4.2
-- Lazysizes 2.0.0
-- Fastclick 1.0.6
-- Fragment.js
+- [LoadCSS](https://github.com/filamentgroup/loadCSS) 1.2.0
+- [Font Face Observer](https://github.com/bramstein/fontfaceobserver) 2.0.1
+- [HTML5Shiv](https://github.com/aFarkas/html5shiv) 3.7.3
+- [Respimage](https://github.com/aFarkas/respimage) 1.4.2
+- [Lazysizes](https://github.com/aFarkas/lazysizes) 2.0.0
+- [Fastclick](https://github.com/ftlabs/fastclick) 1.0.6
+- [Fragment.js](http://danielrapp.github.io/fragment.js/)
