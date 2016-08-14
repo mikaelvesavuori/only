@@ -1,4 +1,7 @@
-# Only (Being Web Development Boilerplate)
+# Only Framework (Web Development Boilerplate @ Being)
+
+## Author
+Mikael Vesavuori (Being: www.being.se), 2015-2016
 
 ## Current version
 Version: 2.1
@@ -25,9 +28,6 @@ Only now has a Gulp-based workflow that will help you with:
 - giving you the lowdown on style statistics (via Parker)
 - rewriting file references and doing other magic (via Useref)
 - uploading your site to the interwebz (via Rsync)
-
-## Author
-Mikael Vesavuori (Being: www.being.se), 2015-2016
 
 ## Features
 - Design-centric with most standard elements exposed and ready to tweak in the Sass/CSS code
