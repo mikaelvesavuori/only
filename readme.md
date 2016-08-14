@@ -5,7 +5,12 @@ Version: 2.1
 Latest revision: 20160814
 
 ## What is Only Framework?
-Only Framework is a framework that provides 1) a responsive, modular, high-performance, secure boilerplate and scaffold together with 2) a styleguide that supports development from a foundational ground towards clear visual deliveries and 3) a simple Component Designer that encourages object-based composition of elements for total separation of design and development. The mantra behind Only Framework has been to make it super easy for designers, developers and stakeholders/clients alike to always have access to the current state of development—through fast, fun, no-bullshit design and development.
+Only Framework is a framework that provides:
+1. a responsive, modular, high-performance, secure boilerplate and scaffold together with
+2. a styleguide that supports development from a foundational ground towards clear visual deliveries and
+3. a simple Component Designer that encourages object-based composition of elements for total separation of design and development.
+
+The mantra behind Only Framework has been to make it super easy for designers, developers and stakeholders/clients alike to always have access to the current state of development—through fast, fun, no-bullshit design and development.
 
 Only now has a Gulp-based workflow that will help you with:
 - optimizing assets (HTML, JS, CSS, images)
@@ -16,7 +21,7 @@ Only now has a Gulp-based workflow that will help you with:
 - doing critical CSS optimization and inlining (via Critical)
 - giving you the lowdown on style statistics (via Parker)
 - rewriting file references and doing other magic (via Useref)
-- Uploading your site to the interwebz (via Rsync)
+- uploading your site to the interwebz (via Rsync)
 
 ## Author
 Mikael Vesavuori (Being: www.being.se), 2015-2016
@@ -24,8 +29,8 @@ Mikael Vesavuori (Being: www.being.se), 2015-2016
 ## Features
 - Design-centric with most standard elements exposed and ready to tweak in the Sass/CSS code
 - Styleguide ready for element inspection/styling, typography, and grids
-- Modular: modularized CSS (layout, typography, media, etc) – just build your own components on top in their own files
-- Minimal: minimal code interference, cascading problems and CSS bloat
+- Modularized CSS (layout, typography, media, etc) – just build your own components on top in their own files
+- Minimal code interference, cascading problems and CSS bloat
 - Makes as few assumptions as possible without sacrificing performance and stable code/scaffold
 - High-performance: loads CSS, scripts and fonts asyncronously, and lazy-loads images responsively
 - Responsive and print: should be good to go for both, but we always make very specific changes inhouse for these kinds of matters depending on the web project
@@ -77,7 +82,7 @@ Only 2.1 has a Gulp workflow in mind, but it works just as well with Codekit—o
 `gulp deploy` — Uses Rsync to upload your site.
 
 ## Version history
-### 2.1 (20160816)
+### 2.1 (20160814)
 - Gulp has replaced Codekit as the primary intended workflow/task runner (added gulp folder and `gulpfile.js`).
 - Dependencies for Bower and NPM added.
 - New modern folder structure, especially well suited for web applications.
@@ -104,7 +109,7 @@ A huge number of changes have happened for this release. Some of the most import
 - We tried making Only based around a design-centric principle, so its intended workflow now concerns building a styleguide (driven by variables set in SCSS) and building components in the Component Designer (`designer.html`) which uses Fragment.js to load HTML files inside the wrapper. Use live reloading on one screen and write your code on the other and it all works like magic!
 - Only tries to make as few assumptions and have as few opinions as humanly possible about what you do as, how a standard template should look and how you do your work as a web designer/developer and what your technology stack is. Our focus has been on integrating industry-leading libraries to give maximum performance (like LoadCSS and Font Face Observer) as well as providing some hints about how to do things like critical CSS inlining on top of an extensible, modular scaffold.
 - A logo has been created for Only Framework.
-- Dist folder are added into the css and scripts folders for your production ready code.
+- `/dist` folder added into the `/css` and `/scripts` folders for your production ready code.
 - Updated favicon code with more sizes.
 - Created new templates (`styleguide.html`, `designer.html` and `index.html`) and cleaned out old ones: size is down from around 7mb to 1mb!
 - Added the template `componentexample.html` for you to modify for your own buttons and other component stuff.
@@ -120,10 +125,10 @@ A huge number of changes have happened for this release. Some of the most import
 - Improved typescaling and added typography settings into Sass map/mixin rather than as variables (see `_fonts.scss`).
 
 ### 1.3.1 (20160405)
-- Slight modification in content security policy (csp-template.html) as it would not work in Firefox if enter/return keypresses were found in the header: all of those should be removed before deployment. I left them in, however, as it's easier to work with them on separate rows before going final and cross-browser.
+- Slight modification in content security policy (`csp-template.html`) as it would not work in Firefox if enter/return keypresses were found in the header: all of those should be removed before deployment. I left them in, however, as it's easier to work with them on separate rows before going final and cross-browser.
 
 ### 1.3 (20160322)
-- Added a content security policy template (csp-template.html) - note that it is possible that frame-ancestors, form-action etc may not work when put in a meta tag
+- Added a content security policy template (`csp-template.html`) - note that it is possible that frame-ancestors, form-action etc may not work when put in a meta tag
 - Put in some rudimentary responsive breakpoints for the wrapper
 - Tweaked some of the values for the responsive type scaling
 - Synchronized most/all of the formatting in the framework with the stuff found in the scaffold styles, because this makes it much easier for you to change "hidden" stuff that is being affected by the base style; this adds some bulk but is at least way easier to read, understand and change when needed
