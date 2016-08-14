@@ -56,4 +56,5 @@ config.codekit
 /min
 
 ### Sass ###
-**/.sass-cache/*
+.sass-cache
+.sass-cache/*
