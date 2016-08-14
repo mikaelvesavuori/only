@@ -30,7 +30,7 @@ Beginning with version 2.1, Only has a Gulp-based workflow that will help you wi
 - rewriting file references and doing other magic (via [Useref](https://www.npmjs.com/package/gulp-useref))
 - uploading your site to the interwebz (via [Rsync](https://github.com/jerrysu/gulp-rsync/issues))
 
-[Being](http://www.being.se) is a design collaboration between [Mikael Vesavuori](http://www.mikaelvesavuori.se) and [Niklas Persson](http://www.niklaspersson.com), based in Göteborg, Sweden. Only is not supported by Being, but is frequently updated. Feel free to join in the discussion here at Github or email us at contact@being.se if you have any ideas, thought or questions!
+[Being](http://www.being.se) is a design collaboration between [Mikael Vesavuori](http://www.mikaelvesavuori.se) and [Niklas Persson](http://www.niklaspersson.com), based in Göteborg, Sweden. Only is not supported by Being, but is frequently updated. Feel free to join in the discussion here at Github or email us at contact@being.se if you have any ideas, thoughts or questions!
 
 ## Features
 - Design-centric with most standard elements exposed and ready to tweak in the Sass/CSS code
