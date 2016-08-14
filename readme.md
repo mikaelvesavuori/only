@@ -13,7 +13,7 @@ Only Framework is a framework that provides:
 
 1. a responsive, modular, high-performance, secure boilerplate and scaffold together with
 
-2. a styleguide that supports development from a foundational ground towards clear visual deliveries and
+2. a [styleguide](http://www.being.se/only-demo/styleguide.html) that supports development from a foundational ground towards clear visual deliveries and
 
 3. a simple Component Designer that encourages object-based composition of elements for total separation of design and development.
 
@@ -22,13 +22,13 @@ The mantra behind Only Framework has been to make it super easy for designers, d
 Beginning with version 2.1, Only has a Gulp-based workflow that will help you with:
 - optimizing assets (HTML, JS, CSS, images)
 - building a distribution site to a separate location
-- adding Sass and PostCSS to your tools
-- linting your Sass/CSS (via Stylelint)
-- live previewing your site (Browsersync)
-- doing critical CSS optimization and inlining (via Critical)
-- giving you the lowdown on style statistics (via Parker)
-- rewriting file references and doing other magic (via Useref)
-- uploading your site to the interwebz (via Rsync)
+- adding [Sass](https://www.npmjs.com/package/gulp-sass) and [PostCSS](https://github.com/postcss/gulp-postcss) to your tools
+- linting your Sass/CSS (via [Stylelint](https://github.com/stylelint/stylelint))
+- live previewing your site (via [Browsersync](https://github.com/BrowserSync/browser-sync))
+- doing critical CSS optimization and inlining (via [Critical](https://github.com/addyosmani/critical))
+- giving you the lowdown on style statistics (via [Parker](https://github.com/katiefenn/parker))
+- rewriting file references and doing other magic (via [Useref](https://www.npmjs.com/package/gulp-useref))
+- uploading your site to the interwebz (via [Rsync](https://github.com/jerrysu/gulp-rsync/issues))
 
 [Being](http://www.being.se) is a design collaboration between [Mikael Vesavuori](http://www.mikaelvesavuori.se) and [Niklas Persson](http://www.niklaspersson.com), based in Göteborg, Sweden. Only is not supported by Being, but is frequently updated. Feel free to join in the discussion here at Github or email us at contact@being.se if you have any ideas, thought or questions!
 
