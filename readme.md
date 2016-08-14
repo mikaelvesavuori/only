@@ -19,7 +19,7 @@ Only Framework is a framework that provides:
 
 The mantra behind Only Framework has been to make it super easy for designers, developers and stakeholders/clients alike to always have access to the current state of development—through fast, fun, no-bullshit design and development.
 
-Only now has a Gulp-based workflow that will help you with:
+Beginning with version 2.1, Only has a Gulp-based workflow that will help you with:
 - optimizing assets (HTML, JS, CSS, images)
 - building a distribution site to a separate location
 - adding Sass and PostCSS to your tools
