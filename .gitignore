@@ -54,3 +54,6 @@ config.rb
 config.codekit
 .codekit-cache
 /min
+
+### Sass ###
+**/.sass-cache/*

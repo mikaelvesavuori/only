@@ -16,7 +16,7 @@ Only now has a Gulp-based workflow that will help you with:
 - doing critical CSS optimization and inlining (via Critical)
 - giving you the lowdown on style statistics (via Parker)
 - rewriting file references and doing other magic (via Useref)
-- Uploading your site to the interwebz (via Rsync).
+- Uploading your site to the interwebz (via Rsync)
 
 ## Author
 Mikael Vesavuori (Being: www.being.se), 2015-2016
