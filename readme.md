@@ -30,6 +30,8 @@ Only now has a Gulp-based workflow that will help you with:
 - rewriting file references and doing other magic (via Useref)
 - uploading your site to the interwebz (via Rsync)
 
+Being is a design collaboration between Mikael Vesavuori and Niklas Persson, based in Göteborg, Sweden. Only is not supported by Being, but is frequently updated. Feel free to join in the discussion here at Github or email us at contact@being.se if you have any ideas, thought or questions!
+
 ## Features
 - Design-centric with most standard elements exposed and ready to tweak in the Sass/CSS code
 - Styleguide ready for element inspection/styling, typography, and grids
@@ -38,8 +40,6 @@ Only now has a Gulp-based workflow that will help you with:
 - Makes as few assumptions as possible without sacrificing performance and stable code/scaffold
 - High-performance: loads CSS, scripts and fonts asyncronously, and lazy-loads images responsively
 - Responsive and print: should be good to go for both, but we always make very specific changes inhouse for these kinds of matters depending on the web project
-
-Only is not supported by Being, and is frequently updated. If we are distributing your files and this is NOT OK for you, please get in touch. However, thank you for providing the web developer community with super good tools! Mail us at contact@being.se and we'll remove your files from our distro.
 
 ## Assumptions and intended user
 - It is assumed that you will want to custom code as much as possible for stuff such as Javascript, interfaces, and layout. Only gives you access right away to all the standard HTML elements for quick designing, and uses the industry-standard Normalize reset and sets fonts to system defaults. I did not want to make another totalizing framework like Bootstrap which makes it really hard to negate built-in design decisions.
