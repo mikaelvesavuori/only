@@ -50,10 +50,10 @@ All of these instructions are for commands in the Terminal (Mac) or similar comm
 
 ```npm install -g npm```
 
-### 3. Install Bower dependencies
+### 3. Install NPM dependencies
 ```npm install```
 
-### 4. Install NPM dependencies
+### 4. Install Bower dependencies
 ```bower install```
 
 ### 5. Ready to go!
