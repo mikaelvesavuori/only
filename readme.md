@@ -5,6 +5,7 @@ Mikael Vesavuori (Being: www.being.se), 2015-2016
 
 ## Current version
 Version: 2.1
+
 Latest revision: 20160814
 
 ## What is Only Framework?
