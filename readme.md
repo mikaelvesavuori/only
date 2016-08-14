@@ -1,17 +1,28 @@
 # Only (Being Web Development Boilerplate)
 
 ## Current version
-Version: 2.0.3
-Latest revision: 20160810
+Version: 2.1
+Latest revision: 20160814
 
 ## What is Only Framework?
 Only Framework is a framework that provides 1) a responsive, modular, high-performance, secure boilerplate and scaffold together with 2) a styleguide that supports development from a foundational ground towards clear visual deliveries and 3) a simple Component Designer that encourages object-based composition of elements for total separation of design and development. The mantra behind Only Framework has been to make it super easy for designers, developers and stakeholders/clients alike to always have access to the current state of development—through fast, fun, no-bullshit design and development.
+
+Only now has a Gulp-based workflow that will help you with:
+- optimizing assets (HTML, JS, CSS, images)
+- building a distribution site to a separate location
+- adding Sass and PostCSS to your tools
+- linting your Sass/CSS (via Stylelint)
+- live previewing your site (Browsersync)
+- doing critical CSS optimization and inlining (via Critical)
+- giving you the lowdown on style statistics (via Parker)
+- rewriting file references and doing other magic (via Useref)
+- Uploading your site to the interwebz (via Rsync).
 
 ## Author
 Mikael Vesavuori (Being: www.being.se), 2015-2016
 
 ## Features
-- Design-centric with  and most standard elements exposed and ready to tweak in the Sass/CSS code
+- Design-centric with most standard elements exposed and ready to tweak in the Sass/CSS code
 - Styleguide ready for element inspection/styling, typography, and grids
 - Modular: modularized CSS (layout, typography, media, etc) – just build your own components on top in their own files
 - Minimal: minimal code interference, cascading problems and CSS bloat
@@ -28,7 +39,49 @@ Only is not supported by Being, and is frequently updated. If we are distributin
 - It is assumed that you prefer tweaking most of the raw web development things like .htaccess, content security policies, responsive image loading patterns, font scaling etc. rather than always writing that stuff from scratch. Users get a robust boilerplate adapted from the popular HTML5 Boilerplate, expanded with additional error pages, more .htaccess options (like rewriting path names) and a few patterns for recurring concerns like responsive, lazy image loading.
 - It is assumed that high customizability and high performance is important to you and your potential clients. Only uses best-practices both the developer-side with clear separation of styling and variable-driven CSS. For performance, best-practices concerning CSS and script loading is used and Only encourages (via comments) where and how to do things like critical CSS separation.
 
+## Install instructions
+All of these instructions are for commands in the Terminal (Mac) or similar command-line interface on your system of choice.
+
+### 1. Clone Only to your computer
+```git clone https://github.com/beingstudio/only.git```
+
+### 2. Install Bower and NPM if you haven't already done so
+```npm install -g bower```
+
+```npm install -g npm```
+
+### 3. Install Bower dependencies
+```npm install```
+
+### 4. Install NPM dependencies
+```bower install```
+
+### 5. Ready to go!
+Only 2.1 has a Gulp workflow in mind, but it works just as well with Codekit—or if you feel like it—you could always be really old-school and go about your business without any additional tooling at all. Styles are written in Sass (SCSS) and Only also inserts PostCSS in the dependencies. Note that assets are minified and may be hard to work with, using a plain vanilla approach!
+
+## Usage
+`gulp` — Default task is `watch`.
+
+`gulp watch` — Builds the site into `/app`, runs the `sass` function, starts Browsersync, and watches for changes to files (reloading the page when needed).
+
+`gulp sass` — Runs Sass/PostCSS and a range of tasks to create a minified CSS file.
+
+`gulp browsersync` — Browsersync from the `/app` folder.
+
+`gulp browsersync:production` — Browsersync from the `/dist` folder.
+
+`gulp build` — Runs Critical and Parker to build out additional assets.
+
+`gulp build:production` — Runs a range of tasks to build out a production version into the `/dist` folder.
+
+`gulp deploy` — Uses Rsync to upload your site.
+
 ## Version history
+### 2.1 (20160816)
+- Gulp has replaced Codekit as the primary intended workflow/task runner (added gulp folder and `gulpfile.js`).
+- Dependencies for Bower and NPM added.
+- New modern folder structure, especially well suited for web applications.
+
 ### 2.0.3 (20160810)
 - Updated .htaccess file with the Content Security Policy rules that did not work inlined in the `<meta>` tag previously. **If you are experiencing trouble loading external fonts or other resources, make sure to check the settings (specifically the CSP ones) in `.htaccess`!**
 
@@ -98,10 +151,6 @@ A huge number of changes have happened for this release. Some of the most import
 
 ### 1.0 (20151025)
 - First version launched.
-
-## Use it like this
-### Note!
-At Being, we use it with Compass through Codekit. You will need to remove the import for Compass in `main.scss` if you don't use Compass.
 
 ## Contents
 ### Libraries

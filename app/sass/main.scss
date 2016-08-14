@@ -2,7 +2,7 @@
 	MAIN: [Sitename], using Only Framework 2.0
 \*------------------------------------*/
 
-@import "compass";
+@import "../../bower_components/compass-mixins/lib/compass";
 
 // Base
 @import "base/reset";
@@ -28,6 +28,8 @@
 @import "layout/tables";
 @import "layout/styleguide";
 @import "layout/print";
+
+@import "base/testing"
 
 // Components
 //@import "components/your-component-name";

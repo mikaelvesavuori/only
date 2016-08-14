@@ -1,0 +1,29 @@
+{
+  "name": "only-dev",
+  "homepage": "https://github.com/beingstudio/only",
+  "authors": [
+    "Mikael Vesavuori (Being Studio) <contact@being.se>"
+  ],
+  "description": "Bower dependencies, mainly for front-end libraries",
+  "main": "",
+  "license": "MIT",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "compass-mixins": "^1.0.2",
+    "fastclick": "^1.0.6",
+    "fragment": "*",
+    "html5shiv": "^3.7.3",
+    "fontfaceobserver": "^2.0.1",
+    "lazysizes": "^2.0.0",
+    "loadcss": "^1.2.0",
+    "normalize-css": "^4.2.0",
+    "respimage": "^1.4.2"
+  }
+}

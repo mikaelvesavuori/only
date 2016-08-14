@@ -1,5 +1,3 @@
 var gulp = require("gulp");
 
-gulp.task("default", ["browsersync"], function() {
-	
-});
+gulp.task("default", ["watch"]);
