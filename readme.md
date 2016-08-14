@@ -6,6 +6,7 @@ Latest revision: 20160814
 
 ## What is Only Framework?
 Only Framework is a framework that provides:
+
 1. a responsive, modular, high-performance, secure boilerplate and scaffold together with
 
 2. a styleguide that supports development from a foundational ground towards clear visual deliveries and
