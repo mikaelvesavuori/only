@@ -1,3 +1,3 @@
 var gulp = require("gulp");
 
-gulp.task("watch", ["build", "stylelint", "browsersync"], function() { });
+gulp.task("watch", ["build", "stylelint", "eslint", "browsersync"], function() { });

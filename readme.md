@@ -4,9 +4,9 @@
 Mikael Vesavuori (Being: www.being.se), 2015-2016
 
 ## Current version
-Version: 2.1
+Version: 2.2 (Development)
 
-Latest revision: 20160814
+Latest revision: 20160817
 
 ## What is Only Framework?
 Only Framework is a framework that provides:
@@ -23,7 +23,9 @@ Beginning with version 2.1, Only has a Gulp-based workflow that will help you wi
 - optimizing assets (HTML, JS, CSS, images)
 - building a distribution site to a separate location
 - adding [Sass](https://www.npmjs.com/package/gulp-sass) and [PostCSS](https://github.com/postcss/gulp-postcss) to your tools
+- adding [Babel](https://github.com/babel/babel) for modern Javascript
 - linting your Sass/CSS (via [Stylelint](https://github.com/stylelint/stylelint))
+- linting your JS (via [ESLint](https://github.com/eslint/eslint) and [babel-eslint](https://github.com/babel/babel-eslint))
 - live previewing your site (via [Browsersync](https://github.com/BrowserSync/browser-sync))
 - doing critical CSS optimization and inlining (via [Critical](https://github.com/addyosmani/critical))
 - giving you the lowdown on style statistics (via [Parker](https://github.com/katiefenn/parker))
@@ -42,7 +44,7 @@ Beginning with version 2.1, Only has a Gulp-based workflow that will help you wi
 - Responsive and print: should be good to go for both, but we always make very specific changes inhouse for these kinds of matters depending on the web project
 
 ## Assumptions and intended user
-- It is assumed that you will want to custom code as much as possible for stuff such as Javascript, interfaces, and layout. Only gives you access right away to all the standard HTML elements for quick designing, and uses the industry-standard Normalize reset and sets fonts to system defaults. I did not want to make another totalizing framework like Bootstrap which makes it really hard to negate built-in design decisions.
+- It is assumed that you will want to custom code as much as possible for stuff such as interactivity, interfaces, and layout. Only gives you access right away to all the standard HTML elements for quick designing, and uses the industry-standard Normalize reset and sets fonts to system defaults. I did not want to make another totalizing framework like Bootstrap which makes it really hard to negate built-in design decisions.
 - It is assumed that your custom components will be developed independently of other page-wide layout. Only provides a simple "Component Designer" for this, which uses Fragment.js to load HTML (you are then encouraged to place your prefixed component SCSS in the components folder for ultimate separation of concerns) so you can replicate a more robust component-based environment like Angular or React even if you don't intend to run those on your site.
 - It is assumed that you will want quick and direct access to all of the standard layout CSS elements. Only has a styleguide (with separate SCSS file) that aims to give users a designer-centric workflow based around actually seeing all the stuff that's going on, from typography to link styling and beyond.
 - It is assumed that you prefer tweaking most of the raw web development things like .htaccess, content security policies, responsive image loading patterns, font scaling etc. rather than always writing that stuff from scratch. Users get a robust boilerplate adapted from the popular HTML5 Boilerplate, expanded with additional error pages, more .htaccess options (like rewriting path names) and a few patterns for recurring concerns like responsive, lazy image loading.
@@ -55,9 +57,9 @@ All of these instructions are for commands in the Terminal (Mac) or similar comm
 ```git clone https://github.com/beingstudio/only.git```
 
 ### 2. Install Bower and NPM if you haven't already done so
-```npm install -g bower```
+```npm install bower -g```
 
-```npm install -g npm```
+```npm install npm -g```
 
 ### 3. Install NPM dependencies
 ```npm install```
@@ -66,7 +68,7 @@ All of these instructions are for commands in the Terminal (Mac) or similar comm
 ```bower install```
 
 ### 5. Ready to go!
-Only 2.1 has a Gulp workflow in mind, but it works just as well with Codekit—or if you feel like it—you could always be really old-school and go about your business without any additional tooling at all. Styles are written in Sass (SCSS) and Only also inserts PostCSS in the dependencies. Note that assets are minified and may be hard to work with, using a plain vanilla approach!
+Only 2.1 and later versions have a Gulp workflow in mind, but it works just as well with Codekit—or if you feel like it—you could always be really old-school and go about your business without any additional tooling at all. Styles are written in Sass (SCSS) and Only also inserts PostCSS in the dependencies. Note that assets are minified and may be hard to work with, using a plain vanilla approach!
 
 ## Usage
 `gulp` — Default task is `watch`.
@@ -75,9 +77,11 @@ Only 2.1 has a Gulp workflow in mind, but it works just as well with Codekit—o
 
 `gulp sass` — Runs Sass/PostCSS and a range of tasks to create a minified CSS file.
 
-`gulp browsersync` — Browsersync from the `/app` folder.
+`gulp eslint` — Runs Babel (outputs concatenated JS file), then ESLint on the `scripts/all` folder which is Babel's output path.
 
-`gulp browsersync:production` — Browsersync from the `/dist` folder.
+`gulp browsersync` — Start Browsersync from the `/app` folder.
+
+`gulp browsersync:production` — Start Browsersync from the `/dist` folder.
 
 `gulp build` — Runs Critical and Parker to build out additional assets.
 
@@ -85,7 +89,30 @@ Only 2.1 has a Gulp workflow in mind, but it works just as well with Codekit—o
 
 `gulp deploy` — Uses Rsync to upload your site.
 
+`gulp zip` — Archives the `dist` folder into a ZIP file named `archive_` and suffixed with the current time and date.
+
+## Roadmap to Only 3.0
+The main goal of Only 3.0 is to provide a framework that is just as well suited to static web design and development as it is to small-scale and mid-scale web application development. I feel like Only 2.0 is good at the more static or classic side, but want to make sure it scales to modern and more complex development just as well.
+
+Most of the heavy features are expected to be incrementally added throughout version 2, with focus post 2.5 (or so) being stabilization and more frequent daily use of the framework to provide leads on what should be fixed, removed, improved and otherwise changed before the final Only 3.0 release (expected winter 2016/2017).
+
+### Some kind of backlog of stuff to add or do
+- Add React
+- Add Webpack
+- Add Jekyll, Handlebars, or some sort of templating possibilities (static site generation?)
+- Optimize Gulp workflows
+- Further modularization of Gulp configurations
+- Make Only upgradeable and transportable in an easy, safe manner for projects using older versions of Only
+
 ## Version history
+### 2.2 (20160817)
+- Added ESLint
+- Added Babel
+- Added [gulp-zip](https://github.com/sindresorhus/gulp-zip) for backing up the `dist` folder to a ZIP archive.
+- Added [gulp-connect-php](https://github.com/micahblu/gulp-connect-php) so you can use PHP files. This gets connected through the browsersync task.
+- Fixed semantic versioning error: is now 2.1.0, was 2.1.
+- Minification now handled exclusively by [gulp-cssnano](https://github.com/ben-eb/gulp-cssnano): removed `cssnano` because it was an unnecessary oversight from me to have two modules doing the same things. 
+
 ### 2.1 (20160814)
 - Gulp has replaced Codekit as the primary intended workflow/task runner (added gulp folder and `gulpfile.js`).
 - Dependencies for Bower and NPM added.

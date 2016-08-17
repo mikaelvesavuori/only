@@ -4,18 +4,28 @@ var dist = "dist/";
 module.exports = {
 	browsersync: {
 		development: {
+			// This only works without PHP
+			/*
 			server: {
 				baseDir: dev
 			},
+			*/
 			online: true,
-			port: 9999
+			injectChanges: true,
+			port: 9999,
+			proxy: "127.0.0.1:9999"
 		},
 		production: {
+			// This only works without PHP
+			/*
 			server: {
 				baseDir: dist
 			},
+			*/
 			online: true,
-			port: 9998
+			injectChanges: true,
+			port: 9998,
+			proxy: "127.0.0.1:9998"
 		}
 	},
 	sass: {
