@@ -4,7 +4,7 @@
 Mikael Vesavuori (Being: www.being.se), 2015-2016
 
 ## Current version
-Version: 2.2 (Development)
+Version: 2.2
 
 Latest revision: 20160817
 
