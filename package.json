@@ -1,7 +1,7 @@
 {
   "name": "only",
-  "version": "2.1.0",
-  "description": "Only Framework. Development toward 3.0 (release fall 2016).",
+  "version": "2.2.0",
+  "description": "Only Framework. Development toward 3.0 (release winter 2016/2017).",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
