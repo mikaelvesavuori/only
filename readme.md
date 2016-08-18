@@ -1,12 +1,10 @@
 # Only Framework (Web Development Boilerplate @ Being)
 
-## Author
-Mikael Vesavuori (Being: www.being.se), 2015-2016
-
 ## Current version
-Version: 2.2
+Version: 2.2 (20160817)
 
-Latest revision: 20160817
+## Author
+[Mikael Vesavuori](http://www.mikaelvesavuori.se) for [Being](http://www.being.se), 2015-2016
 
 ## What is Only Framework?
 Only Framework is a framework that provides:
