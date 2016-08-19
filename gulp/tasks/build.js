@@ -36,7 +36,7 @@ gulp.task("optimize", function(cb) {
 	runSequence(
 		[
 			"optimize:css",
-			//"optimize:scripts",
+			"optimize:scripts",
 			"optimize:images",
 			"optimize:html"
 		],
