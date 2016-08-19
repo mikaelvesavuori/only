@@ -7,12 +7,20 @@ gulp.task("critical", function (cb) {
 		inline: true,
     	base: "app/",
 		src: "index.html",
+		css: ["app/css/main.min.css"],
+		dimensions: [{
+			width: 320,
+			height: 480
+		},{
+			width: 768,
+			height: 1024
+		},{
+			width: 1280,
+			height: 960
+		}],
 		dest: "app/index-critical.html",
-		//dest: "app/css/critical.min.css",
 		minify: true,
-		extract: true,
-		minify: true,
-		width: 1300,
-		height: 900
+		extract: false,
+		ignore: ["font-face"]
 	});
 });

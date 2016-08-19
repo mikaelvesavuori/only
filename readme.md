@@ -95,20 +95,29 @@ The main goal of Only 3.0 is to provide a framework that is just as well suited 
 Most of the heavy features are expected to be incrementally added throughout version 2, with focus post 2.5 (or so) being stabilization and more frequent daily use of the framework to provide leads on what should be fixed, removed, improved and otherwise changed before the final Only 3.0 release (expected winter 2016/2017).
 
 ### Some kind of backlog of stuff to add or do
+- Possibly move from Sass to integrating its essentials (like mixins) into a purely PostCSS-based setup
+- Go from (mostly) BEM-style notation to [SUIT](https://suitcss.github.io) notation
 - Add React
 - Add Webpack
 - Add Jekyll, Handlebars, or some sort of templating possibilities (static site generation?)
-- Optimize Gulp workflows
-- Further modularization of Gulp configurations
+- Optimize Gulp workflows more
+- Modularize Gulp configurations more
 - Make Only upgradeable and transportable in an easy, safe manner for projects using older versions of Only
 
 ## Version history
+### 2.3 (20160818)
+- Added `gulp-uncss`, which is automatically run in the `optimize:css` task.
+- Replaced `gulp-cssnano` with `gulp-clean-css`.
+- Adjusted some of the settings for `critical` so it now outputs CSS for multiple screen resolutions.
+- TODO: Add `gulp-responsive` (needs lib-vips which is a pain to install?)
+- TODO: xxxxxx
+
 ### 2.2 (20160817)
-- Added ESLint
-- Added Babel
+- Added Babel.
+- Added ESLint and babel-eslint.
 - Added [gulp-zip](https://github.com/sindresorhus/gulp-zip) for backing up the `dist` folder to a ZIP archive.
 - Added [gulp-connect-php](https://github.com/micahblu/gulp-connect-php) so you can use PHP files. This gets connected through the browsersync task.
-- Fixed semantic versioning error: is now 2.1.0, was 2.1.
+- Fixed semantic versioning to correct formatting as this returned an error when installing dependencies.
 - Minification now handled exclusively by [gulp-cssnano](https://github.com/ben-eb/gulp-cssnano): removed `cssnano` because it was an unnecessary oversight from me to have two modules doing the same things. 
 
 ### 2.1 (20160814)

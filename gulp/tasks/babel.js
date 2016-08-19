@@ -12,5 +12,4 @@ gulp.task("babel", function() {
 		.pipe(concat("all.js"))
 		.pipe(sourcemaps.write("."))
 		.pipe(gulp.dest("app/scripts/all/"))
-		}
-);
+});
