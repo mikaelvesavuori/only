@@ -204,7 +204,7 @@ A huge number of changes have happened for this release. Some of the most import
 Uses bits and pieces from [HTML 5 Boilerplate](https://html5boilerplate.com) and incorporates [Normalize](https://necolas.github.io/normalize.css/) 4.2.0 in `_reset.scss`.
 
 #### Javascript
-The file `scripts.min.js` loads minified versions of:
+The file `only-scripts.min.js` loads minified versions of:
 
 - [LoadCSS](https://github.com/filamentgroup/loadCSS) 1.2.0
 - [Font Face Observer](https://github.com/bramstein/fontfaceobserver) 2.0.1
