@@ -17,7 +17,6 @@
 // For setting cursor to pointer/hand
 @mixin setPointer {
 	cursor: pointer;
-	cursor: hand;
 }
 
 @mixin setPointerOff {
@@ -26,11 +25,11 @@
 }
 
 @mixin setTransitionIn {
-	transition: 0.25s ease-in-out;
+	transition: .25s ease-in-out;
 }
 
 @mixin setTransitionOut {
-	transition: 0.35s ease-in-out;
+	transition: .35s ease-in-out;
 }
 
 @mixin setBorderRadius {

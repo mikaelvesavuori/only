@@ -58,3 +58,9 @@ config.codekit
 ### Sass ###
 .sass-cache
 .sass-cache/*
+
+### Github Pages ###
+index.html
+.javascripts
+params.json
+.stylesheets

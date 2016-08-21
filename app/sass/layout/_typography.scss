@@ -10,7 +10,7 @@ html {
 body {
 	color: colors("font");
 	font-weight: $font__weight--regular;
-}  
+}
 
 h1, h2, h3, h4, h5, h6 {
 	margin: 0;
@@ -53,7 +53,9 @@ p {
 	font-size: $font__size--m;
 }
 
-small { font-size: $font__size--xs; }
+small {
+	font-size: $font__size--xs;
+}
 
 sup, sub {
 	font-size: $font__size--xxs;
@@ -83,7 +85,7 @@ blockquote {
 	line-height: $font__lineheight--m;
 	border-left: 5px solid $blue;
 	padding-left: $padding;
-	margin: 0.2em 0 0.2em 0;
+	margin: .2em 0; //.2em 0 .2em 0
 }
 
 q, em, i {
@@ -91,20 +93,7 @@ q, em, i {
 }
 
 b, strong {
-	font-size: calc(#{$font__size--s}*0.96);
+	font-size: calc(#{$font__size--s}*.96);
 	text-transform: uppercase;
-	letter-spacing: 0.03em;
+	letter-spacing: .03em;
 }
-
-abbr { }
-acronym { }
-small { }
-strike { }
-del { }
-dfn { }
-ins { }
-kbd { }
-samp { }
-s { }
-var { }
-span { }

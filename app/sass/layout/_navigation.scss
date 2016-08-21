@@ -2,9 +2,11 @@
 	NAVIGATION
 \*------------------------------------*/
 
-nav { }
+nav {
+	width: auto;
+}
 
-nav > ul {
+ul nav {
 	list-style: none;
 }
 
@@ -29,4 +31,6 @@ li {
 	line-height: $font__lineheight--l;
 }
 
-dd, dt, dl { }
+dd, dt, dl {
+	width: auto;
+}

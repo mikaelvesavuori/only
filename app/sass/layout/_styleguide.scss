@@ -49,11 +49,11 @@
 	}
 	
 	& > h2 {
-		padding: 3em 0 3em 0.75em;
+		padding: 3em 0 3em .75em;
 		color: $white;
 
 		@media only screen and (max-width: $size-tablet) {
-			padding: 3em 0 3em 0.25em;
+			padding: 3em 0 3em .25em;
 		}
 	}
 }
@@ -109,7 +109,9 @@
 	}
 }
 
-.styleguide-menu__nav { }
+.styleguide-menu__nav {
+	width: auto;
+}
 
 .styleguide-menu__ul {
 	margin-bottom: $margin-small;
@@ -145,7 +147,7 @@
 	z-index: -1;
 	margin-top: 10em;
 	margin-bottom: 3em;
-	display: flex;
+	//display: flex;
 	align-items: center;
 }
 

@@ -10,7 +10,6 @@ var scss = require("postcss-scss");
 var precss = require("precss");
 var autoprefixer = require("autoprefixer");
 var mqpacker = require("css-mqpacker");
-var cleancss = require("gulp-clean-css");
 var gulpFilter = require("gulp-filter");
 var rename = require("gulp-rename");
 
@@ -32,8 +31,7 @@ gulp.task("sass", ["stylelint"], function () {
 		.pipe(filter)
 		.pipe(sourcemaps.write("./maps", {includeContent: false, sourceRoot: "app/sass"}))
 		.pipe(filter.restore)
-		.pipe(rename({dirname: "", suffix: ".min"}))
-		.pipe(cleancss())
+		.pipe(rename({dirname: ""}))
 		.pipe(gulp.dest(config.sass.dest))
 		.pipe(browsersync.stream());
 });

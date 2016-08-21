@@ -7,7 +7,7 @@ gulp.task("critical", function (cb) {
 		inline: true,
     	base: "app/",
 		src: "index.html",
-		css: ["app/css/main.min.css"],
+		css: ["app/css/main.css"],
 		dimensions: [{
 			width: 320,
 			height: 480

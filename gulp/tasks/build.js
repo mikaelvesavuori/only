@@ -5,7 +5,6 @@ gulp.task("build", function(cb) {
 	runSequence(
 		"sass",
 		[
-			"critical",
 			"parker"
 		],
 		cb)
@@ -16,9 +15,12 @@ gulp.task("build", function(cb) {
 gulp.task("build:production", function(callback) {
 	runSequence(
 		//"delete", // this will break the loop — FIX
-		"styles", 
+		"styles",
 		[
 			"optimize"
+		],
+		[
+			"postprocess"
 		],
 		"copyfiles")
 });
@@ -40,8 +42,19 @@ gulp.task("optimize", function(cb) {
 			"optimize:images",
 			"optimize:html"
 		],
+		cb)
+});
+
+gulp.task("postprocess", function(cb) {
+	runSequence(
 		[
 			"useref"
+		],
+		[
+			"babel-postprocess"
+		],
+		[
+			"parker"
 		],
 		cb)
 });

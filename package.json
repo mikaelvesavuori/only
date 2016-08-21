@@ -32,6 +32,7 @@
     "gulp-htmlmin": "^2.0.0",
     "gulp-if": "^2.0.1",
     "gulp-imagemin": "^3.0.3",
+    "gulp-minify": "0.0.14",
     "gulp-parker": "^0.1.4",
     "gulp-plumber": "^1.1.0",
     "gulp-postcss": "^6.1.1",

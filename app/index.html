@@ -39,8 +39,8 @@
 		<meta name="description" content="">
 		<meta name="keywords" content="" />
 
-		<link rel="preload" href="css/main.min.css" as="style" onload="this.rel='stylesheet'">
-		<noscript><link rel="stylesheet" href="css/main.min.css"></noscript>
+		<link rel="preload" href="css/main.css" as="style" onload="this.rel='stylesheet'">
+		<noscript><link rel="stylesheet" href="css/main.css"></noscript>
 		<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inconsolata">
 	</head>
 	<body>
@@ -54,16 +54,16 @@
 		</div>
 
 		<!-- LOAD ALL RENDER-BLOCKING CODE HERE -->
-		<!-- build:js scripts/critical.js -->
-		<script type="text/javascript" src="scripts/site/only-critical.min.js"></script>
+		<!-- build:js scripts/useref/critical.js -->
+		<script type="text/javascript" src="scripts/only/only-critical.min.js"></script>
 		<!-- endbuild -->
 		
-		<!-- build:js scripts/scripts.js async -->
-		<script type="text/javascript" src="scripts/site/only-fragment.min.js"></script>
-		<script type="text/javascript" src="scripts/site/only-scripts.min.js"></script>
+		<!-- build:js scripts/useref/scripts.js async -->
+		<script type="text/javascript" src="scripts/only/only-fragment.min.js"></script>
+		<script type="text/javascript" src="scripts/only/only-scripts.min.js"></script>
 		<!-- endbuild -->
 		
-		<!-- build:js scripts/bower.js async -->
+		<!-- build:js scripts/useref/bower.js async -->
 		<script type="text/javascript" src="../bower_components/fragment/fragment.js"></script>
 		<script type="text/javascript" src="../bower_components/fontfaceobserver/fontfaceobserver.js"></script>
 		<!-- endbuild -->

@@ -1,7 +1,7 @@
 # Only Framework (Web Development Boilerplate @ Being)
 
 ## Current version
-Version: 2.2 (20160817)
+Version: 2.3 (20160821)
 
 ## Author
 [Mikael Vesavuori](http://www.mikaelvesavuori.se) for [Being](http://www.being.se), 2015-2016
@@ -75,7 +75,9 @@ Only 2.1 and later versions have a Gulp workflow in mind, but it works just as w
 
 `gulp sass` — Runs Sass/PostCSS and a range of tasks to create a minified CSS file.
 
-`gulp eslint` — Runs Babel (outputs concatenated JS file), then ESLint on the `scripts/all` folder which is Babel's output path.
+`gulp eslint` — Runs ESLint (through the babel-eslint parser) on the `scripts` folder.
+
+`gulp babel` — Runs Babel on `app/scripts` folder, outputting a concatenated file inside the `dist/scripts` folder. Babel is prepped to output sourcemaps but these are commented out, so you will need to uncomment them in case you need sourcemaps.
 
 `gulp browsersync` — Start Browsersync from the `/app` folder.
 
@@ -95,22 +97,23 @@ The main goal of Only 3.0 is to provide a framework that is just as well suited 
 Most of the heavy features are expected to be incrementally added throughout version 2, with focus post 2.5 (or so) being stabilization and more frequent daily use of the framework to provide leads on what should be fixed, removed, improved and otherwise changed before the final Only 3.0 release (expected winter 2016/2017).
 
 ### Some kind of backlog of stuff to add or do
+- Add React
+- Add Jekyll, Handlebars, or some sort of templating possibilities (static site generation?)
+- Make Only upgradeable and transportable in an easy, safe manner for projects using older versions of Only
+- Add `gulp-responsive`
 - Possibly move from Sass to integrating its essentials (like mixins) into a purely PostCSS-based setup
 - Go from (mostly) BEM-style notation to [SUIT](https://suitcss.github.io) notation
-- Add React
-- Add Webpack
-- Add Jekyll, Handlebars, or some sort of templating possibilities (static site generation?)
-- Optimize Gulp workflows more
-- Modularize Gulp configurations more
-- Make Only upgradeable and transportable in an easy, safe manner for projects using older versions of Only
 
 ## Version history
-### 2.3 (20160818)
-- Added `gulp-uncss`, which is automatically run in the `optimize:css` task.
+### 2.3 (20160821)
+- Added rules to the Stylelint configuration and ran all of the Sass through it, doing some cleaning where needed.
+- Added rules to ESLint (you'll find these in `.eslintrc.js` in the root folder) and checked to make sure they work reasonably well. ESLint won't do linting of files in the `app/scripts/only` folder because they are minified and simply just don't conform to the rest of the config standards. 
+- The `sass` task no longer minifies the output file as it's expected to go to the production (`/app`) folder where optimization isn't needed. You will have to do minification through another task or rewrite the task.
+- Did further testing of the `babel`/`optimize:scripts` tasks: as the intended workflow is to let `useref` do the file concatenation (which happens through the HTML file) I found that Babel is better off for pre-testing any JS compilation. At the moment, you will end up with a large and unwieldy JS file. The solution has been...
+- Added `babel-postprocess` task to the end of the `build:production` task to run Babel and minify useref-generated files.
+- Added `gulp-uncss`, which is automatically run in the `optimize:css` task. It's set to use the styleguide file as a resource to grab as much CSS as possible, but you may want to change that if your CSS works differently from the Only boilerplate. 
 - Replaced `gulp-cssnano` with `gulp-clean-css`.
 - Adjusted some of the settings for `critical` so it now outputs CSS for multiple screen resolutions.
-- TODO: Add `gulp-responsive` (needs lib-vips which is a pain to install?)
-- TODO: xxxxxx
 
 ### 2.2 (20160817)
 - Added Babel.

@@ -56,6 +56,10 @@ module.exports = {
 		cascade: true
 	},
 	mqpacker: { },
+	babel: {
+		src: dev + "/scripts/**/*.js",
+		dest: dev + "/scripts/babelcompiled/"//dist + "/scripts"
+	},
 	revision: {
 		src: {
 			assets: [
@@ -90,10 +94,16 @@ module.exports = {
 			include: []
 		}
 	},
+	eslint: {
+		src: [
+			dev + "scripts/**/*.js",
+			"!" + dev + "scripts/only/**/*",
+			"!" + dev + "scripts/babelcompiled/**/*"
+		]
+	},
 	linting: {
 		src: [
-			dev + "sass/**/*.css",
-			//"!" + srcAssets + "/sass/partials/_syntax-highlighting.css",
+			dev + "sass/**/*.scss"
 		],
 		options: {
 			stylelint: {
@@ -267,33 +277,50 @@ module.exports = {
 					"value-no-vendor-prefix": true
 					*/
 					
+					"at-rule-name-space-after": "always",
 					"block-no-empty": true,
+					"block-no-single-line": true,
 					"color-no-invalid-hex": true,
+					"color-hex-case": "lower",
+					"comment-no-empty": true,
+					"declaration-bang-space-after": "never",
 					"declaration-colon-space-after": "always",
 					"declaration-colon-space-before": "never",
+					"declaration-block-no-duplicate-properties": true,
+					"declaration-block-trailing-semicolon": "always",
+					"function-comma-newline-before": "never-multi-line",
 					"function-comma-space-after": "always",
-					"function-url-quotes": "double",
+					"function-comma-space-before": "never",
+					"function-url-quotes": "always",
+					"indentation": "tab",
 					"media-feature-colon-space-after": "always",
 					"media-feature-colon-space-before": "never",
 					"media-feature-name-no-vendor-prefix": true,
 					"max-empty-lines": 5,
+					"no-duplicate-selectors": true,
+					"no-empty-source": true,
+					"no-eol-whitespace": [true, {
+						ignore: ["empty-lines"]
+					}],
+					"no-extra-semicolons": true,
+					"no-descending-specificity": true,
 					"number-leading-zero": "never",
+					"number-max-precision": 3,
 					"number-no-trailing-zeros": true,
-					"property-no-vendor-prefix": true,
-					"rule-no-duplicate-properties": true,
-					"declaration-block-no-single-line": true,
-					"rule-trailing-semicolon": "always",
-					"selector-list-comma-space-before": "never",
-					"selector-list-comma-newline-after": "always",
-					"selector-no-id": true,
-					
-					"string-quotes": [2, "double"],
-					"color-hex-case": [2, "lower"],
-					"value-no-vendor-prefix": 2, //true
-					"declaration-no-important": 0,
-					"rule-non-nested-empty-line-before": [2, "always", {
+					"rule-non-nested-empty-line-before": ["always", {
 						ignore: ["after-comment"]
-					}]
+					}],
+					"selector-list-comma-newline-after": "always-multi-line",
+					"selector-list-comma-newline-before": "never-multi-line",
+					"selector-list-comma-space-after": "always-single-line",
+					"selector-list-comma-space-before": "never",
+					"selector-no-id": true,
+					"selector-pseudo-class-case": "lower",
+					"shorthand-property-no-redundant-values": true,
+					"string-quotes": "double",
+					"string-no-newline": true,
+					"value-no-vendor-prefix": true,
+					"unit-case": "lower"
 				}
 			},
 			reporter: {
@@ -308,7 +335,7 @@ module.exports = {
 			dest: dist + "/css/"
 		},
 		scripts: {
-			src:  dev + "/scripts/**/*",
+			src: dev + "scripts/babelcompiled/**/*.js", //"scripts/**/*.js"
 			dest: dist + "/scripts/"
 		},
 		images: {

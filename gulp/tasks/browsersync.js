@@ -12,7 +12,7 @@ gulp.task("browsersync", ["sass"], function() {
 	
 	browsersync(config);
 	
-	gulp.watch("app/sass/**/*.scss", ["sass"]);
+	gulp.watch("app/sass/**/*.scss", ["sass", "stylelint"]);
 	gulp.watch("app/*.html", browsersync.reload);
 	gulp.watch("app/*.php", browsersync.reload);
 	gulp.watch("app/scripts/**/*.{js,jsx}", ["eslint", browsersync.reload]);

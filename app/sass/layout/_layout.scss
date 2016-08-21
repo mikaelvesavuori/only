@@ -6,16 +6,14 @@ html {
 	box-sizing: border-box;
 	overflow: auto;
 }
+
 *, *:before, *:after {
 	box-sizing: inherit;
 }
 
 .wrapper {
-	margin: 0;
 	padding: 0;
 	width: 100%;
-	//max-width: $maximum-page-width;
-	margin: 0 auto;
 
 	@media only screen and (max-width: $size-tablet) {
 		max-width: $size-tablet;
@@ -38,14 +36,14 @@ aside {
 	display: block;
 }
 
-hr { 
+hr {
 	border: 0;
 	border-bottom: 1px solid $gray;
 	width: 100%;
 	clear: both;
 	list-style-type: none;
 	text-decoration: none;
-	margin: 1% 0 5% 0;
+	margin: 1% 0 5%;
 }
 
 address {
