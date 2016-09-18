@@ -1,5 +1,23 @@
 @font-face {
-  font-family: 'Fakt';
+	font-family: 'Fakt SmCon';
+	src: url('FaktSmCon-SemiBold.eot');
+	src: url('FaktSmCon-SemiBold.eot?#iefix') format('embedded-opentype'),
+		url('FaktSmCon-SemiBold.woff2') format('woff2'),
+		url('FaktSmCon-SemiBold.woff') format('woff'),
+		url('FaktSmCon-SemiBold.ttf') format('truetype');
+	font-weight: 600;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'Fakt';
+	src: url('Fakt-Medium.eot');
+	src: url('Fakt-Medium.eot?#iefix') format('embedded-opentype'),
+		url('Fakt-Medium.woff2') format('woff2'),
+		url('Fakt-Medium.woff') format('woff'),
+		url('Fakt-Medium.ttf') format('truetype');
+	font-weight: 500;
+	font-style: normal;
 }
 
 body {
@@ -7,7 +25,7 @@ body {
   padding:50px;
   font: 14px/1.5 "Fakt", "Helvetica Neue", Helvetica, Arial, sans-serif;
   color:#727272;
-  //font-weight:400;
+  font-weight:400;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -94,7 +112,7 @@ th, td {
 
 dt {
   color:#444;
-  //font-weight:700;
+  font-weight:700;
 }
 
 th {
@@ -157,7 +175,7 @@ header ul a:active {
 
 strong {
   color:#222;
-  //font-weight:700;
+  font-weight:700;
 }
 
 header ul li + li + li {
