@@ -1,7 +1,7 @@
 # Only Framework (Web Development Boilerplate @ Being)
 
 ## Current version
-Version: 2.3 (20160821)
+Version: 2.3.1 (20160918)
 
 ## Author
 [Mikael Vesavuori](http://www.mikaelvesavuori.se) for [Being](http://www.being.se), 2015-2016
@@ -9,9 +9,9 @@ Version: 2.3 (20160821)
 ## What is Only Framework?
 Only Framework is a framework that provides:
 
-1. a responsive, modular, high-performance, secure boilerplate and scaffold together with
+1. a responsive, modular, high-performance, secure boilerplate and scaffold
 
-2. a [styleguide](http://www.being.se/only-demo/styleguide.html) that supports development from a foundational ground towards clear visual deliveries and
+2. a [styleguide](http://www.being.se/only-demo/styleguide.html) that supports development from a foundational ground towards clear visual deliveries
 
 3. a simple Component Designer that encourages object-based composition of elements for total separation of design and development.
 
@@ -38,8 +38,8 @@ Beginning with version 2.1, Only has a Gulp-based workflow that will help you wi
 - Modularized CSS (layout, typography, media, etc) – just build your own components on top in their own files
 - Minimal code interference, cascading problems and CSS bloat
 - Makes as few assumptions as possible without sacrificing performance and stable code/scaffold
-- High-performance: loads CSS, scripts and fonts asyncronously, and lazy-loads images responsively
-- Responsive and print: should be good to go for both, but we always make very specific changes inhouse for these kinds of matters depending on the web project
+- High-performance by loading CSS, scripts and fonts asyncronously, and lazy-loading images responsively
+- Responsive, also prepared for print styling
 
 ## Assumptions and intended user
 - It is assumed that you will want to custom code as much as possible for stuff such as interactivity, interfaces, and layout. Only gives you access right away to all the standard HTML elements for quick designing, and uses the industry-standard Normalize reset and sets fonts to system defaults. I did not want to make another totalizing framework like Bootstrap which makes it really hard to negate built-in design decisions.
@@ -105,6 +105,11 @@ Most of the heavy features are expected to be incrementally added throughout ver
 - Go from (mostly) BEM-style notation to [SUIT](https://suitcss.github.io) notation
 
 ## Version history
+### 2.3.1 (20160918)
+- Changed styling for the GitHub Pages, using a custom font and putting a bunch of related files into the `gh-pages` folder in the root
+- Edited `.gitignore` to not look for and add reports from Parker
+- Edited some of the information in the readme to be more readable
+
 ### 2.3 (20160821)
 - Added rules to the Stylelint configuration and ran all of the Sass through it, doing some cleaning where needed.
 - Added rules to ESLint (you'll find these in `.eslintrc.js` in the root folder) and checked to make sure they work reasonably well. ESLint won't do linting of files in the `app/scripts/only` folder because they are minified and simply just don't conform to the rest of the config standards. 
