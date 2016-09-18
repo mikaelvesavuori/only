@@ -60,7 +60,11 @@ config.codekit
 .sass-cache/*
 
 ### Github Pages ###
+github
 index.html
 .javascripts
 params.json
 .stylesheets
+
+### Parker reports ###
+Parker_Report.md
