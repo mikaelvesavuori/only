@@ -1,0 +1,184 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <title>Only Framework by beingstudio</title>
+
+    <link rel="stylesheet" href="github/styles.css">
+    <link rel="stylesheet" href="github/theme.css">
+    <meta name="viewport" content="width=device-width">
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <div class="wrapper">
+      <header>
+        <h1>Only Framework</h1>
+        <p>Fast, fun, no-bullshit design and development. Built by Being.</p>
+
+        <p class="view"><a href="https://github.com/beingstudio/only">View the Project on GitHub <small>beingstudio/only</small></a></p>
+
+
+        <ul>
+          <li><a href="https://github.com/beingstudio/only/zipball/master">Download <strong>ZIP File</strong></a></li>
+          <li><a href="https://github.com/beingstudio/only/tarball/master">Download <strong>TAR Ball</strong></a></li>
+          <li><a href="https://github.com/beingstudio/only">View On <strong>GitHub</strong></a></li>
+        </ul>
+      </header>
+      <section>
+        <h2>
+<a id="current-version" class="anchor" href="#current-version" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Current version</h2>
+
+<p>Version: 2.3 (20160821)</p>
+
+<h2>
+<a id="author" class="anchor" href="#author" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Author</h2>
+
+<p><a href="http://www.mikaelvesavuori.se">Mikael Vesavuori</a> for <a href="http://www.being.se">Being</a>, 2015-2016</p>
+
+<h2>
+<a id="what-is-only-framework" class="anchor" href="#what-is-only-framework" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>What is Only Framework?</h2>
+
+<p>Only Framework is a framework that provides:</p>
+
+<ol>
+<li><p>a responsive, modular, high-performance, secure boilerplate and scaffold together with</p></li>
+<li><p>a <a href="http://www.being.se/only-demo/styleguide.html">styleguide</a> that supports development from a foundational ground towards clear visual deliveries and</p></li>
+<li><p>a simple Component Designer that encourages object-based composition of elements for total separation of design and development.</p></li>
+</ol>
+
+<p>The mantra behind Only Framework has been to make it super easy for designers, developers and stakeholders/clients alike to always have access to the current state of development—through fast, fun, no-bullshit design and development.</p>
+
+<p>Beginning with version 2.1, Only has a Gulp-based workflow that will help you with:</p>
+
+<ul>
+<li>optimizing assets (HTML, JS, CSS, images)</li>
+<li>building a distribution site to a separate location</li>
+<li>adding <a href="https://www.npmjs.com/package/gulp-sass">Sass</a> and <a href="https://github.com/postcss/gulp-postcss">PostCSS</a> to your tools</li>
+<li>adding <a href="https://github.com/babel/babel">Babel</a> for modern Javascript</li>
+<li>linting your Sass/CSS (via <a href="https://github.com/stylelint/stylelint">Stylelint</a>)</li>
+<li>linting your JS (via <a href="https://github.com/eslint/eslint">ESLint</a> and <a href="https://github.com/babel/babel-eslint">babel-eslint</a>)</li>
+<li>live previewing your site (via <a href="https://github.com/BrowserSync/browser-sync">Browsersync</a>)</li>
+<li>doing critical CSS optimization and inlining (via <a href="https://github.com/addyosmani/critical">Critical</a>)</li>
+<li>giving you the lowdown on style statistics (via <a href="https://github.com/katiefenn/parker">Parker</a>)</li>
+<li>rewriting file references and doing other magic (via <a href="https://www.npmjs.com/package/gulp-useref">Useref</a>)</li>
+<li>uploading your site to the interwebz (via <a href="https://github.com/jerrysu/gulp-rsync/issues">Rsync</a>)</li>
+</ul>
+
+<p><a href="http://www.being.se">Being</a> is a design collaboration between <a href="http://www.mikaelvesavuori.se">Mikael Vesavuori</a> and <a href="http://www.niklaspersson.com">Niklas Persson</a>, based in Göteborg, Sweden. Only is not supported by Being, but is frequently updated. Feel free to join in the discussion here at Github or email us at <a href="mailto:contact@being.se">contact@being.se</a> if you have any ideas, thoughts or questions!</p>
+
+<h2>
+<a id="features" class="anchor" href="#features" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Features</h2>
+
+<ul>
+<li>Design-centric with most standard elements exposed and ready to tweak in the Sass/CSS code</li>
+<li>Styleguide ready for element inspection/styling, typography, and grids</li>
+<li>Modularized CSS (layout, typography, media, etc) – just build your own components on top in their own files</li>
+<li>Minimal code interference, cascading problems and CSS bloat</li>
+<li>Makes as few assumptions as possible without sacrificing performance and stable code/scaffold</li>
+<li>High-performance: loads CSS, scripts and fonts asyncronously, and lazy-loads images responsively</li>
+<li>Responsive and print: should be good to go for both, but we always make very specific changes inhouse for these kinds of matters depending on the web project</li>
+</ul>
+
+<h2>
+<a id="install-instructions" class="anchor" href="#install-instructions" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Install instructions</h2>
+
+<p>All of these instructions are for commands in the Terminal (Mac) or similar command-line interface on your system of choice.</p>
+
+<h3>
+<a id="1-clone-only-to-your-computer" class="anchor" href="#1-clone-only-to-your-computer" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>1. Clone Only to your computer</h3>
+
+<p><code>git clone https://github.com/beingstudio/only.git</code></p>
+
+<h3>
+<a id="2-install-bower-and-npm-if-you-havent-already-done-so" class="anchor" href="#2-install-bower-and-npm-if-you-havent-already-done-so" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>2. Install Bower and NPM if you haven't already done so</h3>
+
+<p><code>npm install bower -g</code></p>
+
+<p><code>npm install npm -g</code></p>
+
+<h3>
+<a id="3-install-npm-dependencies" class="anchor" href="#3-install-npm-dependencies" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>3. Install NPM dependencies</h3>
+
+<p><code>npm install</code></p>
+
+<h3>
+<a id="4-install-bower-dependencies" class="anchor" href="#4-install-bower-dependencies" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>4. Install Bower dependencies</h3>
+
+<p><code>bower install</code></p>
+
+<h3>
+<a id="5-ready-to-go" class="anchor" href="#5-ready-to-go" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>5. Ready to go!</h3>
+
+<p>Only 2.1 and later versions have a Gulp workflow in mind, but it works just as well with Codekit—or if you feel like it—you could always be really old-school and go about your business without any additional tooling at all. Styles are written in Sass (SCSS) and Only also inserts PostCSS in the dependencies. Note that assets are minified and may be hard to work with, using a plain vanilla approach!</p>
+
+<h2>
+<a id="usage" class="anchor" href="#usage" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Usage</h2>
+
+<p><code>gulp</code> — Default task is <code>watch</code>.</p>
+
+<p><code>gulp watch</code> — Builds the site into <code>/app</code>, runs the <code>sass</code> function, starts Browsersync, and watches for changes to files (reloading the page when needed).</p>
+
+<p><code>gulp sass</code> — Runs Sass/PostCSS and a range of tasks to create a minified CSS file.</p>
+
+<p><code>gulp eslint</code> — Runs Babel (outputs concatenated JS file), then ESLint on the <code>scripts/all</code> folder which is Babel's output path.</p>
+
+<p><code>gulp browsersync</code> — Start Browsersync from the <code>/app</code> folder.</p>
+
+<p><code>gulp browsersync:production</code> — Start Browsersync from the <code>/dist</code> folder.</p>
+
+<p><code>gulp build</code> — Runs Critical and Parker to build out additional assets.</p>
+
+<p><code>gulp build:production</code> — Runs a range of tasks to build out a production version into the <code>/dist</code> folder.</p>
+
+<p><code>gulp deploy</code> — Uses Rsync to upload your site.</p>
+
+<p><code>gulp zip</code> — Archives the <code>dist</code> folder into a ZIP file named <code>archive_</code> and suffixed with the current time and date.</p>
+
+<h2>
+<a id="roadmap-to-only-30" class="anchor" href="#roadmap-to-only-30" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Roadmap to Only 3.0</h2>
+
+<p>The main goal of Only 3.0 is to provide a framework that is just as well suited to static web design and development as it is to small-scale and mid-scale web application development. I feel like Only 2.0 is good at the more static or classic side, but want to make sure it scales to modern and more complex development just as well.</p>
+
+<p>Most of the heavy features are expected to be incrementally added throughout version 2, with focus post 2.5 (or so) being stabilization and more frequent daily use of the framework to provide leads on what should be fixed, removed, improved and otherwise changed before the final Only 3.0 release (expected winter 2016/2017).</p>
+
+<h2>
+<a id="pre-installed-libraries" class="anchor" href="#pre-installed-libraries" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Pre-installed libraries</h2>
+
+<h3>
+<a id="cssscss" class="anchor" href="#cssscss" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>CSS/SCSS</h3>
+
+<p>Uses bits and pieces from <a href="https://html5boilerplate.com">HTML 5 Boilerplate</a> and incorporates <a href="https://necolas.github.io/normalize.css/">Normalize</a> 4.2.0 in <code>_reset.scss</code>.</p>
+
+<h3>
+<a id="javascript" class="anchor" href="#javascript" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Javascript</h3>
+
+<p>The file <code>only-scripts.min.js</code> loads minified versions of:</p>
+
+<ul>
+<li>
+<a href="https://github.com/filamentgroup/loadCSS">LoadCSS</a> 1.2.0</li>
+<li>
+<a href="https://github.com/bramstein/fontfaceobserver">Font Face Observer</a> 2.0.1</li>
+<li>
+<a href="https://github.com/aFarkas/html5shiv">HTML5Shiv</a> 3.7.3</li>
+<li>
+<a href="https://github.com/aFarkas/respimage">Respimage</a> 1.4.2</li>
+<li>
+<a href="https://github.com/aFarkas/lazysizes">Lazysizes</a> 2.0.0</li>
+<li>
+<a href="https://github.com/ftlabs/fastclick">Fastclick</a> 1.0.6</li>
+<li><a href="http://danielrapp.github.io/fragment.js/">Fragment.js</a></li>
+</ul>
+      </section>
+      <footer>
+        <p>This project is maintained by <a href="https://github.com/beingstudio">beingstudio</a></p>
+        <p><small>Hosted on GitHub Pages &mdash; Based on a theme by <a href="https://github.com/orderedlist">orderedlist</a></small></p>
+      </footer>
+    </div>
+    <script src="github/javascripts/scale.fix.js"></script>
+    
+  </body>
+</html>
