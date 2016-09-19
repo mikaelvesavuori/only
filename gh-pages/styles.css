@@ -47,6 +47,7 @@ h1 {
 }
 
 h2 {
+  font-size:26px;
   margin-top: 0;
   color:#393939;
 }
@@ -56,6 +57,7 @@ h2:not(:first-child) {
 }
 
 h3, h4, h5, h6 {
+  font-size:22px;
   color:#494949;
 }
 
@@ -94,7 +96,9 @@ blockquote {
 code, pre {
   font-family:Monaco, Bitstream Vera Sans Mono, Lucida Console, Terminal, Consolas, Liberation Mono, DejaVu Sans Mono, Courier New, monospace;
   color:#333;
-  font-size:12px;
+  font-size:14px;
+  padding: .25em .5em;
+  background-color: lightblue;
 }
 
 pre {
