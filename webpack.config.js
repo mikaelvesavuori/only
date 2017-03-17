@@ -6,9 +6,11 @@ const VendorChunkPlugin = require("webpack-vendor-chunk-plugin");
 //const HtmlWebpackPlugin = require("html-webpack-plugin");
 
 module.exports = {
+	devtool: 'source-map',
 	watch: true,
 	entry: {
-		app: path.resolve(__dirname, "./app/scripts/jsx/app.jsx")
+		app: path.resolve(__dirname, "./app/scripts/jsx/app.jsx"),
+		tsapp: path.resolve(__dirname, "./app/scripts/ts/app.ts")
 	},
 	output: {
 		path: path.resolve(__dirname, "./app/scripts/compiled/"),
@@ -19,7 +21,7 @@ module.exports = {
 			path.join(__dirname, "./app/scripts/"), "node_modules"
 		],
 		extensions: [
-			".js", ".jsx"
+			".js", ".jsx", ".ts", ".tsx"
 		]
 	},
 	module: {
@@ -39,7 +41,9 @@ module.exports = {
 					]
 				}
 				//exclude: /(node_modules|bower_components)/,
-			}
+			},
+			{ enforce: 'pre', test: /\.js$/, loader: "source-map-loader" },
+			{ test: /\.tsx?$/, loader: "awesome-typescript-loader" }
 		]
 	},
 	plugins: [
@@ -51,7 +55,7 @@ module.exports = {
 		}),
 		*/
 		new webpack.DefinePlugin({
-			"process.env":{
+			"process.env": {
 				"NODE_ENV": JSON.stringify("production")
 			}
 		}),
@@ -65,6 +69,7 @@ module.exports = {
 				screw_ie8: true,
 			},
 			compress: {
+				// sourcemaps: true,
 				screw_ie8: true,
 				warnings: false,
 				conditionals: true,
