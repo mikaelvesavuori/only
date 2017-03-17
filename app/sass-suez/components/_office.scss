@@ -1,0 +1,48 @@
+/*doc
+---
+title: Office
+name: office
+category: Components
+---
+
+Office component, used on "Kontor" page(s), and also used for sales people.
+
+```html_example
+<div class="modal">Modal</div>
+```
+*/
+
+.office {
+	display: inline-block;
+	margin-bottom: $margin * 4;
+
+	> p {
+		font-size: $font__size--l;
+		margin-bottom: $margin / 2;
+	}
+
+	> h2 {
+		font-size: $font__size--xl;
+		line-height: $font__lineheight--xs;
+		margin-bottom: $margin / 2;
+	}
+}
+
+.office__salesperson {
+	width: 100%;
+	display: inline-block;
+	margin-bottom: $margin * 2;
+
+	@media screen and (max-width: $size-mobilexl) {
+		margin-bottom: $margin * 4;
+	}
+}
+
+.office__salesperson--portrait {
+	width: 75%;
+
+	@media screen and (max-width: $size-mobilexl) {
+		width: 50%;
+		margin-left: 25%;
+	}
+}

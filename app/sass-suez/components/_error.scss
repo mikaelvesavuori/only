@@ -1,0 +1,52 @@
+/*doc
+---
+title: Error
+name: error
+category: Components
+---
+
+Error page styling.
+*/
+
+noscript {
+	& > p {
+		@include errorMessage;
+	}
+}
+
+.error--browserUnsupported {
+	display: none;
+
+	& > p {
+		@include errorMessage;
+	}
+}
+
+.error--message {
+	margin: 0 auto;
+	padding: 0;
+	max-width: $size-tablet;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	height: 100vh;
+
+	& > p {
+		@include errorMessage;
+	}
+}
+
+.error__article {
+	margin-top: $margin * 4;
+	margin-bottom: $margin * 4;
+	max-width: 850px;
+
+	@media screen and (max-width: $size-tablet) {
+		width: 80%;
+	}
+
+	@media screen and (max-width: $size-mobilemid) {
+		width: 95%;
+	}
+}
+

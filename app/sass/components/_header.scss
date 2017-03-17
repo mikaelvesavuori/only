@@ -1,0 +1,17 @@
+/*doc
+---
+title: Header
+name: header
+category: Components
+---
+
+Site-wide header.
+*/
+
+header {
+	clear: both;
+	float: left;
+	width: 100%;
+	padding: 0;
+	margin: 0 0 $margin 0;
+}

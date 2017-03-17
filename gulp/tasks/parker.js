@@ -1,9 +1,10 @@
-var gulp = require("gulp");
+const config = require("../config.js");
 
-var parker = require("gulp-parker");
+const gulp = require("gulp");
+const parker = require("gulp-parker");
 
 gulp.task("parker", function() {
-	return gulp.src("app/css/*.css")
+	return gulp.src("app/css/main.css")
 		.pipe(parker({
 			file: "Parker_Report.md",
 			title: "Parker Report via Gulp",

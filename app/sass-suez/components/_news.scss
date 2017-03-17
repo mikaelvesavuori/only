@@ -1,0 +1,56 @@
+/*doc
+---
+title: News
+name: news
+category: Components
+---
+
+Listed news items.
+
+```html_example
+<div class="modal">Modal</div>
+```
+*/
+
+%news {
+	padding: $padding / 2 $padding $padding / 2 $padding;
+	background-color: $white;
+
+	@media screen and (max-width: $size-tablet) {
+		padding-top: $padding;
+	}
+}
+
+.news {
+	@extend %news;
+}
+
+%news__item {
+	width: 100%;
+	clear: both;
+	margin-bottom: $margin;
+}
+
+.news__item {
+	@extend %news__item;
+
+	&--date {
+		font-size: $font__size--s;
+		color: $color__text--gray-mid;
+	}
+
+	&--content {
+		font-size: $font__size--m;
+		font-family: $font__family--bold;
+	}
+
+	&:not(:last-child) {
+		&::after {
+			content: " ";
+			width: 100%;
+			float: left;
+			margin-top: $margin / 2;
+			border-bottom: $hairline solid $color__text--gray-light;
+		}
+	}
+}

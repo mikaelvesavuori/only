@@ -1,0 +1,707 @@
+/*doc
+---
+title: Header
+name: header
+category: Components
+---
+
+Site-wide header.
+*/
+
+header {
+	position: relative;
+	clear: both;
+	width: 100%;
+	margin: 0;
+	padding: 0;
+	background-color: $color__solid--white;
+	z-index: 10;
+
+	@media screen and (max-width: $size-tablet) {
+		width: 100%;
+		height: $button-size;
+		z-index: 0;
+
+		&.isOpen {
+			top: 0;
+			right: 0;
+			bottom: 0;
+			left: 0;
+			z-index: 10;
+			height: 100%;
+			position: fixed;
+
+			> .header__mobile--selectors {
+				display: block;
+				position: fixed;
+			}
+		}
+	}
+}
+
+.menus {
+	@include setTransitionOutSlow;
+	z-index: 2;
+
+	&.isVisible {
+		@include setTransitionOutSlow;
+		transform: translateY(0);
+		z-index: 2;
+	}
+
+	@media screen and (max-width: $size-tablet) {
+		width: 100%;
+		transform: translateY(-150vh);
+		display: inline-block;
+	}
+}
+
+.header__wrapper {
+	width: 100%;
+	min-width: 320px;
+	max-width: $maximum-width;
+	margin: 0 auto;
+	padding: 0;
+	clear: both;
+}
+
+.header__mobile {
+	display: none;
+
+	@media screen and (max-width: $size-tablet) {
+		width: 50%;
+		float: right;
+		display: block;
+	}
+}
+
+.header__mobile--search {
+	width: $button-size;
+	height: $button-size;
+	right: 0;
+	top: 0;
+	position: absolute;
+	cursor: pointer;
+	user-select: none;
+	text-align: center;
+
+	&:hover {
+		background-color: $color__brand--green;
+	}
+
+	@media screen and (max-width: $size-tablet) {
+		right: $button-size * 2;
+
+		&.isActive {
+			left: 0;
+		}
+	}
+}
+
+.header__mobile--search-search {
+	width: $button-size;
+	height: $button-size;
+	display: inline-block;
+	background-image: url("/Static/media/gfx/search.svg");
+	background-size: $button-size / 2;
+	background-repeat: no-repeat;
+	background-position: center;
+	background-color: transparent;
+
+	@media screen and (max-width: $size-tablet) {
+		margin-right: 0;
+		right: $button-size * 2;
+	}
+}
+
+.header__logo {
+	width: 10rem;
+	height: 63px;
+	margin: $margin * .9 3.5rem 0 $margin / 4;
+	float: left;
+	position: relative;
+
+	@media screen and (max-width: $size-tablet) {
+		width: auto;
+		margin: 0;
+		height: $button-size;
+		padding: 12px 0 12px $margin / 2;
+
+		> a > img.header__logo--image, > img.header__logo--image {
+			height: 24px;
+		}
+	}
+}
+
+.header__nav {
+	display: 1 0 flex;
+	flex-direction: column;
+
+	@media screen and (max-width: $size-tablet) {
+		width: 100%;
+	}
+}
+
+.header__area--primary {
+	width: 100%;
+	max-width: $maximum-width;
+	line-height: 30px;
+	margin: 0 auto;
+
+	@media screen and (max-width: $size-tablet) {
+		@include setTransitionOutSlow;
+		width: 100%;
+		display: inline-block;
+		float: right;
+		background-color: $color__solid--white;
+		backface-visibility: hidden;
+	}
+
+	& .header__area--primary--buttons {
+		margin-top: 30px;
+		display: block;
+		float: right;
+
+		@media screen and (max-width: 880px) {
+			display: none;
+		}
+	}
+
+	& .header__area--primary-icon {
+		width: 40px;
+		padding: 8px;
+		height: 30px;
+		margin: 0;
+
+		@media screen and (max-width: $size-tablet) {
+			width: $mobile-row-height;
+			height: $mobile-row-height;
+			padding: 25%;
+		}
+	}
+}
+
+.header__ul--primary {
+	float: left;
+	margin-right: $margin * 1.5;
+
+	> a > li {
+		font-family: $font__family--medium-cond;
+	}
+
+	@media screen and (min-width: 769px) {
+		> a > li:before {
+			content: "";
+			position: absolute;
+			width: 100%;
+			height: $thick;
+			bottom: 0;
+			left: 0;
+			visibility: hidden;
+			transform: scaleX(0);
+			transition: all .25s ease-in-out 0s;
+		}
+
+		> a > li:hover:before {
+			visibility: visible;
+			transform: scaleX(1);
+			box-sizing: border-box;
+			border-bottom: $thick solid $color__quote--blue-dark;
+		}
+
+		> a {
+			text-decoration: none;
+
+			> li {
+				position: relative;
+				font-size: $font__size--m * 1.15;
+				padding: $thick;
+				text-transform: uppercase;
+				line-height: 78px;
+			}
+		}
+	}
+
+	@media screen and (max-width: $size-tablet) {
+		float: left;
+		margin-right: $margin * 2;
+		z-index: 4;
+		flex: 1 0 100%;
+		width: 100%;
+		clear: both;
+
+		> a {
+			text-decoration: none;
+			text-transform: none;
+
+			> li {
+				width: 100%;
+				height: $mobile-row-height-high;
+				float: left;
+				margin: 0;
+				text-align: left;
+				color: $color__quote--blue-dark;
+
+				&:not(:first-child) {
+					border-top: $hairline solid $color__text--gray-light;
+				}
+				font-size: $font__size--l * .85;
+				padding: 0 0 0 $padding-small;
+				line-height: $mobile-row-height-high;
+				display: 1 0 flex;
+				align-content: center;
+				border-bottom: $hairline solid $color__text--gray-light;
+
+				&:hover {
+					box-sizing: border-box;
+					background-color: $color__solid--blue-gray-tint;
+					@include setTransitionInSlow;
+				}
+			}
+		}
+	}
+}
+
+.header__ul--primary--small {
+	float: left;
+	margin-top: 5px;
+	margin-right: $margin;
+
+	> a > li {
+		font-family: $font__family--medium-cond;
+	}
+
+	@media screen and (min-width: 769px) {
+		> a > li:before {
+			content: "";
+			position: absolute;
+			width: 100%;
+			height: $thick;
+			bottom: 0;
+			left: 0;
+			visibility: hidden;
+			transform: scaleX(0);
+			transition: all .25s ease-in-out 0s;
+		}
+
+		> a > li:hover:before {
+			visibility: visible;
+			transform: scaleX(1);
+			box-sizing: border-box;
+			padding-bottom: 0;
+			border-bottom: $thick solid $color__quote--blue-dark;
+		}
+
+		> a {
+			text-decoration: none;
+
+			> li {
+				position: relative;
+				font-size: $font__size--m;
+				padding-bottom: $thick;
+				line-height: 78px;
+			}
+		}
+	}
+
+	@media screen and (max-width: $size-tablet) {
+		float: left;
+		margin-top: 0;
+		margin-right: $margin * 2;
+		flex: 1 0 100%;
+		width: 100%;
+		clear: both;
+
+		> a {
+			text-decoration: none;
+			text-transform: none;
+
+			> li {
+				width: 100%;
+				height: $mobile-row-height-high;
+				float: left;
+				margin: 0;
+				text-align: left;
+				color: $color__quote--blue-dark;
+				border-top: $hairline solid $color__text--gray-light;
+				font-size: $font__size--l * .85;
+				padding: 0 0 0 $padding-small;
+				line-height: $mobile-row-height-high;
+				display: 1 1 flex;
+				align-content: center;
+
+				&:hover {
+					box-sizing: border-box;
+					border-bottom: $hairline solid $color__text--gray-light;
+					background-color: $color__solid--blue-gray-tint;
+					@include setTransitionInSlow;
+				}
+			}
+		}
+	}
+}
+
+.header__icon {
+	height: 30px;
+	display: inline-block;
+	border-left: $hairline solid $color__solid--blue-gray-light;
+
+	&.isInvisible {
+		display: none;
+	}
+
+	@media screen and (max-width: $size-tablet) {
+		width: $mobile-row-height-high;
+		height: $mobile-row-height-high;
+		display: block;
+	}
+}
+
+.header__area--secondary {
+	width: 100%;
+	flex: 100%;
+	height: 56px;
+	margin: 0 auto;
+	display: inline-block;
+	position: relative;
+	background-color: $color__quote--blue-dark;
+
+	@media screen and (max-width: $size-tablet) {
+		background-color: $color__solid--white;
+	}
+}
+
+.header__ul--secondary {
+	margin: 0 auto;
+	text-transform: uppercase;
+	margin-left: 14.2rem;
+
+	> a > li {
+		font-family: $font__family--medium-cond;
+	}
+
+	@media screen and (min-width: 769px) {
+		> a > li:before {
+			content: "";
+			position: absolute;
+			width: 100%;
+			height: $thick;
+			bottom: 0;
+			left: 0;
+			visibility: hidden;
+			transform: scaleX(0);
+			transition: all .25s ease-in-out 0s;
+		}
+
+		> a > li:hover:before {
+			visibility: visible;
+			transform: scaleX(1);
+			box-sizing: border-box;
+			padding-bottom: 0;
+			border-bottom: $thin solid $color__brand--green;
+
+			@media screen and (max-width: $size-tablet) {
+				border-bottom: none;
+			}
+		}
+
+		> a {
+			text-decoration: none;
+
+			& > li {
+				position: relative;
+				font-size: $font__size--m;
+				color: $color__brand--green;
+				padding: $thin 0;
+				line-height: 50px;
+			}
+		}
+	}
+
+	@media screen and (max-width: $size-tablet) {
+		float: left;
+		margin-left: 0;
+		margin-right: $margin * 2;
+		flex: 100%;
+		width: 100%;
+		clear: both;
+		background-color: $white; //test
+
+		> a {
+			text-decoration: none;
+			text-transform: none;
+
+			> li {
+				width: 100%;
+				height: $mobile-row-height-high;
+				float: left;
+				margin: 0;
+				text-align: left;
+				color: $color__quote--blue-dark;
+				border-top: $hairline solid $color__text--gray-light;
+				font-size: $font__size--l * .85;
+				padding: 0 0 0 $padding-small;
+				line-height: $mobile-row-height-high;
+				display: 1 1 flex;
+				align-content: center;
+
+				&:last-child {
+					border-bottom: $hairline solid $color__text--gray-light;
+				}
+
+				&:hover {
+					@include setTransitionInSlow;
+					box-sizing: border-box;
+					background-color: $color__solid--blue-gray-tint;
+				}
+			}
+		}
+	}
+}
+
+.menu__area {
+	display: none;
+
+	@media screen and (max-width: $size-tablet) {
+		display: inline-block;
+		width: 50px;
+		height: auto;
+		padding: 5px;
+		margin: 10px $padding-small 0;
+		float: right;
+	}
+}
+
+.header__mobile--selectors {
+	margin: 0;
+	padding: 0;
+	display: none;
+
+	// Visibility is toggled in header.isOpen
+	@media screen and (max-width: $size-tablet) {
+		width: 100%;
+		bottom: 0;
+		right: 0;
+		border-top: $hairline solid $color__text--gray-light;
+	}
+}
+
+.header__mobile--selectors-main, .header__mobile--selectors-lang, .header__mobile--selectors-loc {
+	display: none;
+	float: right;
+
+	&.isVisible {
+		display: block;
+	}
+}
+
+.header__area--mobile-lang, .header__area--mobile-loc {
+	@include setTransitionInSlow;
+	width: 100%;
+	display: inline-block;
+	float: right;
+	background-color: $white;
+	backface-visibility: hidden;
+}
+
+%header__row {
+	display: block;
+	position: relative;
+	width: 100%;
+	height: 0;
+	backface-visibility: hidden;
+	background-color: $color__solid--white;
+	z-index: 103;
+
+	@media screen and (max-width: $size-tablet) {
+		display: block;
+		clear: both;
+		float: left;
+		height: $button-size;
+	}
+}
+
+.header__row {
+	@extend %header__row;
+
+	@media screen and (max-width: $size-tablet) {
+		width: 100%;
+		border-bottom: $hairline solid $color__text--gray-light;
+		clear: both;
+		display: block;
+	}
+}
+
+.header__mobile--user {
+	float: right;
+	right: 0;
+	top: 0;
+	position: absolute;
+	cursor: pointer;
+	user-select: none;
+	text-align: center;
+	padding-left: $margin / 2;
+
+	&:hover {
+		background-color: $color__brand--green;
+	}
+
+	@media screen and (max-width: $size-tablet) {
+		width: $button-size;
+		height: $button-size;
+		right: $button-size;
+		border-left: $hairline solid $color__text--gray-light;
+		padding: 0;
+	}
+}
+
+.header__user {
+	float: right;
+	right: 0;
+	top: 0;
+	height: 56px;
+	position: absolute;
+	cursor: pointer;
+	user-select: none;
+	text-align: center;
+	padding-left: $margin / 2;
+
+	&:hover {
+		background-color: $color__brand--green;
+	}
+
+	@media screen and (max-width: $size-tablet) {
+		display: none;
+	}
+}
+
+.header__user--name {
+	color: $color__solid--white;
+	height: $button-size;
+	line-height: $button-size;
+	margin-right: 1rem;
+	float: left;
+}
+
+.header__user--icon {
+	width: $button-size;
+	height: $button-size;
+	display: inline-block;
+	background-image: url("/Static/media/gfx/person-white.svg");
+	background-size: $button-size / 2;
+	background-repeat: no-repeat;
+	background-position: center;
+	background-color: transparent;
+
+	@media screen and (max-width: $size-tablet) {
+		margin-right: 0;
+		right: $button-size;
+	}
+}
+
+.header__mobile--search-user {
+	width: $button-size;
+	height: $button-size;
+	display: inline-block;
+	background-image: url("/Static/media/gfx/person.svg");
+	background-size: $button-size / 2;
+	background-repeat: no-repeat;
+	background-position: center;
+	background-color: transparent;
+
+	@media screen and (max-width: $size-tablet) {
+		margin-right: 0;
+		right: $button-size;
+	}
+}
+
+// Header buttons
+%header__menu--button-square {
+	width: $button-size;
+	height: $button-size;
+	float: right;
+	display: none !important;
+	background-color: transparent;
+
+	@media screen and (max-width: $size-tablet) {
+		display: block;
+	}
+
+	&.isVisible {
+		display: block !important;
+	}
+}
+
+.header__menu--open {
+	@extend %header__menu--button-square;
+	border-left: $hairline solid $color__text--gray-light;
+	background-image: url("/Static/media/gfx/menu.svg");
+	background-repeat: no-repeat;
+	background-size: 40%;
+	background-position: center;
+	background-origin: center;
+}
+
+.header__menu--back {
+	@extend %header__menu--button-square;
+	padding: 7px $padding / 3;
+	border-left: $hairline solid $color__text--gray-light;
+	background-image: url("/Static/media/gfx/close.svg");
+	background-repeat: no-repeat;
+	background-size: 40;
+	background-position: center;
+	background-origin: center;
+	float: left;
+}
+
+.header__menu--close {
+	@extend %header__menu--button-square;
+	display: none;
+	padding: 7px $padding / 3;
+	border-left: $hairline solid $color__text--gray-light;
+	background-image: url("/Static/media/gfx/close.svg");
+	background-repeat: no-repeat;
+	background-size: 40%;
+	background-position: center;
+	background-origin: center;
+}
+
+%header__menu--button-lang {
+	width: auto;
+	height: $button-size;
+	background-color: transparent;
+	display: inline-block !important;
+	padding: 7px $padding / 3;
+	border-left: $hairline solid $color__text--gray-light;
+	float: left;
+
+	@media screen and (max-width: $size-tablet) {
+		display: block;
+	}
+
+	&.isVisible {
+		display: block !important;
+	}
+}
+
+.header__lang--se-image {
+	@extend %header__menu--button-lang;
+	width: $button-size;
+	height: $button-size;
+	border-left: $hairline solid $color__text--gray-light;
+	background-image: url("/Static/media/gfx/lang_se-gray.svg");
+	background-repeat: no-repeat;
+	background-size: 40%;
+	background-position: center;
+	background-origin: center;
+}
+
+.header__lang--se {
+	@extend %header__menu--button-lang;
+	font-size: $font__size--m;
+}
+
+.header__lang--en {
+	@extend %header__menu--button-lang;
+	font-size: $font__size--m;
+}

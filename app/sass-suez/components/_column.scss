@@ -1,0 +1,44 @@
+/*doc
+---
+title: Columns
+name: columns
+category: Components
+---
+
+Columns are used when we need to present simple multi-column content to users.
+*/
+
+%column {
+	width: 100%;
+	display: block;
+
+	> ul > li {
+		width: 100%;
+		font-size: $font__size--m;
+		margin-bottom: $margin / 4;
+	}
+}
+
+.column {
+	@extend %column;
+}
+
+.column__four {
+	@extend %column;
+	text-transform: lowercase;
+	text-transform: capitalize;
+	column-count: 4;
+	column-width: 25%;
+	column-gap: $margin;
+
+	@media screen and (max-width: $size-tablet) {
+		column-count: 3;
+		column-width: 33.3%;
+	}
+
+	@media screen and (max-width: $size-mobilexl) {
+		column-count: 2;
+		column-width: 50%;
+		column-gap: 0;
+	}
+}

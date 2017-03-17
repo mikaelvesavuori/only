@@ -1,0 +1,191 @@
+/*doc
+---
+title: Print
+name: pring
+category: Layout
+---
+
+Print styling.
+
+```html_example
+<div class="modal">Modal</div>
+```
+*/
+
+// PRINT
+
+@media print {
+	* {
+		box-shadow: none;
+		text-shadow: none;
+	}
+
+	a[href]:after {
+		content: none !important;
+	}
+
+	html, body {
+		height: auto;
+	}
+
+	@page  {
+		size: A4;
+	}
+
+	body {
+		font-size: .75rem;
+		line-height: 1.4;
+	}
+
+	button, .button {
+		display: none;
+	}
+
+	body, main, article, section {
+		width: 100%;
+		margin: 0;
+		padding: 0;
+		clear: both;
+		float: left;
+	}
+
+	main {
+		width: 84%;
+		margin-left: 8%;
+	}
+
+	header, nav, footer {
+		display: none;
+		height: 0;
+	}
+
+	section, article {
+		page-break-before: always;
+	}
+
+	ul, img {
+		page-break-inside: avoid;
+	}
+
+	a, a:visited {
+		text-decoration: underline;
+	}
+
+	a[href]:after {
+		content: " (" attr(href) ")";
+	}
+
+	abbr[title]:after {
+		content: " (" attr(title) ")";
+	}
+
+	.ir a:after, a[href^="javascript:"]:after, a[href^="#"]:after {
+		content: "";
+	}
+
+	pre, blockquote {
+		border: 1px solid $color__text--gray-mid;
+		page-break-inside: avoid;
+	}
+
+	thead {
+		display: table-header-group;
+	}
+
+	tr, img {
+		page-break-inside: avoid;
+	}
+
+	img {
+		max-width: 100%;
+	}
+
+	p, h2, h3 {
+		orphans: 3;
+		widows: 3;
+	}
+
+	p, h1, h2, h3 {
+		page-break-after: avoid;
+	}
+
+	button {
+		height: 0;
+		display: none;
+	}
+
+	h1 {
+		font-size: 3rem;
+	}
+
+	h2 {
+		font-size: 3rem;
+	}
+
+	h3 {
+		font-size: $font__size--l;
+	}
+
+	h4 {
+		font-size: $font__size--m;
+	}
+
+	h5 {
+		font-size: $font__size--s;
+	}
+
+	h6 {
+		font-size: $font__size--s;
+	}
+
+	p, b, .bold, .size-m, .checkout__item--price {
+		font-size: .75rem;
+		line-height: 1.4;
+	}
+
+	.media__image--feature {
+		height: 0;
+		display: none;
+	}
+
+	// Overwrite article bleeds and other margin-top pages
+	article {
+		margin-top: 0 !important;
+	}
+
+	// Specific styling for receipt or order confirmation
+	article.checkout__thanks {
+		margin-top: 0;
+		margin-bottom: 0;
+	}
+
+	.checkout__item--title {
+		font-size: 1.25rem;
+	}
+
+	.checkout__item, .checkout__contents {
+		page-break-inside: avoid;
+		padding-left: 0;
+		padding-right: 0;
+	}
+
+	.checkout__item--date {
+		&::before {
+			content: "";
+			background-image: none;
+			margin: 0;
+			padding: 0;
+			display: none;
+		}
+	}
+
+	.checkout__item--heading {
+		font-size: .9rem;
+		font-family: $font__family--medium-cond;
+	}
+
+	.checkout__header--small {
+		border: 1px solid $color__text--gray-mid;
+		page-break-after: avoid;
+	}
+}

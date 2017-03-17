@@ -1,0 +1,182 @@
+/*doc
+---
+title: Mixins
+name: mixins
+category: Global
+---
+
+Global mixins
+
+```html_example
+<div class="modal">Modal</div>
+```
+*/
+
+// For resetting to full width size, specifically for small screen sizes
+@mixin setFullWidth {
+	width: 100%;
+	max-width: $size-tablet;
+	padding: 0;
+	margin: 0;
+	float: left;
+	clear: both;
+	height: auto;
+	position: relative;
+}
+
+@mixin showOnStateOpen {
+	height: 0;
+	opacity: 0;
+	transition: height .35s, opacity .1s;
+	pointer-events: none;
+
+	&[data-state=open] {
+		height: auto;
+		opacity: 1;
+		max-height: 10000px;
+		transition: .25s ease-in, opacity 0s;
+		pointer-events: all;
+	}
+}
+
+@mixin animateHeightOnStateChange {
+	transition: .25s ease-in, max-height 0s;
+}
+
+@mixin setOutline {
+	outline: $hairline solid $color__solid--blue-gray-mid;
+}
+
+@mixin zeroMarginAfterText {
+	> p:last-child {
+		margin-bottom: 0;
+	}
+}
+
+@mixin expandToFullOnTablet {
+	@media screen and (max-width: $size-tablet) {
+		margin: 0 auto;
+	}
+}
+
+@mixin expandToFullOnMobile {
+	@media screen and (max-width: $size-tablet) {
+		display: inline-block;
+
+		&:not(:last-child) {
+			margin-bottom: $margin * 2;
+		}
+	}
+
+	@media screen and (max-width: $size-mobilexl) {
+		width: 100% !important;
+		max-width: 100% !important;
+		flex: 0 1 100% !important;
+		margin: 0 auto;
+		display: inline-block;
+
+		&:not(:last-child) {
+			margin-bottom: $margin;
+		}
+	}
+}
+
+@mixin expandToFullCompactOnMobile {
+	@media screen and (max-width: $size-tablet) {
+		width: 50% !important;
+		max-width: 50% !important;
+		flex: 0 1 50% !important;
+		display: inline-block;
+		margin-bottom: 0;
+	}
+
+	@media screen and (max-width: $size-mobilemid) {
+		width: 100% !important;
+		max-width: 100% !important;
+		flex: 0 1 100% !important;
+		margin: 0 auto;
+		display: inline-block;
+		margin-bottom: 0;
+	}
+}
+
+@mixin setAspectRatio($width, $height) {
+	position: relative;
+
+	&:before {
+		display: block;
+		content: "";
+		padding-top: ($height / $width) * 100%;
+	}
+
+	> .content {
+		position: absolute;
+		top: 0;
+		left: 0;
+		right: 0;
+		bottom: 0;
+	}
+}
+
+// For setting cursor to pointer/hand
+@mixin setPointer {
+	cursor: pointer;
+}
+
+@mixin setPointerOff {
+	user-select: none;
+	pointer-events: none;
+}
+
+@mixin setTransitionIn {
+	transition: .12s ease-in;
+}
+
+@mixin setTransitionOut {
+	transition: .2s ease-out;
+}
+
+@mixin setTransitionInSlow {
+	transition: .3s ease-in;
+}
+
+@mixin setTransitionOutSlow {
+	transition: .5s ease-out;
+}
+
+@mixin setTransitionInSuperSlow {
+	transition: .5s;
+}
+
+@mixin setTransitionOnStateChange {
+	&[data-state="isFinished"] {
+		opacity: 0;
+		height: 0;
+	}
+
+	&[data-state="isLoading"] {
+		opacity: 1;
+		height: auto;
+	}
+
+	&[data-state="isLoading"], &[data-state="isFinished"] {
+		transition: .25s opacity, .25s height;
+	}
+}
+
+@mixin setBorderRadius {
+	border-radius: 3px;
+}
+
+@mixin errorMessage {
+	padding: 1em;
+	background-color: $color__text--gray-light;
+}
+
+@mixin setBoxShadow {
+	box-shadow: -1px 1px 3px 0px rgba(0, 0, 0, .3);
+}
+
+@mixin setTextShadow {
+	text-shadow: 1px 1px 2px rgba(0, 0, 0, .4);
+}

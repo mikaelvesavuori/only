@@ -1,0 +1,64 @@
+/*doc
+---
+title: Sitemap
+name: sitemap
+category: Layout
+---
+
+The site map is a custom-made four-column page.
+
+```html_example
+<div class="modal">Modal</div>
+```
+*/
+
+// SITEMAP
+
+.sitemap__section {
+	> .width-25 {
+		width: 25%;
+		min-height: 400px;
+		padding-right: 2%;
+
+		> h2 {
+			font-size: $font__size--l * 1.2;
+		}
+
+		&:nth-child(4n+4) {
+			padding-right: 0;
+		}
+
+		@media screen and (max-width: $size-tablet) {
+			width: 50% !important;
+		}
+	}
+}
+
+.sitemap__area {
+	margin-bottom: $margin / 2;
+
+	> ul {
+		> ul {
+			width: 100%;
+
+			> li {
+				width: 100%;
+				padding-left: $padding / 2;
+				clear: both;
+
+				> a {
+					text-decoration: underline;
+				}
+			}
+		}
+
+		> li {
+			width: 100%;
+
+			> a {
+				font-size: $font__size--m;
+				text-decoration: underline;
+			}
+		}
+	}
+}

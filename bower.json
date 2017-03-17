@@ -1,29 +1,26 @@
 {
-  "name": "only",
-  "homepage": "https://github.com/beingstudio/only",
+  "name": "suez-gk",
   "authors": [
-    "Mikael Vesavuori (Being Studio) <contact@being.se>"
+	"Sogeti Helsingborg"
   ],
-  "description": "Bower dependencies, mainly for front-end libraries",
+  "description": "Bower dependencies, mainly for user-facing frontend libraries",
   "main": "",
   "license": "MIT",
   "private": true,
   "ignore": [
-    "**/.*",
-    "node_modules",
-    "bower_components",
-    "test",
-    "tests"
+	"**/.*",
+	"node_modules",
+	"bower_components"
   ],
   "dependencies": {
-    "compass-mixins": "^1.0.2",
-    "fastclick": "^1.0.6",
-    "fragment": "*",
-    "html5shiv": "^3.7.3",
-    "fontfaceobserver": "^2.0.1",
-    "lazysizes": "^2.0.0",
-    "loadcss": "^1.2.0",
-    "normalize-css": "^4.2.0",
-    "respimage": "^1.4.2"
+	"compass-mixins": "^1.0.2",
+	"fastclick": "^1.0.6",
+	"fragment": "*",
+	"html5shiv": "^3.7.3",
+	"fontfaceobserver": "^2.0.7",
+	"lazysizes": "^2.0.0",
+	"loadcss": "^1.2.0",
+	"normalize-css": "^5.0.0",
+	"respimage": "^1.4.2"
   }
 }

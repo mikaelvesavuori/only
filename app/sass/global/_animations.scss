@@ -1,0 +1,60 @@
+/*doc
+---
+title: Animations
+name: animations
+category: Global
+---
+
+We have a range of globally accessible animations and transitions.
+
+```html_example
+<div class="modal">Modal</div>
+```
+*/
+
+@keyframes pop {
+	0% {
+		opacity: 0;
+	}
+
+	50% {
+		opacity: .7;
+	}
+
+	60% {
+		opacity: .9;
+		transform: scale(1.2);
+	}
+
+	75% {
+		opacity: 1;
+		transform: scale(.8);
+	}
+
+	85% {
+		opacity: 1;
+		transform: scale(1.1);
+	}
+
+	100% {
+		transform: scale(1);
+	}
+}
+
+@keyframes fadein {
+	0% {
+		opacity: 0;
+	}
+
+	70% {
+		opacity: .9;
+	}
+
+	100% {
+		opacity: 1;
+	}
+}
+$transitionInFast: .1s;
+$transitionOutFast: .2s;
+$transitionInSlow: .5s;
+$transitionOutSlow: 1s;

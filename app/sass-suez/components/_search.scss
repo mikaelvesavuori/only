@@ -1,0 +1,199 @@
+/*doc
+---
+title: Search
+name: search
+category: Components
+---
+
+Search box and search results.
+
+```html_example
+<div class="modal">Modal</div>
+```
+*/
+
+// Default is the search in the header or top area
+input[type="search"] {
+	height: $button-size;
+	padding: 0;
+	border: 0;
+	background-color: $white;
+	font-family: $font__family--regular;
+	font-size: $font__size--m;
+	color: $color__text--gray-dark;
+	border-radius: 0px;
+	overflow: hidden;
+	outline: none;
+
+	// Removes awkward default styles on some inputs for iOS
+	appearance: none;
+
+	//This defines the style for search field on search listing page
+	&.search__onpage {
+		width: calc(100% - 54px);
+		max-width: 700px;
+		height: $button-size;
+		font-size: $font__size--l;
+		padding: 8px;
+		margin-top: 0;
+		margin-bottom: $margin / 2;
+		background-color: $color__solid--blue-gray-lightest;
+	}
+
+	@media screen and (max-width: $size-tablet) {
+		height: $button-size * .8;
+		margin: $button-size * .1 0;
+	}
+}
+
+input[type="search"]:focus {
+	color: currentColor;
+	outline: 0;
+	background-color: $color__solid--blue-gray-lightest;
+	padding: 10px;
+
+	@media screen and (min-width: 769px) {
+		padding: 15px;
+		display: block;
+	}
+}
+
+.search__area {
+	@include setTransitionOut;
+	width: 100%;
+	max-width: $maximum-width;
+	position: relative;
+	height: 56px;
+	background-color: white;
+	display: none;
+	margin-top: 0;
+
+	@media screen and (min-width: 769px) {
+		display: none;
+	}
+
+	&.isVisible {
+		width: 80%;
+		right: 0;
+		margin-right: 0;
+		display: block;
+		position: absolute;
+		top: 18px;
+		z-index: 1000;
+		height: $button-size;
+
+		@media screen and (max-width: $size-tablet) {
+			width: 100%;
+			top: 0;
+		}
+	}
+}
+
+.search__header {
+	width: calc(100% - (#{$button-size} * 2));
+	height: 30px;
+
+	@media screen and (max-width: $size-tablet) {
+		width: calc(100% - (#{$button-size} * 2) - 5px);
+	}
+}
+
+%search__icon {
+	width: $button-size;
+	height: $button-size;
+	padding: 10px;
+
+	&.noborder {
+		border-left: 0;
+	}
+
+	@media screen and (max-width: $size-tablet) {
+		background-color: transparent;
+		border-left: $hairline solid $color__text--gray-light;
+	}
+}
+
+.search__area--icon {
+	@extend %search__icon;
+	float: left;
+	border-left: 0;
+}
+
+.search__area--close, .search__glass--button {
+	@extend %search__icon;
+	float: right;
+	background-image: url("/Static/media/gfx/close.svg");
+	background-repeat: no-repeat;
+	background-size: 18px;
+	background-position: center;
+	background-origin: center;
+}
+
+.search__glass--icon {
+	width: $button-size;
+}
+
+// Used in header menu for desktop toggling of search view
+.search__glass--button {
+	//@extend %search__icon;
+	width: 40px;
+	height: 30px;
+	border-left: $hairline solid $color__text--gray-light;
+	background-color: transparent;
+	background-image: url("/Static/media/gfx/search-gray.svg");
+	background-repeat: no-repeat;
+	background-size: 20px;
+	background-position: center;
+	background-origin: center;
+
+	&:hover {
+		background-color: transparent;
+	}
+}
+
+.search__result {
+	width: 100%;
+	float: left;
+	clear: both;
+
+	&--contents {
+		max-width: 700px;
+
+		> h2 {
+			font-family: $font__family--bold;
+			font-weight: 100;
+			margin-bottom: $margin / 2;
+		}
+	}
+
+	&:not(:last-child)::after {
+		content: " ";
+		width: 100%;
+		margin-bottom: $margin;
+		float: left;
+		border-bottom: $hairline solid $color__text--gray-light;
+	}
+}
+
+.search__result--itemheader {
+	&::before {
+		content: " ";
+		display: inline-block;
+		width: $button-size / 1.5;
+		height: 18px; // Some kind of manual equivalence to the text line-height
+		background-color: transparent;
+		background-image: url("/Static/media/gfx/document.svg");
+		background-repeat: no-repeat;
+		background-size: 18px;
+		background-position: left;
+		background-origin: center;
+	}
+}
+
+.search__result--count {
+	width: 100%;
+	float: left;
+	margin: $margin 0;
+	font-size: $font__size--m;
+	font-family: $font__family--bold;
+}

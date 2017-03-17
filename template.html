@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html class="no-js" lang="sv">
+	<head>
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<title>Only Framework 3.0 – Template Page</title>
+
+		<meta charset="utf-8">
+		<meta http-equiv="Cache-control: max-age: 2419200, must-revalidate" content="public">
+
+		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+		<meta name="description" content="">
+		<meta name="keywords" content="" />
+
+		<!-- Do preloading of fonts -->
+		<link rel="preload" href="app/fonts/DINProRegular.woff2" as="font" type="font/woff2" crossorigin>
+		<link rel="preload" href="app/fonts/DINProRegular.woff" as="font" type="font/woff" crossorigin>
+
+		<!-- Load critical CSS -->
+		<link rel="stylesheet" href="app/css/critical.css">
+	</head>
+
+	<body>
+		<div class="wrapper">
+			<header role="banner">
+				Only Framework 3.0
+			</header>
+
+			<!-- PAGE CONTENTS START HERE -->
+			<main role="main">
+				<figure>
+					<img src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" class="lazyload" data-src="" alt="Huvudbild för artikel">
+				</figure>
+
+				<article role="article">
+					<section>
+						<p>Text</p>
+
+						<!--
+						<picture>
+							<source media="(min-width: 1024px)" srcset="media/img/1024@1x.jpg, media/img/1024@2x.jpg 2x">
+							<source media="(min-width: 768px)" srcset="media/img/768@1x.jpg, media/img/768@2x.jpg 2x">
+							<source srcset="media/img/320@1x.jpg, media/img/320@2x.jpg 2x">
+							<img src="media/img/768@1x.jpg" alt="alt title">
+						</picture>
+
+						<picture>
+							<source type="image/webp" srcset="examples/image-extralarge.webp, examples/image-extralarge@2x.webp 2x" media="(min-width: 1600px)">
+							<source type="image/webp" srcset="examples/image-large.webp, examples/image-large@2x.webp 2x" media="(min-width: 800px)">
+							<source type="image/webp" srcset="examples/image-small.webp, examples/image-small@2x.webp 2x">
+							<source srcset="examples/image-extralarge.jpg, examples/image-extralarge@2x.jpg 2x" media="(min-width: 1600px)">
+							<source srcset="examples/image-large.jpg, examples/image-large@2x.jpg 2x" media="(min-width: 800px)">
+							<img srcset="examples/image-small.jpg, examples/image-small@2x.jpg 2x" alt="…">
+						</picture>
+						-->
+
+						<picture>
+							<!--[if IE 9]><video style="display: none"><![endif]-->
+							<source
+								data-srcset="app/media/img/320@1x.jpg"
+								media="(max-width: 480px)" />
+							<source
+								data-srcset="app/media/img/1366@1x.jpg"
+								media="(max-width: 1920px)" />
+							<source
+								data-srcset="app/media/img/1920@1x.jpg"
+								media="(max-width: 1920px) and (-webkit-min-device-pixel-ratio: 2) and (min-resolution: 192dpi)" />
+							<source
+								data-srcset="app/media/img/1920@1x.jpg"
+								media="(max-width: 2880px)" />
+							<source
+								data-srcset="app/media/img/1920@2x.jpg"
+								media="(max-width: 2880px) and (-webkit-min-device-pixel-ratio: 2) and (min-resolution: 192dpi)" />
+							<source
+								data-srcset="app/media/img/1920@2x.jpg"
+								media="(min-width: 2881px)" />
+							<source
+								data-srcset="app/media/img/320@1x.jpg" />
+							<!--[if IE 9]></video><![endif]-->
+							<img
+								src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="
+								data-src="app/media/img/320@1x.jpg"
+								class="lazyload"
+								data-sizes="auto"
+								alt="alt title" />
+						</picture>
+					</section>
+				</article>
+			</main>
+
+			<footer role="contentinfo">
+				Footer
+			</footer>
+		</div>
+
+		<!-- Async loading of CSS -->
+		<link rel="preload" href="app/css/main.css" as="style" onload="this.rel = 'stylesheet'">
+		<noscript><link rel="stylesheet" href="app/css/main.css"></noscript>
+		<script>
+			/*! loadCSS. [c]2017 Filament Group, Inc. MIT License */
+			!function(a){"use strict";var b=function(b,c,d){function e(a){return h.body?a():void setTimeout(function(){e(a)})}function f(){i.addEventListener&&i.removeEventListener("load",f),i.media=d||"all"}var g,h=a.document,i=h.createElement("link");if(c)g=c;else{var j=(h.body||h.getElementsByTagName("head")[0]).childNodes;g=j[j.length-1]}var k=h.styleSheets;i.rel="stylesheet",i.href=b,i.media="only x",e(function(){g.parentNode.insertBefore(i,c?g:g.nextSibling)});var l=function(a){for(var b=i.href,c=k.length;c--;)if(k[c].href===b)return a();setTimeout(function(){l(a)})};return i.addEventListener&&i.addEventListener("load",f),i.onloadcssdefined=l,l(f),i};"undefined"!=typeof exports?exports.loadCSS=b:a.loadCSS=b}("undefined"!=typeof global?global:this);
+			/*! loadCSS rel=preload polyfill. [c]2017 Filament Group, Inc. MIT License */
+			!function(a){if(a.loadCSS){var b=loadCSS.relpreload={};if(b.support=function(){try{return a.document.createElement("link").relList.supports("preload")}catch(b){return!1}},b.poly=function(){for(var b=a.document.getElementsByTagName("link"),c=0;c<b.length;c++){var d=b[c];"preload"===d.rel&&"style"===d.getAttribute("as")&&(a.loadCSS(d.href,d,d.getAttribute("media")),d.rel=null)}},!b.support()){b.poly();var c=a.setInterval(b.poly,300);a.addEventListener&&a.addEventListener("load",function(){b.poly(),a.clearInterval(c)}),a.attachEvent&&a.attachEvent("onload",function(){a.clearInterval(c)})}}}(this);
+		</script>
+
+		<script src="app/scripts/compiled/site.js" async></script>
+		<script src="app/scripts/compiled/vendors.min.js" defer></script>
+		<script type="text/javascript" src="https://cdn.polyfill.io/v2/polyfill.min.js" defer></script>
+
+	</body>
+</html>

@@ -1,0 +1,78 @@
+/*doc
+---
+title: Grids
+name: grids
+category: Layout
+---
+
+We use grids to contain our layout elements: through a container and then through individual blocks.
+
+```html_example
+<div class="modal">Modal</div>
+```
+*/
+
+// This is the element that will contain your flex items
+.grid {
+	width: 100%;
+	display: flex;
+	flex-direction: row;
+	flex-flow: row;
+	flex-wrap: wrap;
+	justify-content: space-between; //flex-start
+}
+
+// Class to hold all generic stuff for your flex items
+.grid__block {
+	height: 100px;
+	background-color: $lightgray;
+	border: 1px solid $gray;
+	margin-bottom: 2%;
+	font-size: $font__size--xxs;
+	color: $black;
+}
+
+// These are the classes for sized flex items — note how they have 1% of margin to coincide with the "justify-content: space-between" property in .grid__container. Use "justify-content: flex-start" and rounded flex numbers instead if you don't care for margins.
+.grid__block--full {
+	flex: 0 0 100%;
+}
+
+.grid__block--half {
+	flex: 0 0 49%;
+}
+
+.grid__block--third {
+	flex: 0 0 32.33%;
+}
+
+// Obviously a bit redundant as there is also a 25% version but whatever floats your boat and needs
+.grid__block--fourth {
+	flex: 0 0 24%;
+}
+
+.grid__block--fifth {
+	flex: 0 0 19%;
+}
+
+.grid__block--25 {
+	flex: 0 0 24%;
+}
+
+.grid__block--40 {
+	flex: 0 0 39%;
+}
+
+.grid__block--60 {
+	flex: 0 0 59%;
+}
+
+.grid__block--75 {
+	flex: 0 0 74%;
+}
+
+// Setup mobile or other adapted sizes
+@media only screen and (max-width: $size-mobilexl) {
+	.grid__block--half, .grid__block--third, .grid__block--fourth, .grid__block--fifth, .grid__block--25, .grid__block--40, .grid__block--60, .grid__block--75 {
+		flex: 0 0 100%;
+	}
+}

@@ -1,8 +1,8 @@
-var config = require("../config.js");
+const config = require("../config.js");
 
-var gulp = require("gulp");
+const gulp = require("gulp");
 
-var files = [
+const files = [
 	"app/.htaccess",
 	"app/browserconfig.xml",
 	"app/crossdomain.xml",

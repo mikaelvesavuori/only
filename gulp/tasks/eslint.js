@@ -1,11 +1,10 @@
-var config = require("../config.js");
+const config = require("../config.js");
 
-var gulp   = require("gulp");
-var eslint = require("gulp-eslint");
+const gulp = require("gulp");
+const eslint = require("gulp-eslint");
 
 gulp.task("eslint", function() {
-	return gulp.src(config.eslint.src)
+	return gulp.src(config.linting.eslint.src)
 		.pipe(eslint())
 		.pipe(eslint.format())
-		//.pipe(eslint.failAfterError());
 });

@@ -1,37 +1,38 @@
-var config = require("../config.js");
+const config = require("../config.js");
 
-var gulp = require("gulp");
-var browsersync = require("browser-sync");
-var plumber = require("gulp-plumber");
-var sourcemaps = require("gulp-sourcemaps");
-var sass = require("gulp-sass");
-var postcss = require("gulp-postcss");
-var scss = require("postcss-scss");
-var precss = require("precss");
-var autoprefixer = require("autoprefixer");
-var mqpacker = require("css-mqpacker");
-var gulpFilter = require("gulp-filter");
-var rename = require("gulp-rename");
+const gulp = require("gulp");
+const browsersync = require("browser-sync");
+const plumber = require("gulp-plumber");
+const sourcemaps = require("gulp-sourcemaps");
+const sass = require("gulp-sass");
+const postcss = require("gulp-postcss");
+const scss = require("postcss-scss");
+const precss = require("precss");
+const cssnext = require("postcss-cssnext");
+const colorguard = require("colorguard");
+//const gulpFilter = require("gulp-filter");
+const rename = require("gulp-rename");
+const cleancss = require("gulp-clean-css");
 
-gulp.task("sass", ["stylelint"], function () {
-	var processors = [
+gulp.task("sass", function () {
+	const processors = [
 		precss(config.precss.options),
-		autoprefixer(config.autoprefixer.options),
-		mqpacker(config.mqpacker.options)
+		cssnext(config.cssnext.browsers),
+		colorguard()
 	];
-	
-	var filter = gulpFilter(["*.css", "!*.map"], { restore: true });
+
+	//const filter = gulpFilter(["*.css", "!*.map"], { restore: true });
 	browsersync.notify("Compiling Sass");
-	
+
 	return gulp.src(config.sass.src)
-		.pipe(plumber())
 		.pipe(sourcemaps.init())
+		.pipe(plumber())
 		.pipe(sass.sync().on("error", sass.logError))
 		.pipe(postcss(processors, {syntax: scss}))
-		.pipe(filter)
-		.pipe(sourcemaps.write("./maps", {includeContent: false, sourceRoot: "app/sass"}))
-		.pipe(filter.restore)
-		.pipe(rename({dirname: ""}))
+		.pipe(cleancss())
+		//.pipe(filter)
+		.pipe(sourcemaps.write("maps"))
 		.pipe(gulp.dest(config.sass.dest))
+		//.pipe(filter.restore)
 		.pipe(browsersync.stream());
 });

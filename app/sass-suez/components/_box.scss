@@ -1,0 +1,775 @@
+/*doc
+---
+title: Box
+name: box
+category: Components
+---
+
+The box is used as a container for content – it works as a "content puff".
+*/
+
+%box {
+	background-color: $color__solid--blue-gray-lightest;
+	margin-bottom: $margin * 1.5;
+	width: 100%;
+	flex: 0 1 auto;
+	position: relative;
+
+	// Some minor fixes for IE9
+	//float: left;
+	//margin-right: 2%;
+
+	// Cap image sizes and set to "cover" style placement
+	> img, > figure, figure > img, figure > a > img {
+		width: 100%;
+		height: 300px;
+		margin-bottom: 0;
+		object-fit: cover;
+		object-position: center center;
+		background-size: cover;
+		background-position: center center;
+	}
+
+	> .box__video > video, > .box__video > iframe {
+		/*
+		width: 100%;
+		max-height: 300px;
+		object-fit: cover;
+		object-position: center center;
+		background-size: cover;
+		background-position: center center;
+		*/
+	}
+
+	> a {
+		&:hover {
+			text-decoration: none;
+		}
+	}
+
+	.box--contents {
+		position: relative;
+		padding: $padding / 2 $padding / 2 $padding * 1.75 $padding / 2;
+
+		> img {
+			display: block;
+			margin: 0 auto;
+			margin-bottom: $margin / 2;
+
+			&.box__portrait {
+				margin-bottom: $margin;
+			}
+		}
+
+		> .h2 {
+			@extend %typography__box--h2;
+		}
+
+		> .h3 {
+			font-size: $font__size--l * .85;
+			line-height: $font__lineheight--xxs;
+			margin-bottom: $margin / 2;
+		}
+
+		> p {
+			margin-bottom: 0;
+		}
+
+		> .button {
+			margin-top: $margin / 2;
+		}
+	}
+
+	&.box__news--full {
+		width: 100%;
+		height: 100%;
+		padding: 0;
+		margin-bottom: $margin;
+		clear: both;
+
+		> figure {
+			width: 65.6%;
+			height: 500px;
+			float: left;
+
+			> img {
+				min-height: 300px;
+				height: 500px;
+			}
+
+			@media screen and (max-width: $size-mobilexl) {
+				width: 100%;
+			}
+		}
+
+		> .box--contents {
+			width: 34.4%;
+			float: left;
+
+			@media screen and (max-width: $size-mobilexl) {
+				width: 100%;
+			}
+		}
+
+		@media screen and (max-width: $size-tablet) {
+			> figure {
+				position: relative;
+				height: 300px;
+
+				> img {
+					height: 300px;
+				}
+			}
+
+			> .box {
+				margin: 0;
+			}
+		}
+	}
+
+	&.box__hero {
+		width: 100%;
+		clear: both;
+
+		> figure {
+			position: absolute;
+			height: 100%;
+
+			> img {
+				min-height: 300px;
+				height: 100%;
+			}
+		}
+
+		@media screen and (max-width: $size-tablet) {
+			> figure {
+				position: relative;
+
+				> img {
+					max-height: 500px;
+				}
+			}
+
+			> .box {
+				margin: 0;
+			}
+		}
+	}
+
+	&.box__fullbleed {
+		width: 100%;
+	}
+
+	&.box__parallax {
+		justify-content: center;
+		display: flex;
+		width: 100%;
+		height: 400px;
+		clear: both;
+		background-attachment: fixed;
+		background-position: center;
+		background-repeat: no-repeat;
+		background-size: cover;
+		margin-bottom: 0;
+
+		@media screen and (max-width: $size-mobilexl) {
+			background-position: absolute;
+		}
+	}
+
+	@media screen and (max-width: $size-tablet) {
+		margin-bottom: $margin;
+	}
+
+	// Makes sure that flex items flow to the left (useful when collapsed on mobile devices)
+	margin-left: 0;
+	@include expandToFullOnTablet;
+	@include zeroMarginAfterText;
+}
+
+.box {
+	@extend %box;
+	flex: 1 1 100%;
+	display: block;
+	overflow: hidden;
+
+	> a {
+		display: block;
+		height: 100%;
+
+		&:hover {
+			text-decoration: none;
+		}
+
+		&:hover .box__interaction {
+			bottom: 0;
+			transition: bottom .25s;
+		}
+
+		> figure > img {
+			display: block;
+		}
+	}
+
+	.box__interaction {
+		position: absolute;
+		left: $margin / 1.5;
+		bottom: -4rem;
+		background-color: $color__brand--green;
+		transition: bottom .15s;
+
+		&--text {
+			padding: $padding / 4 $padding $padding / 4 $padding / 2;
+			display: inline-block;
+		}
+
+		&--icon {
+			display: inline-block;
+			background: url("/Static/media/gfx/arrow-right-blue.svg") no-repeat center center;
+			background-size: $button-size / 4;
+			width: $button-size / 1.25;
+			height: 100%;
+			position: absolute;
+			top: 0;
+			right: 0;
+		}
+	}
+}
+
+// Support class for video and iframes (Youtube etc.)
+.box__video {
+	//@include setAspectRatio(16, 9);
+	z-index: inherit;
+}
+
+.box__wasteinfo {
+	border: $hairline solid $lightgray;
+}
+
+// Use the box__padded class for any info boxes, pricing boxes etc.
+.box__padded {
+	@extend %box;
+	display: inline-block;
+	flex: 1 1 100%;
+	padding: $padding / 2;
+
+	&--transparent {
+		background-color: transparent;
+		margin: 0 0 $margin;
+		padding: $padding / 2;
+
+		> .h2, > .box--contents > .h2 {
+			@extend %typography__box--h2;
+		}
+	}
+
+	&--fixedprice {
+		padding-bottom: $padding * 1.5;
+		margin-bottom: $margin / 2;
+	}
+}
+
+.box__fullbleed {
+	@extend %box;
+	clear: both;
+	float: left;
+	height: auto;
+	display: inline-block;
+	margin-bottom: 0;
+	background-color: $white;
+	border-bottom: $hairline solid $color__text--gray-light;
+}
+
+.box__fullbleed--left {
+	width: 50%;
+	height: 700px;
+	float: left;
+	clear: left;
+
+	> img, > figure, > figure > img {
+		width: 100%;
+		height: 700px;
+		overflow: hidden;
+		display: inline-block;
+		margin-bottom: 0;
+		object-fit: cover;
+		object-position: center center;
+		background-size: cover;
+		background-position: center center;
+
+		@media screen and (max-width: $size-tablet) {
+			height: 350px;
+		}
+	}
+
+	@media screen and (max-width: $size-tablet) {
+		width: 100%;
+		height: 350px;
+	}
+}
+
+.box__fullbleed--right {
+	/*
+	width: 50%;
+	height: auto;
+	display: inline-block;
+	padding: $margin * 2;
+	float: right;
+	clear: right;
+	*/
+	display: flex;
+	align-items: center;
+	justify-content: flex-start;
+	height: 700px;
+
+	> .box--contents {
+		width: 90%;
+		max-width: 780px;
+		padding-left: $padding * 1.5;
+
+		p {
+			margin-bottom: $margin * 1.5;
+		}
+
+		> .article__tag {
+			margin-bottom: $margin;
+		}
+
+		> .button {
+			height: auto;
+			min-width: 240px;
+			max-width: 50%;
+		}
+
+		@media screen and (max-width: $size-desktop) {
+			width: 100%;
+			max-width: 1024px;
+			padding-left: $padding / 2;
+		}
+
+		@media screen and (max-width: $size-mobile) {
+			padding-left: 0;
+			padding-right: 0;
+		}
+	}
+
+	@media screen and (max-width: $size-desktop) {
+		padding: $margin;
+	}
+
+	@media screen and (max-width: $size-tablet) {
+		width: 100%;
+		height: auto;
+	}
+}
+
+.box__parallax {
+	@extend %box;
+
+	.box__section-header {
+		padding: $padding;
+
+		@media screen and (max-width: $size-mobile) {
+			padding: $padding / 2;
+		}
+	}
+}
+
+.box__parallax--container {
+	width: 75%;
+	padding: $margin;
+	position: relative;
+	color: $white;
+	background-color: transparent;
+	text-shadow: 0 0 12px $color__text--blue-dark;
+
+	> h1 {
+		margin-bottom: $margin / 4;
+	}
+
+	> p {
+		color: $white;
+		text-align: center;
+	}
+
+	> .grid__container {
+		margin-bottom: 0;
+	}
+
+	> .grid__container::after {
+		display: none;
+	}
+
+	> .grid__container > form.width-25 {
+		@media screen and (max-width: $size-desktop) {
+			width: 90% !important;
+		}
+	}
+
+	> .grid__container > .grid__block {
+		margin-bottom: 0;
+
+		> .textnumber {
+			@media screen and (max-width: $size-tablet) {
+				width: calc(100% - 62px) !important;
+			}
+		}
+	}
+
+	@media screen and (max-width: $size-desktop) {
+		width: 90%;
+	}
+
+	@media screen and (max-width: $size-mobile) {
+		width: 100%;
+	}
+}
+/*
+.box__parallax--radiobuttons {
+	width: 33%;
+	min-width: 240px;
+	max-width: 350px;
+
+	@media screen and (max-width: $size-wide) {
+		width: 50%;
+	}
+
+	@media screen and (max-width: $size-mobilemid) {
+		width: 80%;
+	}
+
+	@media screen and (max-width: $size-mobile) {
+		width: 100%;
+	}
+}*/
+
+.box__hero {
+	@extend %box;
+
+	@media screen and (max-width: $size-tablet) {
+		figure {
+			height: auto;
+		}
+	}
+}
+
+.box__hero--inner {
+	@extend %box;
+	width: 37%;
+	height: auto;
+	display: flex;
+	margin: $padding;
+	flex: 0 1 37%;
+	background-color: $white;
+
+	.box--contents {
+		width: 100%;
+	}
+
+	@media screen and (max-width: $size-tablet) {
+		width: 100%;
+		max-width: 100%;
+		flex: 0 1 100%;
+		margin: 0;
+		display: inline-block;
+		border-left: $hairline solid $color__solid--blue-gray-light;
+		border-bottom: $hairline solid $color__solid--blue-gray-light;
+		border-right: $hairline solid $color__solid--blue-gray-light;
+
+		&:not(:last-child) {
+			margin-bottom: $margin;
+		}
+	}
+}
+
+.box__newsletter {
+	@extend %box;
+
+	&--inner {
+		position: absolute;
+		z-index: 100;
+		left: 49%;
+		top: 50%;
+		transform: translate(-49%, -50%);
+		height: auto;
+		width: 96%;
+		max-width: 500px;
+	}
+
+	&--header {
+		@include setTextShadow;
+	}
+}
+
+.box__select-servicearea {
+	max-width: 780px;
+	margin: 0 auto;
+
+	&--col {
+		width: 44%;
+		display: block;
+		float: left;
+		margin: 0 3%;
+
+		@media screen and (max-width: $size-mobilexl) {
+			width: 100%;
+			margin: 0 0 $margin 0;
+
+			&:last-child {
+				margin-bottom: 0;
+			}
+		}
+	}
+
+	&--radiobuttons {
+		width: 100%;
+		max-width: 370px;
+		margin-bottom: $margin * 1.5;
+
+		.radiobutton {
+			width: auto;
+			margin: 0;
+			float: left;
+			display: block;
+
+			&:last-child {
+				float: right;
+			}
+		}
+
+		@media screen and (max-width: $size-mobilexl) {
+			max-width: 300px;
+
+			.radiobutton, .radiobutton:last-child {
+				float: left;
+				width: 50%;
+			}
+		}
+	}
+
+	button {
+		width: 25%;
+	}
+}
+
+.box__service-frequency {
+	flex: 0 0 45%;
+	width: 45%;
+
+	@media screen and (max-width: $size-tablet) {
+		flex: 0 0 100%;
+		width: 100%;
+	}
+}
+
+.box__button-nav {
+	@extend %box;
+	background: none;
+	display: flex;
+	flex-direction: row;
+	flex-flow: row;
+	flex-wrap: wrap;
+	justify-content: flex-start;
+
+	&--item.width-33 {
+		flex: 0 1 30%;
+		margin-right: 2%;
+		box-sizing: border-box;
+	}
+
+	&--item.button {
+		background-color: $color__solid--blue-gray-lightest;
+	}
+
+	.button:last-child {
+		margin-bottom: $margin / 2;
+	}
+}
+
+.box__modal {
+	@extend %box;
+	width: 100%;
+	flex: 1 1 100%;
+	margin: 0;
+	padding: $padding / 2;
+	display: inline-block;
+
+	> h1 {
+		margin: 0 auto;
+		text-align: left;
+		margin-bottom: $margin / 2;
+		font-size: $font__size--l;
+		font-family: $font__family--medium-cond;
+		line-height: $font__lineheight--s;
+		font-weight: 300;
+	}
+}
+
+.box__transparent {
+	@extend %box;
+	width: 100%;
+	margin: $margin / 2 0;
+	padding-top: $margin * 2;
+	position: absolute;
+	background-color: transparent;
+	text-shadow: 0 0 15px $color__text--gray-dark;
+
+	> h1 {
+		margin-bottom: $margin / 4;
+	}
+
+	> p {
+		color: $white;
+		text-align: center;
+	}
+	@include expandToFullOnMobile;
+
+	&--relative {
+		@extend %box;
+		width: 100%;
+		padding-top: $margin * 2;
+		position: relative;
+		color: $white;
+		background-color: transparent;
+		text-shadow: 0 0 12px $color__text--blue-dark;
+
+		> h1 {
+			margin-bottom: $margin / 4;
+		}
+
+		> p {
+			color: $white;
+			text-align: center;
+		}
+		@include expandToFullOnMobile;
+	}
+
+	&--flexcenter {
+		@extend %box;
+		width: 100%;
+		height: 400px;
+		position: relative;
+		color: $white;
+		background-color: transparent;
+		text-shadow: 0 0 12px $color__text--blue-dark;
+		display: flex;
+		justify-content: center;
+		flex-direction: column;
+		padding: 0;
+		margin: 0;
+
+		> h1 {
+			margin-bottom: $margin / 4;
+		}
+
+		> p {
+			color: $white;
+			text-align: center;
+		}
+	}
+}
+
+.box__campaign, .box__edit-address, .box__togglebox {
+	@include showOnStateOpen;
+}
+
+.box__campaign {
+	&--inputs {
+		width: 100%;
+		margin: 0 auto;
+
+		@media screen and (max-width: $size-mobilemid) {
+			width: 100%;
+		}
+	}
+}
+
+// Use the box__number class for small (1/3 width) notices such as presentational micro-content
+.box__number {
+	@extend %box;
+	padding: $padding / 2;
+	margin-bottom: $margin / 2;
+	text-align: center;
+
+	> .h2 {
+		color: $color__brand--green;
+		font-size: $font__size--xxl;
+	}
+	@include expandToFullOnMobile;
+}
+
+.box__icon {
+	background-color: $color__solid--blue-dark;
+	width: $button-size;
+	height: $button-size;
+	text-align: center;
+	margin: $margin / 2 $margin / 2 $margin / 2 0;
+	padding: 8px;
+	float: left;
+}
+
+%box__list--item {
+	background-position: bottom;
+	background-size: 20px;
+	background-repeat: no-repeat;
+	display: inline-block;
+	content: "";
+	margin-right: $padding / 2;
+	width: 20px;
+	height: 20px;
+
+	@media screen and (max-width: $size-mobilexl) {
+		background-size: 16px;
+		width: 16px;
+		height: 16px;
+	}
+}
+
+ul.box__list {
+	> li {
+		width: 100%;
+		margin-bottom: $margin / 2;
+		font-size: $font__size--m;
+		line-height: $button-size / 3;
+		display: block;
+
+		@media screen and (max-width: $size-mobilexl) {
+			font-size: $font__size--m * 1.1;
+		}
+
+		> a {
+			text-decoration: underline;
+		}
+
+		&.link:after {
+			@extend %box__list--item;
+			content: " ➞";
+			margin-left: $margin / 2;
+		}
+
+		&.telephone:before {
+			@extend %box__list--item;
+			background-image: url("/Static/media/gfx/phone.svg");
+		}
+
+		&.email:before {
+			@extend %box__list--item;
+			background-image: url("/Static/media/gfx/email.svg");
+		}
+	}
+}
+
+.box__datepublished {
+	margin-bottom: $margin / 2;
+}
+
+.box__portrait {
+	@extend %round-image;
+	width: 75%;
+	border: 1px solid $color__text--gray-light;
+}
+
+.box__wasteinfo, .box__moreinfo {
+	clear: both;
+	border: $hairline solid $lightgray;
+}

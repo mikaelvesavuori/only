@@ -1,0 +1,93 @@
+/*doc
+---
+title: Message
+name: message
+category: Components
+---
+
+Messages are sometimes displayed to users.
+*/
+
+%message {
+	width: 100%;
+	height: auto;
+	padding: $margin / 2 $margin * 2.5;
+	display: inline-block;
+	color: $white;
+	position: relative;
+	cursor: pointer;
+
+	// Only if position: absolute;
+	//z-index: 2;
+
+	> p {
+		width: 100%; //75%;
+		text-align: center;
+		margin: 0;
+		clear: none;
+		line-height: 1.5;
+		user-select: none;
+		pointer-events: none;
+	}
+	transition: .5s;
+	background-color: $color__solid--blue-dark;
+	background-position: right $margin / 2 top $margin / 2;
+	background-size: $button-size / 2.5;
+	background-repeat: no-repeat;
+	background-image: url("/Static/media/gfx/close-white.svg");
+
+	&.isFading {
+		transition: .5s, 0s padding ease-out;
+		height: 0;
+		padding: 0;
+
+		> p {
+			display: none;
+		}
+	}
+}
+
+.message {
+	@extend %message;
+
+	&--inform {
+		@extend %message;
+		background-color: $color__message--inform;
+	}
+
+	&--warn {
+		@extend %message;
+		background-color: $color__message--warn;
+	}
+
+	&--error {
+		@extend %message;
+		background-color: $color__message--error;
+	}
+}
+
+.message__status {
+	@include setTransitionOnStateChange;
+}
+
+.message__loading {
+	margin: 0 auto;
+	padding: $padding / 3;
+	max-width: 380px;
+	border-radius: 4px;
+	overflow: hidden;
+	position: relative;
+
+	&--copy, .spinner {
+		display: inline-block;
+	}
+
+	&--copy {
+		font-family: $font__family--bold;
+		font-size: $font__size--m;
+		line-height: 2rem;
+		margin-left: $margin / 1.5;
+		position: absolute;
+		top: 30%;
+	}
+}

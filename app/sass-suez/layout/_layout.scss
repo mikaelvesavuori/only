@@ -1,0 +1,103 @@
+/*doc
+---
+title: Layout
+name: layout
+category: Layout
+---
+
+Global layout settings.
+
+```html_example
+<div class="modal">Modal</div>
+```
+*/
+
+// Set React rendering to full width
+[data-reactroot] {
+	width: 100%;
+	float: left;
+	clear: both;
+	position: relative;
+	display: inline-block;
+
+	> .react-productgrid {
+		padding: $padding;
+		margin-bottom: 0;
+	}
+}
+
+// Global top-level layout
+*, *:before, *:after {
+	box-sizing: inherit;
+}
+
+html {
+	box-sizing: border-box;
+}
+
+body {
+	background-color: colors("background");
+	width: 100%;
+	height: 100%;
+	opacity: 0;
+
+	&.loaded {
+		opacity: 1;
+	}
+
+	@media screen and (max-width: $size-mobile) {
+		//overflow-y: hidden;
+	}
+}
+
+// Basic global layout elements
+main, section, article {
+	width: 100%;
+	margin: 0;
+	padding: 0;
+	clear: both;
+	display: block;
+}
+
+article {
+	position: relative;
+}
+
+section {
+	position: relative;
+	display: inline-block;
+
+	&.filters {
+		@extend %filter-area;
+	}
+
+	&.checkout__item--specification {
+		padding: 0;
+	}
+}
+
+hr {
+	border: 0;
+	border-bottom: $hairline solid $lightgray;
+	width: 100%;
+	clear: both;
+	list-style-type: none;
+	text-decoration: none;
+	margin: 1px 0 0;
+
+	&.hr__light {
+		border-bottom: $hairline solid $color__text--gray-light;
+		margin: $margin 0 0;
+	}
+}
+
+address {
+	padding: $padding 0 $padding 0;
+}
+
+// Hidden field, populated with dates from EpiServer
+#HiddenSwedishHolidays {
+	opacity: 0;
+	visibility: hidden;
+	display: none;
+}

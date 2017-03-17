@@ -1,38 +1,39 @@
-/*------------------------------------*\
-	MAIN: [Sitename], using Only Framework 2.0
-\*------------------------------------*/
+// MAIN: [Sitename], using Only Framework 3.0
 
 @import "../../bower_components/compass-mixins/lib/compass";
 
 // Base
-@import "base/reset";
-@import "base/global";
-@import "base/fonts";
-@import "base/colors";
-@import "base/animations";
-@import "base/mixins";
-@import "base/utilities";
+@import "global/colors";
+@import "global/reset";
+@import "global/variables";
+@import "global/fonts";
+@import "global/animations";
+@import "global/mixins";
+@import "global/utilities";
+@import "global/links";
+@import "global/media";
+@import "global/navigation";
+@import "global/typography";
+@import "global/grids";
 
-// Layout
-@import "layout/errors";
-@import "layout/layout";
-@import "layout/grids";
-@import "layout/typography";
-@import "layout/links";
-@import "layout/navigation";
-@import "layout/header";
-@import "layout/footer";
-@import "layout/media";
-@import "layout/forms";
-@import "layout/buttons";
-@import "layout/tables";
-@import "layout/styleguide";
-@import "layout/print";
-
-@import "base/testing";
+// Subcomponents
+//@import "subcomponents/name";
 
 // Components
-//@import "components/your-component-name";
+@import "components/header";
+@import "components/footer";
+@import "components/forms";
+@import "components/buttons";
+@import "components/tables";
 
-// Addons and external libraries
-//@import "addons/name";
+// Compositions
+@import "compositions/layout";
+
+// Pages
+//@import "pages/name";
+
+// Styleguide
+@import "global/styleguide";
+
+// Print
+@import "global/print";

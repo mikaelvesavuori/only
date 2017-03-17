@@ -1,0 +1,59 @@
+/*doc
+---
+title: Colors
+name: colors
+category: Global
+---
+
+Global color settings.
+
+```html_example
+<div class="modal">Modal</div>
+```
+*/
+$white: #fff;
+$black: #000;
+$red: #c14f50;
+$orange: #f35c20;
+$green: #14d26e;
+$darkgray: #666666;
+$midgray: #999999;
+$lightgray: #cccccc;
+
+// Light blue gray: #cfd9e3
+
+// Not yet defined in Sketch styleguide
+$color__solid--blue-dark: #26315a;
+$color__solid--deepblue-dark: #010f41;
+$color__solid--deepblue-mid: #09174b;
+$color__solid--deepblue-light: #0d1d55;
+$color__solid--deepblue-lightest: #12235c;
+
+/* Suez colors */
+$color__solid--white: #ffffff;
+$color__solid--blue-gray-dark: #c7ccd7;
+$color__solid--blue-gray-mid: #d6dae2;
+$color__solid--blue-gray-light: #e4e8ed;
+$color__solid--blue-gray-lightest: #f0f3f8;
+$color__solid--blue-gray-tint: #f4f6fb;
+$color__text--blue-dark: #00042d;
+$color__text--gray-dark: #444;
+$color__text--gray-mid: #a3a5b2;
+$color__text--gray-light: #d2d4de;
+$color__quote--gray-light: #dbdde5;
+$color__quote--blue-dark: #030f41;
+$color__brand--green: #9bcd41;
+$color__brand--green-accent: #8ab53c;
+$color__brand--green-accent-dark: #8cba41;
+
+/* Suez - message colors */
+$color__message--warn: #f39200;
+$color__message--inform: #71ad5e;
+$color__message--error: #c54d4d;
+
+@function colors($key) {
+	@return map-get($colors, $key);
+}
+$colors: (
+	"font": $color__solid--deepblue-mid, "selection": $white, "selection-background": $color__text--blue-dark, "link": $color__solid--deepblue-mid, "link-visited": $color__text--gray-dark, "link-active": $color__text--gray-dark, "link-hover": currentColor, "background": $color__solid--blue-gray-tint
+);

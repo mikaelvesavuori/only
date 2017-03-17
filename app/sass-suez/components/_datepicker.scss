@@ -1,0 +1,40 @@
+/*doc
+---
+title: Datepicker
+name: datepicker
+category: Components
+---
+
+Our datepicker is based on Pikaday. The datepicker Sass document only reflects on the visual appearance of the overall container. For exact styling we should use _pikaday.scss instead.
+*/
+
+%datepicker {
+	// Based on "width-40" from utilities.scss
+	width: 45%;
+	flex: 0 1 45%;
+	margin-right: 5%;
+
+	@media screen and (max-width: $size-tablet) {
+		width: 49%;
+		flex: 0 1 49%;
+		margin-right: 0;
+		float: left;
+	}
+
+	@media screen and (max-width: $size-mobilemid) {
+		width: 100%;
+		flex: 0 1 100%;
+	}
+}
+
+.datepicker {
+	@extend %datepicker;
+
+	&:invalid {
+		//
+	}
+
+	&:nth-child(2) {
+		margin-right: 0;
+	}
+}

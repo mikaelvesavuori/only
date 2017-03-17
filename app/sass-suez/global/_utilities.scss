@@ -1,0 +1,554 @@
+/*doc
+---
+title: Utilities
+name: utilities
+category: Global
+---
+
+Global utility classes, usually these need !important to overwrite and take absolute (primary) precedence.
+
+```html_example
+<div class="modal">Modal</div>
+```
+*/
+
+.hide {
+	display: none !important;
+	visibility: hidden;
+}
+
+.visuallyhidden {
+	visibility: hidden;
+	height: 0;
+}
+
+.noscroll {
+	overflow: hidden;
+	position: fixed;
+}
+
+.display-mobilexl {
+	display: none;
+
+	@media screen and (max-width: $size-mobilexl) {
+		display: block;
+	}
+}
+
+.display-mobile {
+	display: none;
+
+	@media screen and (max-width: $size-tablet) {
+		display: block;
+	}
+}
+
+.hide-mobile {
+	@include setTransitionOut;
+
+	@media screen and (max-width: $size-tablet) {
+		display: none !important;
+	}
+}
+
+.hide-print {
+	@media print {
+		display: none;
+	}
+}
+
+.selectable {
+	pointer-events: all;
+	cursor: pointer;
+}
+
+.noselect {
+	user-select: none;
+	pointer-events: none;
+}
+
+.position-absolute {
+	position: absolute;
+}
+
+.display-block {
+	display: block;
+}
+
+.display-inlineblock {
+	display: inline-block;
+}
+
+.display-flex {
+	display: flex;
+}
+
+.display-flex-center {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	text-align: center;
+}
+
+.display-flex-end {
+	justify-content: flex-end;
+}
+
+.space {
+	display: flex;
+	justify-content: space-between;
+}
+
+.center {
+	width: 100%;
+	display: block;
+	margin: 0 auto;
+}
+
+.float-left {
+	float: left !important;
+}
+
+.float-right {
+	float: right !important;
+}
+
+.clear-left {
+	clear: left;
+}
+
+.clear-right {
+	clear: right;
+}
+
+.clear-both {
+	clear: both;
+}
+
+.padding-zero {
+	padding: 0 !important;
+}
+
+.margin-zero {
+	margin: 0 !important;
+}
+
+.padding-top-zero {
+	padding-top: 0 !important;
+}
+
+.padding-bottom-zero {
+	padding-bottom: 0 !important;
+}
+
+.align-flex-end {
+	align-self: flex-end;
+}
+
+.margin-bottom-auto {
+	margin-bottom: auto !important;
+}
+
+.margin-bottom-zero {
+	margin-bottom: 0 !important;
+}
+
+.margin-bottom-1rem {
+	margin-bottom: 1rem !important;
+}
+
+.margin-bottom-2rem {
+	margin-bottom: 2rem !important;
+}
+
+.margin-bottom-3rem {
+	margin-bottom: 3rem !important;
+}
+
+.margin-top-auto {
+	margin-top: auto;
+}
+
+.margin-top-zero {
+	margin-top: 0 !important;
+}
+
+.margin-top-1rem {
+	margin-top: 1rem !important;
+}
+
+.margin-top-2rem {
+	margin-top: 2rem !important;
+}
+
+.margin-top-3rem {
+	margin-top: 3rem !important;
+}
+
+.margin-right-zero {
+	margin-right: 0 !important;
+}
+
+.margin-right-1rem {
+	margin-right: 1rem !important;
+}
+
+.order-last {
+	order: 500;
+}
+
+.order-last-mobile {
+	@media screen and (max-width: $size-tablet) { //size-mobilexl
+		margin-top: $margin * 2;
+		order: 500;
+	}
+}
+
+.align-bottom {
+	//vertical-align: middle !important;
+	//display: inline-block !important;
+	//justify-content: flex-end;
+}
+
+.align-left {
+	text-align: left;
+	display: block;
+}
+
+.align-right {
+	text-align: right;
+	display: block;
+}
+
+.align-center {
+	text-align: center;
+	display: block;
+}
+
+.line-height-1 {
+	line-height: 1;
+}
+
+.line-height-1point2 {
+	line-height: 1.2;
+}
+
+.light {
+	font-weight: $font__weight--light;
+}
+
+.regular {
+	font-weight: $font__weight--regular;
+}
+
+.medium {
+	font-family: $font__family--medium-cond;
+}
+
+.bold {
+	font-family: $font__family--bold;
+	font-weight: $font__weight--bold;
+}
+
+.italic {
+	font-style: italic;
+}
+
+.underline {
+	text-decoration: underline;
+}
+
+.link {
+	text-decoration: none !important;
+}
+
+.width-15 {
+	width: 14% !important;
+	flex: 0 1 14% !important;
+
+	@media screen and (max-width: $size-tablet) {
+		width: 49% !important;
+	}
+	@include expandToFullOnMobile;
+}
+
+.width-20 {
+	width: 19% !important;
+	flex: 0 1 19% !important;
+
+	@media screen and (max-width: $size-tablet) {
+		width: 49% !important;
+	}
+	@include expandToFullOnMobile;
+}
+
+.width-25 {
+	width: 24% !important;
+	flex: 0 1 24% !important;
+
+	@media screen and (max-width: $size-tablet) {
+		width: 49% !important;
+
+		&.js-reset {
+			width: 33% !important; // Make sure reset button stays smaller than submit button or other preferred contextual buttons
+
+			@media screen and (max-width: $size-mobilexl) {
+				width: 100% !important;
+			}
+		}
+	}
+	@include expandToFullOnMobile;
+}
+
+.width-25-compact {
+	width: 25% !important;
+	flex: 0 1 25% !important;
+
+	@media screen and (max-width: $size-tablet) {
+		width: 50% !important;
+	}
+	@include expandToFullOnTablet;
+}
+
+.width-33 {
+	width: 31% !important;
+	flex: 0 1 31% !important;
+	@include expandToFullOnMobile;
+}
+
+.width-33-compact {
+	width: 33.33% !important;
+	flex: 0 1 33.3% !important;
+	@include expandToFullCompactOnMobile;
+	margin-bottom: 0 !important;
+}
+
+.width-40 {
+	width: 37% !important;
+	flex: 0 1 37% !important;
+	margin-right: 3%;
+	@include expandToFullOnMobile;
+}
+
+.width-50 {
+	width: 49% !important;
+	flex: 0 1 49% !important;
+	@include expandToFullOnMobile;
+}
+
+.width-50-inline {
+	width: 50%;
+	display: inline-block;
+	float: left;
+	margin-bottom: $margin;
+
+	@media screen and (max-width: $size-mobilexl) {
+		width: 100%;
+	}
+}
+
+.width-50-compact {
+	width: 50% !important;
+	flex: 0 1 50% !important;
+	padding: 0;
+	margin: 0;
+	@include expandToFullCompactOnMobile;
+}
+
+.width-66 {
+	float: left;
+	clear: both;
+	width: 66%;
+	flex: 0 1 66%;
+	@include expandToFullOnMobile;
+}
+
+.width-75 {
+	float: left;
+	clear: both;
+	width: 75% !important;
+	flex: 0 1 75% !important;
+	@include expandToFullOnMobile;
+}
+
+// Strict version – does not "expand/contract"
+.width-75-strict {
+	float: left;
+	clear: both;
+	width: 75% !important;
+	flex: 0 1 75% !important;
+}
+
+.width-100 {
+	float: left;
+	clear: both;
+	width: 100% !important;
+	flex: 0 0 100% !important;
+	@include expandToFullOnMobile; // Bit of a hack, just to make sure items such as buttons (when displayed on small screens) don't start using differing bottom margins
+}
+
+.nobreak {
+	white-space: nowrap;
+}
+
+// Font sizes can be used as classes
+.size-xxl {
+	font-size: $font__size--xxl;
+}
+
+.size-xl {
+	font-size: $font__size--xl;
+}
+
+.size-l {
+	font-size: $font__size--l;
+}
+
+.size-m {
+	font-size: $font__size--m;
+}
+
+.size-s {
+	font-size: $font__size--s;
+}
+
+.size-xs {
+	font-size: $font__size--xs;
+}
+
+.size-xxs {
+	font-size: $font__size--xxs;
+}
+
+.h2 {
+	font-family: $font__family--bold-cond;
+	font-size: $font__size--xl;
+	line-height: $font__lineheight--xxs;
+	margin-bottom: $margin / 2;
+}
+
+.h3 {
+	font-family: $font__family--bold-cond;
+	font-size: $font__size--l;
+	line-height: $font__lineheight--xs;
+	margin-bottom: $margin / 2;
+}
+
+.h4 {
+	font-family: $font__family--bold-cond;
+	font-size: $font__size--m;
+	line-height: $font__lineheight--xs;
+	margin-bottom: $margin / 2;
+}
+
+.h5 {
+	font-family: $font__family--bold-cond;
+	font-size: $font__size--s;
+	line-height: $font__lineheight--xs;
+	margin-bottom: $margin / 2;
+}
+
+.h6 {
+	font-family: $font__family--bold-cond;
+	font-size: $font__size--s;
+	line-height: $font__lineheight--xs;
+	margin-bottom: $margin / 2;
+}
+
+// Allow colors to be used as classes
+.white {
+	color: $white !important;
+}
+
+.black {
+	color: black !important;
+}
+
+.gray-light {
+	color: $color__text--gray-light !important;
+}
+
+.gray-mid {
+	color: $color__text--gray-mid !important;
+}
+
+.gray-dark {
+	color: $color__text--gray-dark !important;
+}
+
+.blue-gray-mid {
+	color: $color__solid--blue-gray-mid !important;
+}
+
+.blue-gray-dark {
+	color: $color__solid--blue-gray-dark !important;
+}
+
+// Allow colors to be used as classes, for backgrounds
+.white--bg {
+	background-color: $white !important;
+}
+
+.bluedark--bg {
+	background-color: $color__quote--blue-dark !important;
+}
+
+.bluedark-solid--bg {
+	background-color: $color__solid--blue-dark !important;
+}
+
+.deepblue-dark--bg {
+	background-color: $color__solid--deepblue-dark !important;
+	color: $white !important;
+}
+
+.deepblue-mid--bg {
+	background-color: $color__solid--deepblue-mid !important;
+	color: $white !important;
+}
+
+.deepblue-light--bg {
+	background-color: $color__solid--deepblue-light !important;
+	color: $white !important;
+}
+
+.deepblue-lightest--bg {
+	background-color: $color__solid--deepblue-lightest !important;
+	color: $white !important;
+}
+
+.gray-light--bg {
+	background-color: $color__solid--blue-gray-lightest !important;
+
+	> .wrapper-choke > .grid__container > .box {
+		height: auto; // Use "100%" for individual heights
+		background-color: $white;
+	}
+	//component in gray section
+	.box__button-nav {
+		&--item.button {
+			background-color: $black;
+		}
+	}
+}
+
+// States
+.error {
+	//
+}
+
+.warning {
+	color: $red;
+}
+
+.completed {
+	color: $color__brand--green;
+}
+
+%border {
+	border: $hairline solid $color__text--gray-light;
+}
+
+.border {
+	@extend %border;
+}

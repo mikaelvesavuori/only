@@ -1,0 +1,62 @@
+/*doc
+---
+title: Dropdowns
+name: dropdowns
+category: Components
+---
+
+Dropdown menus are used to convey multiple items of content in an economic way.
+*/
+
+%dropdown__menu {
+	@include setTransitionOut;
+	position: absolute;
+	z-index: 2;
+	margin-top: 1px;
+
+	// Hide elements
+	> li {
+		display: none;
+
+		&:before {
+			content: "" !important;
+		}
+	}
+}
+
+.dropdown__menu {
+	@extend %dropdown__menu;
+}
+
+
+// Class to specify element as menu
+.menu {
+	cursor: pointer; // Make sure this looks right when pointing
+
+	&.isActive > ul.dropdown__menu {
+		@include setTransitionOut;
+		position: absolute;
+		display: block;
+		border: $hairline solid $color__quote--blue-dark;
+		border-top: 0;
+		padding: $padding-small;
+		background-color: white;
+		cursor: pointer;
+
+		> li {
+			color: black;
+			clear: both;
+			display: block;
+			text-align: left;
+			line-height: $font__lineheight--s;
+			max-width: 190px;
+			border: 0;
+			margin: 0 0 $padding / 4 0;
+			padding: 0;
+		}
+
+		@media screen and (max-width: $size-tablet) {
+			display: none;
+		}
+	}
+}

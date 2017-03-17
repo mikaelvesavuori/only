@@ -1,0 +1,264 @@
+/*doc
+---
+title: Cart
+name: cart
+category: Components
+---
+
+The mini-cart is used in the top right corner to quickly show users what, if anything, they are currently carrying in their shopping basket.
+*/
+
+.cart {
+	position: absolute;
+	top: 144px;
+	right: 0;
+	background-color: $color--brand__green;
+	text-transform: uppercase;
+
+	> a {
+		text-decoration: none;
+	}
+
+	@media screen and (max-width: $size-tablet) {
+		top: $button-size;
+		padding: 0;
+		width: $button-size;
+		height: $button-size;
+		background-size: $button-size;
+	}
+}
+
+.cart--panel {
+	padding: $margin / 2 $margin;
+	height: 56px;
+	cursor: pointer;
+
+	// We want the entire area to be clickable so we deactivate the contents inside the panel
+	> span, .cart__itemcount, .cart--icon {
+		pointer-events: none;
+	}
+
+	> .cart--status {
+		@media screen and (max-width: $size-tablet) {
+			display: none;
+		}
+	}
+
+	&[data-state="logged-in"] {
+		> span::after {
+			content: "Din kundvagn";
+		}
+
+		> .cart--shoparrow {
+			display: none;
+		}
+	}
+
+	&[data-state="logged-out"] {
+		line-height: 56px;
+		padding: 0;
+
+		> span {
+			padding: 0 $margin / 2;
+
+			&::after {
+				content: "Webbshop";
+			}
+		}
+
+		> .cart__itemcount, .cart--icon {
+			display: none;
+		}
+	}
+
+	@media screen and (max-width: $size-tablet) {
+		width: $button-size;
+		height: $button-size;
+		padding: 0;
+		text-align: center;
+
+		&[data-state="logged-out"] .cart--icon {
+			display: inline-block;
+		}
+	}
+}
+
+.cart__itemcount {
+	display: inline-block;
+	margin: 0 $margin / 2;
+	font-family: $font__family--medium-cond;
+	font-size: $font__size--m;
+	text-align: center;
+	line-height: $button-size / 2;
+	width: $button-size / 2;
+	height: $button-size / 2;
+	background: $color__brand--green-accent;
+	border-radius: 50%;
+
+	@media screen and (max-width: $size-tablet) {
+		display: none;
+	}
+}
+
+.cart--icon {
+	width: $button-size / 2;
+	height: $button-size / 2;
+	display: inline-block;
+	background-image: url("/Static/media/gfx/cart.svg");
+	background-size: $button-size / 2;
+	background-repeat: no-repeat;
+	float: right;
+	pointer-events: none;
+	text-align: center;
+
+	@media screen and (max-width: $size-tablet) {
+		width: $button-size / 2;
+		height: $button-size / 2;
+		background-size: $button-size / 2;
+		margin-top: $button-size / 4;
+		float: none;
+	}
+}
+
+.cart--shoparrow {
+	background-color: $color__brand--green-accent-dark;
+	background-image: url("/Static/media/gfx/arrow-right.svg");
+	width: $button-size;
+	height: 100%;
+	background-size: $button-size;
+	background-repeat: no-repeat;
+	background-position: center;
+	float: right;
+	display: inline-block;
+
+	@media screen and (max-width: $size-tablet) {
+		display: none;
+	}
+}
+
+.cart--contents {
+	min-width: 300px;
+	max-width: 500px;
+	top: 56px;
+	right: 0;
+	position: absolute;
+	display: block;
+	text-transform: none;
+	z-index: 4;
+
+	&[data-state="closed"] {
+		@include setTransitionOut;
+		height: 0;
+		opacity: 0;
+		visibility: hidden;
+		pointer-events: none;
+	}
+
+	&[data-state="open"] {
+		@include setTransitionIn;
+		height: auto;
+		opacity: 1;
+		visibility: visible;
+		pointer-events: all;
+	}
+
+	@media screen and (max-width: $size-mobilexl) {
+		width: 100%;
+		max-width: 100vw;
+		top: $button-size;
+	}
+}
+
+.cart-quick-links {
+	background-color: $color__solid--blue-gray-lightest;
+
+	&[data-state="closed"] {
+		display: none;
+	}
+
+	&[data-state="open"] {
+		ul li {
+			margin: 0;
+			display: block;
+			border-bottom: $hairline solid $lightgray;
+		}
+
+		a {
+			text-transform: uppercase;
+			display: block;
+			height: $button-size;
+			padding: $margin / 2 $margin;
+		}
+	}
+}
+
+.cart--bottom {
+	width: 100%;
+	display: inline-block;
+
+	> button {
+		float: right;
+	}
+}
+
+.cart--item--wrapper {
+	@include setBoxShadow;
+	background-color: $color__solid--blue-gray-lightest;
+}
+
+.cart--item {
+	width: 100%;
+	min-width: 500px;
+	display: block;
+	border-bottom: $hairline solid $color__text--gray-mid;
+
+	&:last-child {
+		border-bottom: none;
+	}
+
+	@media screen and (max-width: $size-mobilexl) {
+		min-width: 250px;
+	}
+}
+
+.cart--item__contents {
+	position: relative;
+	width: 100%;
+	padding: $margin / 2 $margin;
+	display: table;
+}
+
+.cart--item--name {
+	font-family: $font__family--bold;
+	font-size: $font__size--m;
+	margin-bottom: $margin / 4;
+}
+
+.cart--item--price {
+	font-family: $font__family--bold;
+	font-size: $font__size--m;
+	margin-bottom: $margin / 4;
+	text-align: right;
+}
+
+.cart--item--name, .cart--item--type {
+	width: 66.66%;
+	float: left;
+	display: inline-block;
+	margin-bottom: $margin / 4;
+}
+
+.cart--item--price, .cart--item--price-info, .cart--item--remove {
+	width: 33.33%;
+	float: right;
+	clear: right;
+	text-align: right;
+	margin-bottom: $margin / 4;
+
+	> a.checkout__item--remove {
+		float: none;
+		display: block;
+		margin-top: 0;
+		text-align: right;
+	}
+}

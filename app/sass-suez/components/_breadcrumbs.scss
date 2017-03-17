@@ -1,0 +1,54 @@
+/*doc
+---
+title: Breadcrumbs
+name: breadcrumbs
+category: Components
+---
+
+Breadcrumbs are used to guide users so they know where a piece of content originates from.
+*/
+
+.breadcrumbs__area {
+	width: 100%;
+	float: left;
+	clear: both;
+	margin-bottom: $margin * 2;
+	font-family: $font__family--regular;
+	font-size: $font__size--s;
+	color: $color__text--gray-mid;
+
+	@media screen and (max-width: $size-mobilexl) {
+		display: none;
+	}
+}
+
+.breadcrumbs__area--links {
+	width: 70%;
+	float: left;
+}
+
+.breadcrumbs__area--item {
+	float: left;
+	text-decoration: underline;
+
+	&:not(:last-child) {
+		&:after {
+			content: " >";
+			padding-left: $margin / 2;
+			margin-right: $margin / 2;
+			display: inline-block;
+		}
+	}
+
+	&:last-child {
+		text-decoration: none;
+	}
+}
+
+.breadcrumbs__area--customertype {
+	width: 30%;
+	float: right;
+	text-align: right;
+	text-decoration: underline;
+	color: black;
+}

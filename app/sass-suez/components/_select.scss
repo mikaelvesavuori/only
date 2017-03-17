@@ -1,0 +1,68 @@
+/*doc
+---
+title: Select Box
+name: select
+category: Components
+---
+
+We customize a standard select box for our own visual styling.
+
+```html_example
+<div class="modal">Modal</div>
+```
+*/
+
+select {
+	width: 100%;
+	height: $button-size;
+	padding: $thick $margin / 2;
+	line-height: 1.5;
+	margin: 0 0 1rem;
+	border: $hairline solid $lightgray; //0
+	border-radius: 0px;
+	float: left;
+	clear: left;
+	display: inline-block;
+	font-family: $font__family--regular;//$font__family--medium-cond;
+	font-size: $font__size--m;
+	color: $darkgray;
+	background-color: $white;
+	background-repeat: no-repeat;
+	background-image: linear-gradient(45deg, transparent 50%, gray 50%), linear-gradient(135deg, gray 50%, transparent 50%), linear-gradient(to right, $lightgray, $lightgray);
+	background-position: calc(100% - 20px) calc(24px), calc(100% - 15px) calc(24px), calc(100% - 40px) 0px;
+	background-size: 5px 5px, 5px 5px, $hairline $button-size;
+	appearance: none;
+	box-sizing: border-box;
+	overflow: hidden;
+	cursor: pointer;
+
+	&.select__footer {
+		@media screen and (max-width: $size-tablet) {
+			max-width: 80%;
+		}
+
+		@media screen and (max-width: $size-mobilexl) {
+			font-size: $font__size--l;
+		}
+	}
+
+	&:checked {
+		color: red;
+	}
+}
+
+select:focus {
+	@include setOutline;
+}
+
+.select__inlinemenu {
+	width: 80%;
+	margin: 0 10%;
+	border: $hairline solid $lightgray;
+}
+
+.select__margin--mobile {
+	@media screen and (max-width: $size-tablet) {
+		margin-top: $margin;
+	}
+}

@@ -1,0 +1,335 @@
+/*doc
+---
+title: Forms
+name: forms
+category: Components
+---
+
+Global styling for forms and inputs. Any custom form types and inputs should, if at all possible, be styled as separate components.
+*/
+
+form {
+	display: block;
+}
+
+input {
+	&:invalid:not(:placeholder-shown), &:invalid {
+		& ~ .form__requirements {
+			height: auto;
+			max-height: 200px;
+			padding: $padding / 3 $padding / 2;
+			color: $white;
+			transition: .2s;
+		}
+	}
+}
+
+// This is so we can style custom checkboxes
+input[type="checkbox"] {
+	visibility: hidden;
+}
+
+input[type="email"]:valid, input[type="text"]:valid, input[type="tel"]:valid, input[type="url"]:valid, input[type="password"]:valid {
+	background-image: url("/Static/media/gfx/complete-green.svg");
+	background-repeat: no-repeat;
+	background-position: right $button-size / 4 center;
+	background-size: $button-size / 2;
+}
+
+%input-base {
+	width: 100%;
+	padding: $padding / 6 $padding / 3;
+	height: $button-size;
+	margin-bottom: $margin / 2;
+	border: $hairline solid $color__solid--blue-gray-mid;
+	background-color: $color__solid--blue-gray-tint;
+	font-family: $font__family--regular;
+	font-size: $font__size--m;
+	color: $darkgray;
+	border-radius: 0px;
+	overflow: hidden;
+	outline: none;
+
+	// Removes awkward default styles on some inputs for iOS
+	appearance: none;
+}
+
+input[type="email"], input[type="number"], input[type="text"], input[type="tel"], input[type="url"], input[type="password"], textarea {
+	@extend %input-base;
+
+	&.datepicker {
+		background-image: url("/Static/media/gfx/calendar.svg");
+		background-size: $button-size;
+		background-repeat: no-repeat;
+		background-position: right;
+	}
+
+	&.error {
+		background-image: url("/Static/media/gfx/warning.svg");
+		background-repeat: no-repeat;
+		background-position: right;
+		background-origin: border-box;
+	}
+
+	&.amount {
+		width: 75px;
+		margin-right: $margin;
+		text-align: center;
+		border: $hairline solid $color__solid--blue-gray-light;
+		background-color: white !important;
+		height: $button-size;
+	}
+
+	&.checkout--amount {
+		min-width: 80px;
+		width: auto;
+		height: $button-size;
+		padding: $padding / 8;
+		margin-right: $margin / 4;
+		text-align: center;
+		font-weight: 800;
+		display: inline-block;
+		border: $hairline solid $color__solid--blue-gray-mid;
+		background-color: $color__solid--blue-gray-tint;
+	}
+}
+
+.input-value {
+	display: block;
+	height: $button-size;
+	font-size: $font__size--m;
+}
+
+@media screen and (max-width: $size-tablet) {
+	textarea {
+		font-size: $font__size--l * .9;
+	}
+}
+
+input[type="email"]:focus, input[type="number"]:focus, input[type="text"]:focus, input[type="tel"]:focus, input[type="url"]:focus, input[type="password"]:focus, textarea:focus {
+	border: $thin solid $color__brand--green;
+}
+
+input.textnumber {
+	@extend %button__text;
+	@extend %button__icon;
+	float: left;
+	clear: both;
+	width: 75%;
+	height: $button-size;
+	font-family: $font__family--regular;
+	background-color: $white;
+	background-image: none !important; // Remove checkmarks as these are not meaningful for these specific elements
+	margin-bottom: 0;
+	text-transform: none;
+	line-height: 1;
+	@include expandToFullOnTablet;
+
+	&--full {
+		@extend %button__text;
+		@extend %button__icon;
+		float: left;
+		clear: both;
+		width: calc(100% - 54px);
+		height: $button-size;
+		font-family: $font__family--regular;
+		background-color: $white;
+		background-image: none !important; // Remove checkmarks as these are not meaningful for these specific elements
+		margin-bottom: 0;
+		text-transform: none;
+		line-height: 1;
+		@include expandToFullOnTablet;
+	}
+}
+
+input:invalid {
+	@include setTransitionIn;
+	border: $hairline solid $red;
+}
+
+input[disabled=disabled], input:disabled {
+	@include setTransitionIn;
+	border: $hairline solid black;
+	color: black;
+
+	&:hover {
+		cursor: not-allowed;
+	}
+}
+
+%submit-icon {
+	width: $button-size;
+	height: $button-size;
+	color: transparent; // Remove text from button
+
+	background-size: $button-size / 1.5;
+	background-position: center top 8px;
+	background-repeat: no-repeat;
+}
+
+input[type="submit"] {
+	&.input__news--submit {
+		@extend %submit-icon;
+		background-image: url("/Static/media/gfx/next.svg");
+	}
+
+	&.search__onpage--submit {
+		@extend %submit-icon;
+		background-image: url("/Static/media/gfx/search.svg");
+	}
+}
+
+input[type="submit"]:disabled {
+	background-color: $red;
+	color: $color__text--gray-light;
+}
+
+label, legend {
+	@extend %typography__microheader;
+	/*
+	@media screen and (min-width: $size-wide) {
+		margin-bottom: $margin / 4;
+	}
+	*/
+	margin-bottom: $margin / 4;
+
+	&.label-left {
+		display: inline-block;
+		margin-right: $margin / 2;
+		font-size: $font__size--m;
+		line-height: $button-size;
+		font-family: $font__family--regular;
+		float: left;
+	}
+}
+
+textarea {
+	resize: vertical;
+	min-height: 65px;
+	padding-top: 6px;
+	padding-bottom: 6px;
+	margin-bottom: $padding;
+}
+
+fieldset {
+	border: 0;
+	margin: 0;
+	padding: 0;
+	border-width: 0;
+}
+
+.form-account {
+	> div > div, > div > div > input {
+		margin-bottom: $margin / 4 !important;
+	}
+}
+
+.form__requirements {
+	height: 0;
+	font-family: $font__family--bold;
+	clear: both;
+	text-align: center;
+	background-color: $orange;
+	color: transparent;
+	user-select: none;
+	pointer-events: none;
+	padding: 0;
+	transition: .2s;
+}
+
+
+
+
+// EpiForm specific styles. Html generated by EpiForms in CMS
+#__field_ {
+	padding: 0;
+}
+
+.EPiServerForms {
+	
+	// Labels
+	.Form__Element.FormRange, .Form__Element.FormFileUpload, .Form__Element.FormCaptcha {
+		label {
+			display: block !important;
+		}
+	}
+
+	// Buttons
+	.FormSubmitButton, .Form__Element--NonData {
+		margin-right: 20px !important;
+		margin-top: 1rem !important;
+	}
+
+	.FormSubmitButton {
+		color: $color__solid--deepblue-mid;
+		background-color: $color__brand--green;
+		text-transform: uppercase;
+
+		&:hover {
+			color: $white;
+		}
+	}
+
+	// Validation box
+	.Form__Element__ValidationError {
+		height: auto;
+		max-height: 200px;
+		padding: $padding / 3 $padding / 2;
+		color: $white !important;
+		font-family: $font__family--bold;
+		clear: both;
+		text-align: center;
+		background-color: $orange;
+		user-select: none;
+		pointer-events: none;
+	}
+
+	//Textarea
+	.Form__Element.FormTextbox--Textarea {
+		margin-bottom: 1rem;
+	}
+
+	textarea {
+		margin-bottom: 0;
+	}
+
+	// Range
+	.FormRange__Input {
+		float: none;
+	}
+
+	//Img list
+	.FormChoice.FormChoice--Image {
+		.Form__Element__Caption {
+			@extend %typography__microheader;
+			margin-bottom: $margin / 4;
+			clear: both;
+			display: block;
+		}
+	}
+
+	// File upload
+	.Form__Element.FormFileUpload {
+		clear: both;
+		display: block;
+	}
+
+	.FormFileUpload__Input {
+		@extend %input-base;
+	}
+
+	// Captcha
+	.Form__Element.FormCaptcha {
+		clear: both;
+
+		.FormCaptcha__Refresh {
+			float: right;
+			margin: .5rem 0 0;
+			font-size: .5em;
+		}
+
+		.FormTextbox__Input {
+			width: 100%;
+		}
+	}
+}

@@ -1,0 +1,98 @@
+/*doc
+---
+title: Inline Menu
+name: inlinemenu
+category: Components
+---
+
+Inline menu on article pages.
+*/
+
+%inlinemenu {
+	width: auto;
+
+	&__mobile {
+		display: block;
+
+		@media screen and (min-width: $size-tablet) {
+			display: none;
+		}
+	}
+}
+
+.inlinemenu {
+	@extend %inlinemenu;
+}
+
+.inlinemenu__mobile {
+	display: block;
+
+	@media screen and (min-width: $size-tablet) {
+		display: none;
+	}
+}
+
+.inlinemenu__desktop--ul {
+	display: none;
+
+	@media screen and (min-width: $size-tablet) {
+		width: 100%;
+		margin: $margin / 2 0;
+		display: inline-block;
+		text-align: center;
+		white-space: nowrap;
+		line-height: $font__lineheight--xxl;
+		border-top: $hairline solid black;
+		border-bottom: $hairline solid black;
+
+		& li:not(:first-child):not(.menu):not(.menu-object) {
+			&:before {
+				content: "|";
+				padding-right: $margin;
+				display: inline-block;
+
+				@media screen and (max-width: $size-wide) {
+					padding: 0 $margin / 2 0 $margin / 4;
+				}
+			}
+		}
+
+		& .menu {
+			padding-left: $padding / 4;
+			border-left: $hairline solid black;
+			line-height: $font__lineheight--xxl;
+
+			> li {
+				border-left: none;
+				padding-left: 0 !important;
+			}
+		}
+
+		& .menu > .dropdown__menu > li {
+			border-left: none;
+			padding-left: 0 !important;
+		}
+	}
+}
+
+.inlinemenu__desktop--arrow {
+	height: 75px;
+	width: 50px;
+	text-align: center;
+	padding: 0;
+	margin: 0;
+	float: left;
+	display: inline-block;
+	background-image: url("/Static/media/gfx/arrow-down.svg");
+	background-size: 33%;
+	background-repeat: no-repeat;
+	background-position: center;
+
+	@media screen and (max-width: $size-tablet) {
+		width: 20%;
+	}
+
+	@media screen and (max-width: $size-mobilexl) {
+		width: 12%;
+	}
+}

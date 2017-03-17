@@ -1,3 +1,3 @@
-var gulp = require("gulp");
+const gulp = require("gulp");
 
-gulp.task("watch", ["build", "stylelint", "eslint", "browsersync"], function() { });
+gulp.task("watch", ["build", "stylefmt", "stylelint", "webpack", "babel", "eslint", "browsersync"], function() { });

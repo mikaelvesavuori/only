@@ -1,20 +1,15 @@
-var config = require("../config.js").browsersync.development;
+const config = require("../config.js");
 
-var gulp = require("gulp");
-var browsersync = require("browser-sync");
-var connect = require("gulp-connect-php");
+const gulp = require("gulp");
+const browsersync = require("browser-sync");
 
 gulp.task("browsersync", ["sass"], function() {
-	connect.server({
-		base: "app",
-		port: 9999
-	});
-	
-	browsersync(config);
-	
-	gulp.watch("app/sass/**/*.scss", ["sass", "stylelint"]);
-	gulp.watch("app/*.html", browsersync.reload);
-	gulp.watch("app/*.php", browsersync.reload);
-	gulp.watch("app/scripts/**/*.{js,jsx}", ["eslint", browsersync.reload]);
-	gulp.watch("app/css/**/*.css", browsersync.reload);
+	browsersync(config.browsersync);
+
+	gulp.watch(config.browsersync.src + "sass/**/*.scss", ["sass", "stylelint"]);
+	gulp.watch(config.browsersync.src + "*.{html,php}", browsersync.reload);
+	gulp.watch(config.browsersync.src + "scripts/compiled/*.js", browsersync.reload);
+	gulp.watch(config.browsersync.src + "scripts/js/**/*.js", ["babel", "eslint"], browsersync.reload);
+	gulp.watch(config.browsersync.src + "scripts/jsx/**/*.{js,jsx}", ["webpack"], browsersync.reload);
+	gulp.watch(config.browsersync.src + "css/**/*.css", browsersync.reload);
 });

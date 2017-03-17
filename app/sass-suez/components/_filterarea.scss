@@ -1,0 +1,65 @@
+/*doc
+---
+title: Filter Area
+name: filterarea
+category: Components
+---
+
+The filter area on product listing page is used to help users make choices.
+*/
+
+%filter-area {
+	display: table;
+	clear: both;
+	position: relative;
+	transition: padding 0s, height.4s;
+	border-top: 2px solid $color__solid--blue-gray-mid;
+	border-bottom: 1px solid $color__solid--blue-gray-mid;
+	visibility: hidden;
+	padding: 0;
+	overflow: hidden;
+
+	> div {
+		max-height: 0;
+		height: 0;
+		opacity: 0;
+	}
+
+	&[data-state="open"] {
+		padding: $padding;
+		//transition: height .2s, max-height .2s;
+		transition: padding 0s, max-height .2s, visibility .2s, display 0s;
+		visibility: visible;
+
+		> div {
+			transition: height .2s, max-height .2s;
+			max-height: 700px;
+			height: auto;
+			opacity: 1;
+		}
+
+		@media screen and (max-width: $size-desktop) {
+			height: 550px;
+		}
+
+		@media screen and (max-width: $size-tablet) {
+			height: 700px;
+		}
+
+		@media screen and (max-width: $size-mobilemid) {
+			height: 800px;
+		}
+
+		@media screen and (max-width: $size-mobile) {
+			height: 920px;
+		}
+	}
+}
+
+.filter__container {
+	height: 0;
+
+	&[data-state="open"] {
+		height: auto;
+	}
+}

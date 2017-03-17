@@ -1,0 +1,20 @@
+/*doc
+---
+title: Footer
+name: footer
+category: Components
+---
+
+Site-wide footer.
+*/
+
+footer {
+	clear: both;
+	float: left;
+	width: 100%;
+	border-top: $thick solid $color__brand--green;
+	background-color: $color__quote--blue-dark;
+	color: white;
+	bottom: 0;
+	position: static;
+}

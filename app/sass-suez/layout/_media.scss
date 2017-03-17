@@ -1,0 +1,153 @@
+/*doc
+---
+title: Media
+name: media
+category: Layout
+---
+
+Settings for media items like images and video.
+
+```html_example
+<div class="modal">Modal</div>
+```
+*/
+
+// https://gist.github.com/larrybotha/7881691
+// Let's target IE to respect aspect ratios and sizes for img tags containing SVG files
+/* [1] IE9 */
+.ie9 img[src$=".svg"] {
+	width: 100%;
+}
+
+/* [2] IE10+ */
+@media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
+	img[src$=".svg"] {
+		width: 100%;
+	}
+}
+
+img, picture, video, iframe, svg, canvas {
+	max-width: 100%;
+	border: 0;
+	padding: 0;
+	margin: 0;
+}
+
+.lazyload {
+	//filter: blur(10px);
+}
+
+.lazyloading {
+	//
+}
+
+.lazyloaded {
+	//filter: none;
+}
+
+figure {
+	margin: 0;
+}
+
+%coverimage {
+	width: 100%;
+	position: absolute;
+	object-fit: cover;
+	background-size: cover;
+	background-position: center;
+	background-repeat: no-repeat;
+	background-attachment: fixed;
+}
+
+%round-image {
+	// You may want to specify max-height/max-width when including this mixin on an image class
+	//max-width: 280px;
+	//max-height: 280px;
+
+	width: 66%;
+	display: block;
+	margin: 0 auto;
+	object-fit: cover;
+	object-position: center center;
+	background-size: cover;
+	background-position: center center;
+	background-clip: padding-box;
+	border-radius: 100%; //50%
+	overflow: hidden;
+}
+
+.media__image--feature {
+	@extend %coverimage;
+	height: 400px;
+	top: 140px;
+	z-index: -1;
+
+	@media screen and (max-width: $size-tablet) {
+		height: 200px;
+		position: relative;
+		top: 0;
+	}
+}
+
+.media__image--feature-large {
+	@extend %coverimage;
+	height: 400px;
+	top: 140px;
+	z-index: -1;
+
+	@media screen and (max-width: $size-tablet) {
+		//height: 200px;
+		//position: relative;
+		top: 100px;
+	}
+}
+
+.media__image--top {
+	@extend %coverimage;
+	height: 250px;
+	top: 140px;
+	z-index: -1;
+
+	@media screen and (max-width: $size-tablet) {
+		height: 200px;
+		position: relative;
+		top: 0;
+	}
+}
+
+.media__image--top-dark {
+	@extend %coverimage;
+	position: relative;
+	height: 250px;
+	z-index: -1;
+	filter: brightness(70%);
+
+	@media screen and (max-width: $size-tablet) {
+		height: 200px;
+		position: relative;
+		top: 0;
+	}
+}
+
+video, iframe {
+	height: 300px;
+	top: 0;
+	//float: left;
+
+	/*
+	height: 100%;
+	position: absolute;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	z-index: 100;
+	*/
+}
+
+.inline-icon {
+	display: inline-block;
+	vertical-align: middle;
+	height: 1em;
+	margin-right: $margin / 2;
+}

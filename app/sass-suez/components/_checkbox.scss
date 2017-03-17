@@ -1,0 +1,87 @@
+/*doc
+---
+title: Checkbox
+name: checkbox
+category: Components
+---
+
+The checkbox is a custom checkbox component that includes a simple animation.
+*/
+
+%checkbox {
+	width: $button-size;
+	height: $button-size;
+	position: relative;
+
+	label {
+		width: $button-size;
+		height: $button-size;
+		cursor: pointer;
+		border: $thin solid black;
+		transition: .15s ease-out;
+
+		&:after {
+			content: "";
+			width: 50%;
+			height: 30%;
+			position: absolute;
+			top: 30%;
+			left: 25%;
+			border: $thin solid black;
+			border-top: none;
+			border-right: none;
+			background: transparent;
+			opacity: .1;
+			transform: rotate(-45deg);
+			transition: .15s ease-in;
+		}
+
+		&:hover::after {
+			transition: .15s ease-in;
+			border: $thick solid black;
+			border-top: none;
+			border-right: none;
+		}
+	}
+
+	input[type=checkbox].checkbox-custom {
+		// For styling custom checkboxes
+		visibility: hidden;
+
+		&:checked {
+			+ label {
+				background-color: $color__brand--green;
+
+				&:after {
+					opacity: 1;
+					border: $thick solid black;
+					border-top: none;
+					border-right: none;
+				}
+			}
+		}
+	}
+}
+
+.checkbox {
+	@extend %checkbox;
+
+	&__order {
+		@extend %checkbox;
+		margin-top: $margin;
+		margin-bottom: $margin;
+		float: right;
+	}
+}
+
+// When you need a label with a function, use a div like this: <div class="checkbox__label" aria-labelledby="checkbox-asdf">label text</div>
+.checkbox__label {
+	width: 100px;
+	font-size: $font__size--s;
+}
+
+// For positioning you might want a container holding the component down, as you can't really position the .checkbox part very well on its own
+.checkbox__container {
+	padding: 0 $margin $margin 0;
+	float: left;
+}

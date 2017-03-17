@@ -1,0 +1,178 @@
+/*doc
+---
+title: Tabbed Box
+name: tabbedbox
+category: Components
+---
+
+The tabbed box component is an accordion-style, relative-size content viewer.
+
+```html_example
+<div class="modal">Modal</div>
+```
+*/
+
+.tabbed {
+	float: left;
+	width: 100%;
+}
+
+.tabbed > input {
+	display: none;
+}
+
+.tabbed > .section > h1 {
+	float: left;
+	box-sizing: border-box;
+	margin: 0;
+	overflow: hidden;
+}
+
+.tabbed > .section > h1 > label {
+	@include setTransitionOut;
+	background-color: $white;
+	color: $color__text--blue-dark;
+	cursor: pointer;
+	line-height: $button-size;
+	padding: $padding / 4 $padding / 4 $padding / 4 $padding;
+	width: 100%;
+	text-align: left;
+	border: $hairline solid $color__solid--blue-gray-mid;
+	outline: none;
+	margin-bottom: 0;
+	background-image: url("/Static/media/gfx/arrow-right-blue.svg");
+	background-repeat: no-repeat;
+	background-position: left $button-size / 4 center;
+	background-size: $button-size / 3.5;
+	font-size: $font__size--m;
+	font-family: $font__family--regular;
+
+	@media screen and (max-width: $size-tablet) {
+		font-size: $font__size--l;
+	}
+}
+
+.tabbed > .section > div {
+	position: relative;
+	z-index: 1;
+	display: block;
+	margin: 0;
+	padding: $padding;
+	float: right;
+	width: 100%;
+	box-sizing: border-box;
+	border: $hairline solid $color__solid--blue-gray-mid;
+}
+
+.tabbed > input:checked + .section > h1 > label {
+	margin-bottom: 0;
+	font-family: $font__family--bold;
+	background-color: $color__solid--blue-gray-light;
+	background-image: url("/Static/media/gfx/arrow-down-blue.svg");
+}
+
+.tabbed > input:checked + .section > h1 {
+	position: relative;
+	z-index: 2;
+}
+
+.tabbed > input:not(:checked) + .section > div {
+	display: none;
+}
+
+// Previous component - keep short-term just in case
+/*
+.tabbedbox {
+	display: block;
+	position: relative;
+	min-height: 450px;
+	clear: both;
+
+	margin: auto;
+	height: auto;
+	float: left;
+	width: 100%;
+}
+
+.tab {
+	float: left;
+	margin-right: $margin;
+
+	&:first-child {
+		margin-left: $margin;
+	}
+
+	@media screen and (max-width: $size-tablet) {
+		clear: both;
+
+		&:first-child {
+			margin-left: 0;
+		}
+
+		margin-right: $margin / 2;
+	}
+}
+
+.tab label {
+	padding: 10px;
+	font-size: $font__size--m;
+	color: #444;
+	font-family: $font__family--regular;
+
+	display: inherit;
+	position: relative;
+
+	@media screen and (max-width: $size-tablet) {
+		padding: 10px 0;
+	}
+}
+
+.tab [type=radio] {
+	display: none;
+}
+
+.content {
+	display: none;
+	max-height: 0;
+	position: absolute;
+	top: 52px;
+	left: 0;
+	min-width: 100%;
+	padding: $margin;
+	border: 1px solid $color__text--gray-mid;
+	background: white;
+
+	font-size: $font__size--m;
+	font-family: $font__family--regular;
+	color: $color__text--gray-dark;
+
+	@media screen and (max-width: $size-tablet) {
+		top: 170px;
+	}
+}
+
+[type=radio]:not(:checked) ~ label {
+	@include setTransitionOut;
+	color: $color__text--gray-mid;
+
+	&:hover {
+		@include setTransitionIn;
+		color: black;
+	}
+}
+
+[type=radio]:checked ~ label {
+	@include setTransitionIn;
+	width: 100%;
+	font-family: $font__family--bold;
+	color: $color__text--blue-dark;
+	transition: .5s;
+	z-index: 2;
+}
+
+[type=radio]:checked ~ label ~ .content {
+	z-index: 1;
+	display: block;
+	max-height: 500px;
+}
+*/

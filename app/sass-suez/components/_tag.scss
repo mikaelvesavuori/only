@@ -1,0 +1,115 @@
+/*doc
+---
+title: Tag
+name: tag
+category: Components
+---
+
+Tags are small text elements with a "boxy" style formatting.
+
+```html_example
+<div class="modal">Modal</div>
+```
+*/
+
+%tag {
+	text-align: center;
+}
+
+.tag {
+	@extend %tag;
+}
+
+.tag__service-quantity {
+	@extend %tag;
+	position: absolute;
+	top: $margin;
+	right: 0;
+	font-size: $font__size--m;
+	border: 1px solid $color__solid--blue-gray-mid;
+	padding: $padding / 4;
+}
+
+.tag__productinfo {
+	@extend %tag;
+	text-transform: uppercase;
+	position: absolute;
+	margin: 0;
+	min-width: 100px;
+	background-color: rgba($white, .7);
+	left: 0;
+	right: 0;
+	top: 20px;
+	font-size: $font__size--s;
+	line-height: $font__lineheight--l;
+
+	@media screen and (max-width: $size-tablet) {
+		ul li {
+			margin: 0;
+		}
+	}
+
+	@media screen and (max-width: $size-mobilemid) {
+		position: static;
+	}
+
+	&--available {
+		font-family: $font__family--regular;
+		color: $color__brand--green-accent-dark;
+
+		@media screen and (max-width: $size-tablet) {
+			font-size: $font__size--m * 1.1;
+		}
+
+		&:before {
+			content: "";
+			width: $button-size / 3;
+			height: $button-size / 3;
+			padding-right: 2rem;
+			display: inline-block;
+			background-image: url("/Static/media/gfx/info-green.svg");
+			background-repeat: no-repeat;
+			background-size: $button-size / 3;
+		}
+	}
+
+	&--unavailable {
+		font-family: $font__family--regular;
+		color: $red;
+
+		@media screen and (max-width: $size-tablet) {
+			font-size: $font__size--m * 1.1;
+		}
+
+		&:before {
+			content: "";
+			width: $button-size / 3;
+			height: $button-size / 3;
+			padding-right: 2rem;
+			display: inline-block;
+			background-image: url("/Static/media/gfx/stop.svg");
+			background-repeat: no-repeat;
+			background-size: $button-size / 3;
+		}
+	}
+
+	&--backorder {
+		font-family: $font__family--regular;
+		color: $red;
+
+		@media screen and (max-width: $size-tablet) {
+			font-size: $font__size--m * 1.1;
+		}
+
+		&:before {
+			content: "";
+			width: $button-size / 3;
+			height: $button-size / 3;
+			padding-right: 2rem;
+			display: inline-block;
+			background-image: url("/Static/media/gfx/stop.svg");
+			background-repeat: no-repeat;
+			background-size: $button-size / 3;
+		}
+	}
+}
