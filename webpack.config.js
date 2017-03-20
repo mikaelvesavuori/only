@@ -32,7 +32,7 @@ module.exports = {
 				query: {
 					presets: [
 						["es2015", { loose: true, modules: false }],
-						"react",
+						"react"
 					],
 					plugins: [
 						"transform-es2015-modules-commonjs"
@@ -43,7 +43,7 @@ module.exports = {
 				//exclude: /(node_modules|bower_components)/,
 			},
 			{ enforce: 'pre', test: /\.js$/, loader: "source-map-loader" },
-			{ test: /\.tsx?$/, loader: "awesome-typescript-loader" }
+			{ test: /\.ts(x?)$/, loader: "babel-loader?presets[]=es2015!awesome-typescript-loader" }
 		]
 	},
 	plugins: [
