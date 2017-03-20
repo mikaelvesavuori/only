@@ -42,6 +42,8 @@ jspm_packages
 # Optional REPL history
 .node_repl_history
 
+# Compiled js 
+/app/scripts/compiled/**/*
 
 ### Bower ###
 bower_components
