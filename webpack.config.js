@@ -32,7 +32,8 @@ module.exports = {
 				query: {
 					presets: [
 						["es2015", { loose: true, modules: false }],
-						"react"
+						"react",
+						"stage-0"
 					],
 					plugins: [
 						"transform-es2015-modules-commonjs"

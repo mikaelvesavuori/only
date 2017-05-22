@@ -30,10 +30,9 @@ Size chart:
 
 $size-wide:					1180 x 800
 $size-desktop:				1024 x 768
-$size-tablet:				768 x 1024
-$size-mobilemid:			568 (mobile landscape)
-$size-mobile:				480 (older, smaller mobile landscape)
-$size-mobilexl:				736 x 414
-$size-mobile-portrait:		320 x 568
-
+$viewport-tablet:			768 x 1024
+$viewport-mobile-mid:		568 (mobile landscape)
+$viewport-mobile:			480 (older, smaller mobile landscape)
+$viewport-mobile-xl:		736 x 414
+$viewport-mobile-portrait:	320 x 568
 */

@@ -1,0 +1,57 @@
+/*doc
+---
+title: Layout
+name: layout
+category: Layout
+---
+
+Global settings for basic layout elements.
+
+```html_example
+<div class="modal">Modal</div>
+```
+*/
+
+html {
+	font-family: $font-family-regular;
+	box-sizing: border-box;
+	overflow: auto;
+}
+
+*, *:before, *:after {
+	box-sizing: inherit;
+}
+
+main, section, article {
+	width: 100%;
+	margin: 0;
+	padding: 0;
+	float: left;
+	display: block;
+
+	@include media(">viewport-mobile", "<=viewport-desktop") {
+		background-color: rgb(255, 40, 40);
+	}
+}
+
+aside {
+	width: 25%;
+	margin: 0;
+	padding: 0;
+	float: left;
+	display: block;
+}
+
+hr {
+	border: 0;
+	border-bottom: 1px solid $color-gray;
+	width: 100%;
+	clear: both;
+	list-style-type: none;
+	text-decoration: none;
+	margin: 1% 0 5%;
+}
+
+address {
+	padding: $spacing-l 0 $spacing-l 0;
+}

@@ -5,7 +5,7 @@ name: mixins
 category: Global
 ---
 
-Global mixins
+Global mixins.
 
 ```html_example
 <div class="modal">Modal</div>
@@ -15,7 +15,7 @@ Global mixins
 // For resetting to full width size, specifically for small screen sizes
 @mixin setFullWidth {
 	width: 100%;
-	max-width: $size-tablet;
+	max-width: $viewport-tablet;
 	padding: 0;
 	margin: 0;
 	float: left;
@@ -39,12 +39,18 @@ Global mixins
 	}
 }
 
+// Removes awkward default styles on some inputs for iOS and other platforms
+@mixin removePlatformSpecificLook {
+	appearance: none;
+	border-radius: 0;
+}
+
 @mixin animateHeightOnStateChange {
 	transition: .25s ease-in, max-height 0s;
 }
 
 @mixin setOutline {
-	outline: $hairline solid $color__solid--blue-gray-mid;
+	outline: $size-hairline solid $color-darkgray;
 }
 
 @mixin zeroMarginAfterText {
@@ -54,21 +60,21 @@ Global mixins
 }
 
 @mixin expandToFullOnTablet {
-	@media screen and (max-width: $size-tablet) {
+	@media screen and (max-width: $viewport-tablet) {
 		margin: 0 auto;
 	}
 }
 
 @mixin expandToFullOnMobile {
-	@media screen and (max-width: $size-tablet) {
+	@media screen and (max-width: $viewport-tablet) {
 		display: inline-block;
 
 		&:not(:last-child) {
-			margin-bottom: $margin * 2;
+			margin-bottom: $spacing-m * 2;
 		}
 	}
 
-	@media screen and (max-width: $size-mobilexl) {
+	@media screen and (max-width: $viewport-mobile-xl) {
 		width: 100% !important;
 		max-width: 100% !important;
 		flex: 0 1 100% !important;
@@ -76,13 +82,13 @@ Global mixins
 		display: inline-block;
 
 		&:not(:last-child) {
-			margin-bottom: $margin;
+			margin-bottom: $spacing-m;
 		}
 	}
 }
 
 @mixin expandToFullCompactOnMobile {
-	@media screen and (max-width: $size-tablet) {
+	@media screen and (max-width: $viewport-tablet) {
 		width: 50% !important;
 		max-width: 50% !important;
 		flex: 0 1 50% !important;
@@ -90,7 +96,7 @@ Global mixins
 		margin-bottom: 0;
 	}
 
-	@media screen and (max-width: $size-mobilemid) {
+	@media screen and (max-width: $viewport-mobile-mid) {
 		width: 100% !important;
 		max-width: 100% !important;
 		flex: 0 1 100% !important;

@@ -1,0 +1,21 @@
+/*doc
+---
+title: Section
+name: section
+category: Components
+---
+
+The section is the standard container for almost all content within articles.
+*/
+
+section {
+	@include zeroMarginAfterText;
+	width: 100%;
+	margin: 0 auto;
+	z-index: 1;
+	padding: $spacing-l;
+
+	@media screen and (max-width: $viewport-mobile-xl) {
+		padding: $spacing-l / 2;
+	}
+}

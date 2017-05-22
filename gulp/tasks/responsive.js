@@ -1,3 +1,4 @@
+/*
 const config = require("../config.js");
 
 const gulp = require("gulp");
@@ -123,3 +124,4 @@ gulp.task('images', function () {
 	}))
 	.pipe(gulp.dest('dist'));
 });
+*/

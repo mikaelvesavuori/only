@@ -1,13 +1,19 @@
-/*------------------------------------*\
-	UTILITIES
-\*------------------------------------*/
+/*doc
+---
+title: Utilities
+name: utilities
+category: Global
+---
+
+Utility classes are used as additional helper classes to do a variety of supplementary functions.
+*/
 
 .hide {
 	display: none;
 }
 
 .hide__mobile {
-	@media only screen and (max-width: $size-tablet) {
+	@media only screen and (max-width: $viewport-tablet) {
 		display: none;
 	}
 }
@@ -113,15 +119,15 @@
 }
 
 .light {
-	font-weight: $font__weight--light;
+	font-weight: $font-weight-light;
 }
 
 .regular {
-	font-weight: $font__weight--regular;
+	font-weight: $font-weight-regular;
 }
 
 .bold {
-	font-weight: $font__weight--bold;
+	font-weight: $font-weight-bold;
 }
 
 .italic {
@@ -138,127 +144,127 @@
 
 // Font sizes can be used as classes
 .size-xxl {
-	font-size: $font__size--xxl;
+	font-size: $font-size-xxl;
 }
 
 .size-xl {
-	font-size: $font__size--xl;
+	font-size: $font-size-xl;
 }
 
 .size-l {
-	font-size: $font__size--l;
+	font-size: $font-size-l;
 }
 
 .size-m {
-	font-size: $font__size--m;
+	font-size: $font-size-m;
 }
 
 .size-s {
-	font-size: $font__size--s;
+	font-size: $font-size-s;
 }
 
 .size-xs {
-	font-size: $font__size--xs;
+	font-size: $font-size-xs;
 }
 
 .size-xxs {
-	font-size: $font__size--xxs;
+	font-size: $font-size-xxs;
 }
 
-// Allow colors to be used as 
-.offblack {
-	color: $offblack;
+// Allow colors to be used as
+.color-offblack {
+	color: $color-offblack;
 }
 
-.offwhite {
-	color: $offwhite;
+.color-offwhite {
+	color: $color-offwhite;
 }
 
 .black {
-	color: $black;
+	color: $color-black;
 }
 
 .white {
-	color: $white;
+	color: $color-white;
 }
 
 .gray {
-	color: $gray;
+	color: $color-gray;
 }
 
 .lightgray {
-	color: $lightgray;
+	color: $color-lightgray;
 }
 
 .darkgray {
-	color: $darkgray;
+	color: $color-darkgray;
 }
 
 .blue {
-	color: $blue;
+	color: $color-blue;
 }
 
 .purple {
-	color: $purple;
+	color: $color-purple;
 }
 
 .green {
-	color: $green;
+	color: $color-green;
 }
 
 .yellow {
-	color: $yellow;
+	color: $color-yellow;
 }
 
 .red {
-	color: $red;
+	color: $color-red;
 }
 
 // Allow colors to be used as classes, for backgrounds
-.offblack--bg {
-	background-color: $offblack;
+.color-offblack--bg {
+	background-color: $color-offblack;
 }
 
-.offwhite--bg {
-	background-color: $offwhite;
+.color-offwhite--bg {
+	background-color: $color-offwhite;
 }
 
 .black--bg {
-	background-color: $black;
+	background-color: $color-black;
 }
 
 .white--bg {
-	background-color: $white;
+	background-color: $color-white;
 }
 
 .gray--bg {
-	background-color: $gray;
+	background-color: $color-gray;
 }
 
 .lightgray--bg {
-	background-color: $lightgray;
+	background-color: $color-lightgray;
 }
 
 .darkgray--bg {
-	background-color: $darkgray;
+	background-color: $color-darkgray;
 }
 
 .blue--bg {
-	background-color: $blue;
+	background-color: $color-blue;
 }
 
 .purple--bg {
-	background-color: $purple;
+	background-color: $color-purple;
 }
 
 .green--bg {
-	background-color: $green;
+	background-color: $color-green;
 }
 
 .yellow--bg {
-	background-color: $yellow;
+	background-color: $color-yellow;
 }
 
 .red--bg {
-	background-color: $red;
+	background-color: $color-red;
 }

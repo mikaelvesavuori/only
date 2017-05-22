@@ -3,10 +3,16 @@ const runSequence = require("run-sequence");
 
 gulp.task("build", function(cb) {
 	runSequence(
-		"sass",
+		"theo",
+		[
+			"sass"
+		],
 		[
 			"critical",
 			"parker"
+		],
+		[
+			"swprecache"
 		],
 		cb)
 });
@@ -20,6 +26,9 @@ gulp.task("build:production", function(cb) {
 		],
 		[
 			"postprocess"
+		],
+		[
+			"swprecache"
 		],
 		"copyfiles")
 });

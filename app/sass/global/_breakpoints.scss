@@ -1,0 +1,12 @@
+/*doc
+---
+title: Breakpoints
+name: breakpoints
+category: Global
+---
+
+These breakpoints are used to sync the "include-media" plugin with the breakpoints set globally in tokens/viewport. These should probably not be changed.
+
+Be aware that $global-font-size (global/fonts.scss) is also dependent on these values.
+*/
+$breakpoints: (viewport-mobile: $viewport-mobile, viewport-tablet: $viewport-tablet, viewport-desktop: $viewport-desktop);

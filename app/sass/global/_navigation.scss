@@ -1,6 +1,16 @@
-/*------------------------------------*\
-	NAVIGATION
-\*------------------------------------*/
+/*doc
+---
+title: Navigation
+name: navigation
+category: Layout
+---
+
+Base customization of navigation elements.
+
+```html_example
+<div class="modal">Modal</div>
+```
+*/
 
 nav {
 	width: auto;
@@ -12,14 +22,14 @@ ul nav {
 
 ul {
 	margin: 0;
-	margin-bottom: $margin;
+	margin-bottom: $spacing-m;
 	padding: 0;
 	list-style: disc;
 }
 
 ol {
 	margin: 0;
-	margin-bottom: $margin;
+	margin-bottom: $spacing-m;
 	padding: 0;
 	list-style: decimal;
 }
@@ -27,8 +37,8 @@ ol {
 li {
 	margin: 0;
 	padding: 0;
-	margin-left: $margin;
-	line-height: $font__lineheight--l;
+	margin-left: $spacing-m;
+	line-height: $line-height-l;
 }
 
 dd, dt, dl {

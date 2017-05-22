@@ -12,9 +12,9 @@ footer {
 	clear: both;
 	float: left;
 	width: 100%;
-	border-top: $thick solid $color__brand--green;
-	background-color: $color__quote--blue-dark;
-	color: white;
+	//border-top: $size-thick solid $color__brand--green;
+	//background-color: $color__quote--blue-dark;
+	color: $color-white;
 	bottom: 0;
 	position: static;
 }

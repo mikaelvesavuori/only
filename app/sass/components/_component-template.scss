@@ -8,14 +8,26 @@ category: Components
 Component template description and markup example.
 */
 
+%component {
+	width: 100%;
+}
+
 .component {
+	@extend %component;
+
+	&__element {
+		width: 100%;
+
+		&--modifier {
+			//
+		}
+	}
+}
+
+%component--modifier {
 	width: 100%;
 }
 
-.component__element {
-	width: 100%;
-}
-
-.component__element--modifier {
-	width: 100%;
+.component--modifier {
+	@extend %component--modifier;
 }

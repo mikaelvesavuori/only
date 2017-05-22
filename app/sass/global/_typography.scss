@@ -1,66 +1,73 @@
-/*------------------------------------*\
-	TYPOGRAPHY
-\*------------------------------------*/
+/*doc
+---
+title: Typograpghy
+name: typography
+category: Global
+---
+
+Global typographic styling.
+*/
 
 html {
-	font-family: $font__family--base;
+	//font-family: $font__family--base;
 	@include setFontSize($global-font-size);
 }
 
 body {
 	color: colors("font");
-	font-weight: $font__weight--regular;
+	font-size: 100%;
+	font-weight: $font-weight-regular;
 }
 
 h1, h2, h3, h4, h5, h6 {
 	margin: 0;
-	font-weight: $font__weight--bold;
+	font-weight: $font-weight-bold;
 }
 
 h1 {
-	font-size: $font__size--xxl;
-	line-height: $font__lineheight--xxl;
+	font-size: $font-size-xxl;
+	line-height: $line-height-xxl;
 }
 
 h2 {
-	font-size: $font__size--xl;
-	line-height: $font__lineheight--xl;
+	font-size: $font-size-xl;
+	line-height: $line-height-xl;
 }
 
 h3 {
-	font-size: $font__size--l;
-	line-height: $font__lineheight--l;
+	font-size: $font-size-l;
+	line-height: $line-height-l;
 }
 
 h4 {
-	font-size: $font__size--m;
-	line-height: $font__lineheight--m;
+	font-size: $font-size-m;
+	line-height: $line-height-m;
 }
 
 h5 {
-	font-size: $font__size--s;
-	line-height: $font__lineheight--s;
+	font-size: $font-size-s;
+	line-height: $line-height-s;
 }
 
 h6 {
-	font-size: $font__size--s;
-	line-height: $font__lineheight--s;
+	font-size: $font-size-s;
+	line-height: $line-height-s;
 }
 
 p {
 	margin: 0;
-	margin-bottom: $margin;
-	font-size: $font__size--m;
+	margin-bottom: $spacing-m;
+	font-size: $font-size-m;
 }
 
 small {
-	font-size: $font__size--xs;
+	font-size: $font-size-xs;
 }
 
 sup, sub {
-	font-size: $font__size--xxs;
-	font-weight: $font__weight--bold;
-	color: $purple;
+	font-size: $font-size-xxs;
+	font-weight: $font-weight-bold;
+	color: $color-purple;
 }
 
 pre, code {
@@ -76,15 +83,15 @@ pre > code {
 
 cite {
 	font-style: normal;
-	font-size: $font__size--m;
-	font-weight: $font__weight--bold;
+	font-size: $font-size-m;
+	font-weight: $font-weight-bold;
 }
 
 blockquote {
-	font-size: $font__size--m;
-	line-height: $font__lineheight--m;
-	border-left: 5px solid $blue;
-	padding-left: $padding;
+	font-size: $font-size-m;
+	line-height: $line-height-m;
+	border-left: 5px solid $color-blue;
+	padding-left: $spacing-l;
 	margin: .2em 0; //.2em 0 .2em 0
 }
 
@@ -93,7 +100,7 @@ q, em, i {
 }
 
 b, strong {
-	font-size: calc(#{$font__size--s} * .96);
+	font-size: calc(#{$font-size-s} * .96);
 	text-transform: uppercase;
 	letter-spacing: .03em;
 }

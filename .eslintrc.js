@@ -10,7 +10,7 @@ module.exports = {
 	"env": {
 		"browser": true
 	},
-    "extends": "eslint:recommended",
+	"extends": "eslint:recommended",
 	"rules": {
 		"brace-style": [1, "stroustrup"],
 		"curly": 1,

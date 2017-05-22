@@ -6,12 +6,18 @@ module.exports = {
 		src: dev,
 		notify: true,
 		server: {
-			baseDir: "",
+			baseDir: dev,
 			//online: true,
 			online: false,
 			notify: true,
 			injectChanges: true
 		},
+	},
+	theo: {
+		src: "design/**/*",
+		dest: dev + "sass/tokens",
+		transformType: "web",
+		formatType: "scss"
 	},
 	sass: {
 		src:
@@ -25,22 +31,10 @@ module.exports = {
 			outputStyle: "compressed"
 		}
 	},
-	react: {
-		src: dev + "scripts/jsx/*",
-		dest: dev + "scripts/js/react-compiled/"
-	},
-	babel: {
-		src: dev + "scripts/js/**/*",
-		dest: dev + "scripts/compiled/"
-	},
-	delete: {
-		src: dev + "/css/"
-	},
 	precss: { },
 	cssnext: {
 		browsers: [
-			"last 2 versions",
-			"> 5%"
+			"last 2 versions"
 		]
 	},
 	doiuse: {
@@ -67,7 +61,8 @@ module.exports = {
 	linting: {
 		stylelint: {
 			src: [
-				dev + "sass/**/*.scss"
+				dev + "sass/**/*.scss",
+				"!" + dev + "sass/tokens/**/*"
 			],
 			"rules": {
 				/* http://stylelint.io/user-guide/example-config/ */
@@ -244,7 +239,8 @@ module.exports = {
 				"block-opening-brace-newline-after": "always",
 				"block-closing-brace-newline-before": "always",
 				"color-no-invalid-hex": true,
-				"color-hex-case": "lower",
+				"color-no-hex": true,
+				"color-named": "never",
 				"comment-no-empty": true,
 				"declaration-bang-space-after": "never",
 				"declaration-colon-space-after": "always",
@@ -306,6 +302,47 @@ module.exports = {
 			throwError: false
 		}
 	},
+	react: {
+		src: dev + "scripts/jsx/*",
+		dest: dev + "scripts/js/react-compiled/"
+	},
+	babel: {
+		src: dev + "scripts/js/**/*",
+		dest: dev + "scripts/compiled/"
+	},
+	webpack: {
+		src: dev + "scripts/jsx/App.jsx",
+		dest: dev + "scripts/compiled/"
+	},
+	psi: {
+		url: "localhost:3000/index.html"
+	},
+	louis: {
+		url: "localhost:3000/index.html"
+	},
+	phantomcss: {
+		srcScreensDesktop: "testreports/phantomcss/baselines/desktop",
+		srcResultsDesktop: "testreports/phantomcss/results/desktop",
+		srcScreensMobile: "testreports/phantomcss/baselines/mobile",
+		srcResultsMobile: "testreports/phantomcss/results/mobile",
+	},
+	delete: {
+		src: dev + "/css/"
+	},
+	imagemin: {
+		src: dev + "media/**/*",
+		dest: dev + "media-optimized/",
+		options: {
+			optimizationLevel: 3
+		}
+	},
+	htmlmin: {
+		src: dev + "/**/*.html",
+		dest: dist,
+		options: {
+			collapseWhitespace: true
+		}
+	},
 	rsync: {
 		src: dist + "/**",
 		options: {
@@ -322,35 +359,5 @@ module.exports = {
 			exclude: [".DS_Store"],
 			include: []
 		}
-	},
-	imagemin: {
-		src: dev + "media/**/*",
-		dest: dev + "media-optimized/",
-		options: {
-			optimizationLevel: 3
-		}
-	},
-	htmlmin: {
-		src: dev + "/**/*.html",
-		dest: dist,
-		options: {
-			collapseWhitespace: true
-		}
-	},
-	psi: {
-		url: "localhost:3000/index.html"
-	},
-	louis: {
-		url: "localhost:3000/index.html"
-	},
-	phantomcss: {
-		srcScreensDesktop: "testreports/phantomcss/baselines/desktop",
-		srcResultsDesktop: "testreports/phantomcss/results/desktop",
-		srcScreensMobile: "testreports/phantomcss/baselines/mobile",
-		srcResultsMobile: "testreports/phantomcss/results/mobile",
-	},
-	webpack: {
-		src: dev + "scripts/jsx/App.jsx",
-		dest: dev + "scripts/compiled/"
 	}
 };

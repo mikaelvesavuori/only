@@ -9,6 +9,13 @@ brew tap homebrew/science
 brew install vips
 
 
+
+
+
+# Front-end Developer Guide
+## Sogeti (Helsingborg) för Suez
+### Global Kostym (2016-2017)
+
 ## Installation
 - Öppna en CLI, ex. Terminal, iTerm, Windows Command Prompt eller Powershell
 - node -v
@@ -86,26 +93,6 @@ Notera att dessa alltså inte används i produktionskoden men finns tillgänglig
 - forEach
 - classList
 
-#### CSS: Stöd behöver finnas åtminstone för detta
-- rem: Löses med rem.min.js
-- Viewport units: vw, vh, vmin, vmax: Löses med viewport-units-buggyfill.js
-- Font unicode-range subsetting: Ingen polyfill
-- appearance: Ingen polyfill
-- text-size-adjust: Ingen polyfill
-- Multiple column: Löses med css3-multi-column.js
-- transitions: Ingen polyfill
-- animation: Ingen polyfill
-- user-select: none: Ingen polyfill
-- pointer-events: Ingen polyfill
-- text-shadow: Ingen polyfill
-- calc(): Partiell support, IE bör klara våra calcs om man har whitespace mellan enheter
-- Flexbox: Löses med postcss-flexibility för att lägga till relevanta rader i koden, och körs sedan via flexibility.js i vendors-mappen
-- object-fit: Löses med postcss-object-fit-images i bygget och sedan via object-fit-images (ligger i vendors, samt inpackad i scripts/compiled/manual/ie9-polyfills.js)
-
-Känsliga dependencies gällande IE9 är:
-- react-big-calendar: Den kalender vi använder för hämtkalender
-- React: Har uttalat stöd för IE9+, här behöver man eventuellt hålla ett öga öppet om stöd skulle avslutas senare
-
 ## Allmänt om vendor-Javascript (mappen Static/scripts/vendors)
 Mappen innehåller filer som inte generellt skall styckanvändas. Vendor-filerna skall samlas i en större fil och minifieras (manuellt eller via en Gulp-process) till ett paket med ett tydligt syfte. Nuvarande paket är:
 1. vendors.min.js - Laddas för alla och är tänkt att innehålla merfunktionalitet, så som LoadCSS och FontFaceObserver
@@ -144,24 +131,18 @@ När du gör en build i VS kommer den att starta Gulp-tasken build:production. I
 
 ## Sass
 Projektets CSS är kodad enligt Sass och denna kompileras av modulen sass-node via Gulp (kommando: gulp sass). Vid körning av standard-tasken kompileras all Sass automatiskt vid sparning.
+
 ### Struktur
 Vi använder partials och en mappstruktur som framförallt särskiljer globala element ifrån komponenter. Vi använder strikta ägandeförhållanden vilket betyder att vi i största möjliga mån specificerar hur huvudkomponenter transformerar delkomponenter. Det allra främsta verktyget för att upprätthålla detta är att **aldrig** skapa inter-komponentrelationer mellan flera partials. Däremot kan en global komponent - exempelvis layout eller article - äga viss påverkan på en egenhändigt skapad komponent som tabbedbox och hur denna ligger inuti den.
+
 ### Linting (Stylelint)
 Konfigurationen för Stylelint finns i Gulp/config.js, under stylelint/"rules".
 
 ## ES6/ES2015 och Babel
 Projektets Javascript är kodad enligt ES6/ES2015 och denna transpileras av Babel via Gulp (kommando: gulp babel). Vid körning av standard-tasken transpileras all JS automatiskt vid sparning.
-### Produktionskod och färdig kod
-- Produktionskod ligger i Static/scripts/{js|jsx}
-- Färdig kod transpileras till Static/scripts/compiled
+
 ### Linting (ESLint)
 Konfigurationen för ESLint finns i filen .eslintrc.js i roten av projektmappen. Denna följer huvudsakligen regelpaketen "eslint:recommended" och "plugin:react/recommended".
 
 ## Webpack
 Webpack används i projektet huvudsakligen för att bundla Javascript och för att kompilera JSX-filer som React använder. Konfigurationsfilen heter webpack.config.js och ligger i projektroten. Nuvarande inställningar försätter all bundling i produktionsläge vilket ger förminskad filstorlek.
-
-## React
-React används i projektet för rendering av produkter: individuella produkter på produktsidor, produktlistningar, samt produkter i checkout. Vi följer ES6/ES2015-syntax med Reacts klasskomponenter (ex. class Test extends React.Component) istället för det äldre sättet med createClass (ex. const Test = React.createClass).
-
-## Hologram
-Vi dokumenterar Sass med hjälp av Hologram. Genom Hologram skapas även en styleguide för att enklare kunna se hur saker ser ut och bör bete sig. Kommentarer skall finnas i toppen av alla Sass-filer för att Hologram skall kunna skapa styleguiden.

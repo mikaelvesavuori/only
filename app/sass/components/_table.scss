@@ -16,133 +16,15 @@ table {
 	width: 100%;
 	border: 0;
 	padding: 0;
-	margin: 0 0 $margin 0;
+	margin: 0 0 $spacing-m 0;
 	display: inline-block;
 	-webkit-border-horisontal-spacing: 0;
 	-webkit-border-vertical-spacing: 0;
 
 	//border-collapse: collapse;
 
-	font-family: $font__family--regular;
-	font-size: $font__size--m * .9;
-	color: $color__quote--blue-dark;
-
-	&.table__invoice, &.table__document {
-		> tbody {
-			border: $hairline solid $color__solid--blue-gray-mid;
-
-			> tr {
-				background-color: $white;
-
-				> th {
-					padding-left: 1.25rem;
-					font-size: $font__size--l;
-				}
-
-				> td:first-child {
-					font-weight: bold;
-				}
-			}
-		}
-
-		&:not(:last-child) {
-			margin-bottom: $margin * 2;
-		}
-	}
-
-	&.table__service {
-		> tbody > tr {
-			background-color: $white;
-
-			> td {
-				padding: $padding / 3 $padding / 4 $padding / 3 0;
-
-				@media screen and (max-width: $size-mobilemid) {
-					width: 100%;
-
-					&:nth-child(2n) {
-						padding: 0 0 $margin;
-					}
-				}
-
-				&:first-child {
-					font-weight: bold;
-					width: 30%;
-					min-width: 130px;
-				}
-			}
-
-			> th {
-				width: 100%;
-				font-size: $font__size--xl * .9;
-				line-height: 1;
-				padding-bottom: $margin / 2;
-			}
-		}
-
-		+ div {
-			&:not(:only-child) {
-				margin-bottom: $margin * 2;
-			}
-
-			&:last-child {
-				margin-bottom: $margin;
-			}
-		}
-	}
-
-	&.table__inline {
-		@media screen and (max-width: $size-mobilexl) {
-			padding-top: 0;
-			margin-top: 0;
-			margin-bottom: 0 !important;
-		}
-		float: left;
-
-		&:last-child {
-			float: right;
-		}
-
-		> tbody {
-			> tr {
-				background-color: transparent;
-				border-bottom: 0;
-
-				> td {
-					width: 100%;
-					padding: $margin / 4 0;
-				}
-			}
-		}
-	}
-}
-
-.table__document {
-	th {
-		padding-top: $padding / 3;
-	}
-}
-
-.table__servicespec {
-	margin-bottom: 0;
-
-	tr td {
-		&:first-child {
-			width: 33%;
-		}
-
-		&:last-child {
-			width: 66%;
-		}
-	}
-}
-
-.table__subinformation {
-	margin-top: 0;
-	margin-bottom: $margin / 2;
-	font-size: $font__size--s;
-	font-family: $font__family--regular;
-	color: $color__text--gray-dark;
+	//font-family: $font__family--regular;
+	font-size: $font-size-m * .9;
 }
 
 tbody {
@@ -152,7 +34,7 @@ tbody {
 	margin: 0;
 	display: table;
 
-	@media screen and (max-width: $size-mobilexl) {
+	@media screen and (max-width: $viewport-mobile-xl) {
 		padding-top: 0;
 		margin-top: 0;
 		margin-bottom: 0 !important;
@@ -161,10 +43,9 @@ tbody {
 
 th {
 	text-align: left;
-	line-height: $font__lineheight--xl;
-	background-color: white !important;
-	font-size: $font__size--m * 1.1;
-	font-family: $font__family--medium-cond;
+	line-height: $line-height-xl;
+	background-color: $color-white !important;
+	font-size: $font-size-m * 1.1;
 
 	&:empty {
 		height: 0;
@@ -176,22 +57,22 @@ tr {
 	width: 100%;
 	margin: 0 0 1px;
 	padding: 0;
-	background-color: $color__solid--blue-gray-tint;
-	border-bottom: $hairline solid $color__solid--blue-gray-mid;
+	background-color: $color-lightgray;
+	border-bottom: $size-hairline solid $color-darkgray;
 	display: inline-block;
 
 	&:first-child {
 		border-bottom: 0;
-		background-color: white !important;
+		background-color: $color-white !important;
 	}
 
 	&:last-child {
 		border-bottom: 0;
 	}
 
-	@media screen and (max-width: $size-mobilexl) {
+	@media screen and (max-width: $viewport-mobile-xl) {
 		border-bottom: 0;
-		font-size: $font__size--m * 1.1;
+		font-size: $font-size-m * 1.1;
 	}
 
 	&:empty {
@@ -210,7 +91,7 @@ td {
 	> button.button__blue {
 		margin-bottom: 0;
 	}
-	padding: $padding / 3 $padding / 4 $padding / 3 $padding / 2;
+	padding: $spacing-l / 3 $spacing-l / 4 $spacing-l / 3 $spacing-l / 2;
 	float: left;
 	display: inline-block;
 }

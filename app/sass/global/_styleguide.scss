@@ -9,18 +9,18 @@ These are styles that are entirely separate for the styleguide.
 */
 
 .styleguide-menu__header {
-	background-color: $blue;
+	background-color: $color-blue;
 	width: 100%;
 }
 
 .styleguide-menu__header--image {
-	@media only screen and (max-width: $size-tablet), screen and (max-height: $size-tablet) {
+	@media only screen and (max-width: $viewport-tablet), screen and (max-height: $viewport-tablet) {
 		width: 30%;
 		margin: 0 auto;
 		display: block;
 	}
 
-	@media only screen and (max-width: $size-mobilemid) {
+	@media only screen and (max-width: $viewport-mobile-mid) {
 		width: 66.67%;
 		margin: 0 auto;
 		display: block;
@@ -28,17 +28,17 @@ These are styles that are entirely separate for the styleguide.
 }
 
 .styleguide-menu__header--title {
-	font-size: $font__size--xxs;
-	padding: $padding;
+	font-size: $font-size-xxs;
+	padding: $spacing-l;
 	padding-bottom: 0;
 
-	@media only screen and (max-width: $size-mobilexl) {
+	@media only screen and (max-width: $viewport-mobile-xl) {
 		margin: 0;
 	}
 
-	@media only screen and (max-width: $size-mobilemid) {
-		font-size: $font__size--s;
-		line-height: $font__lineheight--m;
+	@media only screen and (max-width: $viewport-mobile-mid) {
+		font-size: $font-size-s;
+		line-height: $line-height-m;
 	}
 }
 
@@ -47,18 +47,18 @@ These are styles that are entirely separate for the styleguide.
 	max-width: 700px;
 	margin-left: 30%;
 
-	@media only screen and (max-width: $size-tablet) {
+	@media only screen and (max-width: $viewport-tablet) {
 		width: 100%;
 		margin-left: 0;
-		max-width: $size-tablet;
-		padding: 0 $padding / 2 0 $padding / 2;
+		max-width: $viewport-tablet;
+		padding: 0 $spacing-l / 2 0 $spacing-l / 2;
 	}
 
 	& > h2 {
 		padding: 3em 0 3em .75em;
-		color: $white;
+		color: $color-white;
 
-		@media only screen and (max-width: $size-tablet) {
+		@media only screen and (max-width: $viewport-tablet) {
 			padding: 3em 0 3em .25em;
 		}
 	}
@@ -67,7 +67,7 @@ These are styles that are entirely separate for the styleguide.
 .styleguide-designer {
 	width: 100%;
 	height: 50vh;
-	border: 1px solid $lightgray;
+	border: 1px solid $color-lightgray;
 	@include setBorderRadius;
 	display: flex;
 	align-items: center;
@@ -82,36 +82,36 @@ These are styles that are entirely separate for the styleguide.
 	position: fixed;
 	width: 180px;
 	height: 100vh;
-	background-color: $lightgray;
+	background-color: $color-lightgray;
 	padding: 0;
 
-	@media only screen and (max-width: $size-tablet), screen and (max-height: $size-tablet) {
+	@media only screen and (max-width: $viewport-tablet), screen and (max-height: $viewport-tablet) {
 		position: relative;
 		width: 100%;
 		height: auto;
-		font-size: $font__size--l; // Make sure text is readable and clickable on small screens
-		line-height: $font__lineheight--l;
+		font-size: $font-size-l; // Make sure text is readable and clickable on small screens
+		line-height: $line-height-l;
 	}
 }
 
 .styleguide-menu__contents {
-	font-size: $font__size--xxs;
-	padding: $padding;
+	font-size: $font-size-xxs;
+	padding: $spacing-l;
 
-	@media only screen and (max-width: $size-tablet), screen and (max-height: $size-tablet) {
+	@media only screen and (max-width: $viewport-tablet), screen and (max-height: $viewport-tablet) {
 		column-count: 3;
 	}
 
-	@media only screen and (max-width: $size-mobilemid) {
+	@media only screen and (max-width: $viewport-mobile-mid) {
 		column-count: 2;
-		font-size: $font__size--s;
-		line-height: $font__lineheight--m;
+		font-size: $font-size-s;
+		line-height: $line-height-m;
 	}
 
-	@media only screen and (max-width: $size-mobile) {
+	@media only screen and (max-width: $viewport-mobile) {
 		column-count: 1;
-		font-size: $font__size--s;
-		line-height: $font__lineheight--m;
+		font-size: $font-size-s;
+		line-height: $line-height-m;
 	}
 }
 
@@ -120,7 +120,7 @@ These are styles that are entirely separate for the styleguide.
 }
 
 .styleguide-menu__ul {
-	margin-bottom: $margin / 2;
+	margin-bottom: $spacing-m / 2;
 	break-inside: avoid;
 }
 
@@ -131,22 +131,22 @@ These are styles that are entirely separate for the styleguide.
 }
 
 .styleguide-article {
-	margin-bottom: calc(#{$margin} * 4);
-	padding: $padding;
-	//border: 1px solid $lightgray;
+	margin-bottom: calc(#{$spacing-m} * 4);
+	padding: $spacing-l;
+	//border: 1px solid $color-lightgray;
 	border: none;
 	@include setBorderRadius;
-	box-shadow: 0 5px 15px $lightgray;
+	box-shadow: 0 5px 15px $color-lightgray;
 
-	@media only screen and (max-width: $size-tablet) {
-		padding: calc(#{$padding} / 2);
+	@media only screen and (max-width: $viewport-tablet) {
+		padding: calc(#{$spacing-l} / 2);
 	}
 }
 
 .styleguide-headingarea {
 	width: 100%;
 	height: 120px;
-	background-color: $blue;
+	background-color: $color-blue;
 	position: relative;
 	display: block;
 	overflow: hidden;
@@ -158,10 +158,10 @@ These are styles that are entirely separate for the styleguide.
 }
 
 .styleguide-block {
-	margin: 0 $margin $margin 0;
-	color: $white;
-	border: 1px solid $lightgray;
-	font-size: $font__size--xxs;
+	margin: 0 $spacing-m $spacing-m 0;
+	color: $color-white;
+	border: 1px solid $color-lightgray;
+	font-size: $font-size-xxs;
 	float: left;
 	width: 8em;
 	height: 8em;
@@ -173,21 +173,21 @@ These are styles that are entirely separate for the styleguide.
 .styleguide-code {
 	width: 100%;
 	height: auto;
-	padding: calc(#{$padding} / 2);
+	padding: calc(#{$spacing-l} / 2);
 	border-radius: 0 0 3px 3px;
-	border: 1px solid $blue;
-	margin: 0 0 $margin 0;
-	font-size: $font__size--m; // Better with larger text inside the block, then just use standard S size in regular use
+	border: 1px solid $color-blue;
+	margin: 0 0 $spacing-m 0;
+	font-size: $font-size-m; // Better with larger text inside the block, then just use standard S size in regular use
 }
 
 .styleguide-code--top {
-	padding: calc(#{$padding} / 4);
+	padding: calc(#{$spacing-l} / 4);
 	border-radius: 3px 3px 0 0;
 }
 
 .styleguide-code--label {
 	@include setPointerOff;
-	font-size: $font__size--xs;
+	font-size: $font-size-xs;
 	text-transform: uppercase;
 }
 
@@ -206,7 +206,7 @@ These are styles that are entirely separate for the styleguide.
 
 	&:hover {
 		transition: $transitionInFast;
-		background-color: darken($green, 20%);
+		background-color: darken($color-green, 20%);
 	}
 }
 
@@ -215,10 +215,10 @@ These are styles that are entirely separate for the styleguide.
 
 	&:hover {
 		transition: $transitionInSlow;
-		background-color: darken($green, 20%);
+		background-color: darken($color-green, 20%);
 	}
 }
 
 .styleguide-designer--component {
-	margin: calc(#{$margin} / 2);
+	margin: calc(#{$spacing-m} / 2);
 }

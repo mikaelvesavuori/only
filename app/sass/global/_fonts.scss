@@ -11,47 +11,17 @@ Fonts and typographic meta-setup.
 <div class="modal">Modal</div>
 ```
 */
-$font__weight--light: 100;
-$font__weight--regular: 300;
-$font__weight--bold: 500;
-$font__weight--base: $font__weight--regular;
-$font__weight--header: $font__weight--bold;
-$font__size--base: 1rem;
-$font__lineheight--base: 1.6;
-$font__family--base: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif; /* Thanks to https://www.smashingmagazine.com/2015/11/using-system-ui-fonts-practical-guide/ */
-$font__family--fixed: "Inconsolata", monospace;
-$font__lineheight--fixed: $base-line-height;
-$font__size--xxl: 4em;
-$font__size--xl: 2.8em;
-$font__size--l: 2.1em;
-$font__size--m: 1.35em;
-$font__size--s: 1em;
-$font__size--xs: .8em;
-$font__size--xxs: .65em;
-$font__lineheight--xxl: 1.8;
-$font__lineheight--xl: 1.8;
-$font__lineheight--l: 1.8;
-$font__lineheight--m: 1.6;
-$font__lineheight--s: 1.6;
-$font__lineheight--xs: 1.45;
-$font__lineheight--xxs: 1.3;
-$breakpoints: (
-	small : $size-mobile-portrait, medium: $size-tablet, large : $size-desktop
-);
+
+//$breakpoints: (
+//	small: $viewport-mobile, medium: $viewport-tablet, large : $viewport-desktop
+//);
 
 $global-font-size: (
-	null: ($font__size--base, $font__lineheight--base),
-	small: ($font__size--base * .75, $font__lineheight--base * .95),
-	medium: ($font__size--base * .85, $font__lineheight--base * .95),
-	large: ($font__size--base, $font__lineheight--base)
-	//1440px: 20px,
+	null: ($font-size-m, $line-height-m),
+	viewport-mobile: ($font-size-m * .75, $line-height-m * .95),
+	viewport-tablet: ($font-size-m * .85, $line-height-m * .95),
+	viewport-desktop: ($font-size-m, $line-height-m)
 );
-
-@font-face {
-	font-family: "DINProRegular";
-	src: url("../fonts/DINProRegular.woff2") format("woff2"), url("../fonts/DINProRegular.woff") format("woff");
-	font-display: swap;
-}
 
 /* Thanks to https://www.smashingmagazine.com/2015/06/responsive-typography-with-sass-maps/ */
 @mixin setFontSize($fs-map, $fs-breakpoints: $breakpoints) {
@@ -83,81 +53,9 @@ $global-font-size: (
 }
 
 @mixin setCodeFont {
-	font-family: $font__family--fixed;
-	font-size: $font__size--s;
+	//font-family: $font__family--fixed;
+	font-size: $font-size-s;
 	padding: 0;
 	margin: 0;
 	overflow-x: scroll;
 }
-
-
-/*
-$font__weight--light: 100;
-$font__weight--regular: 300;
-$font__weight--bold: 500;
-$font__weight--base: $font__weight--regular;
-$font__weight--header: $font__weight--bold;
-$font__size--base: 1rem;
-$font__lineheight--base: 1.6;
-$font__family--fallback: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
-$font__family--regular: "DINProRegular", -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
-$font__family--medium-cond: "DINProCondMedium", -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
-$font__family--bold: "DINProBold", -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
-$font__family--bold-cond: "DINProCondBold", -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
-$font__family--fixed: monospace;
-$font__lineheight--fixed: $base-line-height;
-$font__size--xxl: 4.6rem;//4em;
-$font__size--xl: 2.8rem;
-$font__size--l: 1.65rem;
-$font__size--m: 1.25rem;
-$font__size--s: 1rem;
-$font__size--xs: .8rem;
-$font__size--xxs: .55rem;
-$font__lineheight--xxl: 56pt;//1.8;
-$font__lineheight--xl: 1.25;
-$font__lineheight--l: 1.8;
-$font__lineheight--m: 1.65;
-$font__lineheight--s: 1.55;
-$font__lineheight--xs: 1.35;
-$font__lineheight--xxs: 1.2;
-$breakpoints: (
-	small : $size-mobile-portrait, medium: $size-tablet, large : $size-desktop
-);
-
-$global-font-size: (
-	null: ($font__size--base * .7, $font__lineheight--base * .9),
-	small: ($font__size--base * .7, $font__lineheight--base * .9),
-	medium: ($font__size--base * .8, $font__lineheight--base * .95),
-	large: ($font__size--base * .9, $font__lineheight--base)
-);
-
-// Thanks to https://www.smashingmagazine.com/2015/06/responsive-typography-with-sass-maps/
-@mixin setFontSize($fs-map, $fs-breakpoints: $breakpoints) {
-	@each $fs-breakpoint, $fs-font-size in $fs-map {
-		@if $fs-breakpoint == null {
-			@include generateSize($fs-font-size);
-		} @else {
-			@if map-has-key($fs-breakpoints, $fs-breakpoint) {
-				$fs-breakpoint: map-get($fs-breakpoints, $fs-breakpoint);
-			}
-
-			@media screen and (min-width: $fs-breakpoint) {
-				@include generateSize($fs-font-size);
-			}
-		}
-	}
-}
-
-@mixin generateSize($fs-font-size) {
-	@if type-of($fs-font-size) == "list" {
-		font-size: nth($fs-font-size, 1);
-
-		@if (length($fs-font-size) > 1) {
-			line-height: nth($fs-font-size, 2);
-		}
-	} @else {
-		font-size: $fs-font-size;
-	}
-}
-
-*/

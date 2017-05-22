@@ -176,7 +176,7 @@ dfn {
  */
 
 mark {
-	color: $black;
+	color: $color-black;
 }
 
 /**
@@ -308,7 +308,7 @@ button:-moz-focusring, [type="button"]:-moz-focusring, [type="reset"]:-moz-focus
  */
 
 fieldset {
-	border: 1px solid $lightgray;
+	border: 1px solid $color-lightgray;
 	margin: 0 2px;
 	padding: .35em .625em .75em;
 }

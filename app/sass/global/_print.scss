@@ -1,13 +1,36 @@
-/*------------------------------------*\
-PRINT
-\*------------------------------------*/
+/*doc
+---
+title: Print
+name: print
+category: Layout
+---
+
+Print styling.
+
+```html_example
+<div class="modal">Modal</div>
+```
+*/
 
 @media print {
 	* {
-		background: #fff; /*transparent !important;*/
-		color: #000 !important;
+		background: $color-white;
+		color: $color-black !important;
 		box-shadow: none !important;
 		text-shadow: none !important;
+	}
+
+	a[href]:after {
+		content: none !important;
+	}
+
+	html, body {
+		height: auto;
+	}
+
+	@page  {
+		size: a4;
+		margin: 2cm;
 	}
 
 	.no-print, .no-print * {
@@ -23,10 +46,6 @@ PRINT
 		float: left;
 	}
 
-	@page  {
-		margin: 2cm;
-	}
-
 	header, nav, footer {
 		display: none;
 	}
@@ -35,7 +54,7 @@ PRINT
 		page-break-before: always;
 	}
 
-	ul, img {
+	ul, img, picture {
 		page-break-inside: avoid;
 	}
 
@@ -43,20 +62,20 @@ PRINT
 		text-decoration: underline;
 	}
 
-	a[href]:after {
-		content: " (" attr(href) ")";
-	}
+	//a[href]:after {
+	//	content: " (" attr(href) ")";
+	//}
 
 	abbr[title]:after {
 		content: " (" attr(title) ")";
 	}
 
-	.ir a:after, a[href^="javascript:"]:after, a[href^="#"]:after {
+	a:after, a[href^="javascript:"]:after, a[href^="#"]:after {
 		content: "";
 	}
 
 	pre, blockquote {
-		border: 1px solid $gray;
+		border: 1px solid $color-gray;
 		page-break-inside: avoid;
 	}
 

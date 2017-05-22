@@ -1,3 +1,3 @@
 (function loadCSSInit() {
-	loadCSS("app/css/main.css");
+	loadCSS("css/main.css");
 })();

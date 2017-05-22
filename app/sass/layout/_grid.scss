@@ -1,0 +1,41 @@
+/*doc
+---
+title: Grid
+name: grid
+category: Layout
+---
+
+We use a modern CSS Grid-based grid to contain our layout elements: through a wrapping container and then through individual items/blocks.
+
+```html_example
+<div class="modal">Modal</div>
+```
+*/
+
+%grid {
+	width: 100%;
+	padding: 0 $spacing-l;
+	display: grid;
+	grid-template-columns: 1fr 4fr 1fr;
+	grid-gap: $spacing-s;
+}
+
+.grid {
+	@extend %grid;
+}
+
+%grid--item {
+	background-color: rgb(100, 175, 60);
+
+	&:nth-type(6) {
+		grid-column: 3 / span 2;
+	}
+}
+
+.grid--item {
+	@extend %grid--item;
+}
+
+.grid--item--tall {
+	grid-row-start: span 6;
+}

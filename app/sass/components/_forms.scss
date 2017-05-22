@@ -8,24 +8,32 @@ category: Components
 Global styling for forms and inputs. Any custom form types and inputs should, if at all possible, be styled as separate components.
 */
 
+form, input, textarea {
+	@include removePlatformSpecificLook;
+}
+
 input[type="email"], input[type="number"], input[type="search"], input[type="text"], input[type="tel"], input[type="url"], input[type="password"], textarea, select {
 	height: 38px;
 	padding: 6px 10px; /* The 6px vertically centers text on FF, ignored by Webkit */
 	background-color: transparent;
-	border: 1px solid $gray;
+	border: 1px solid $color-gray;
 	@include setBorderRadius;
 	box-shadow: none;
 	box-sizing: border-box;
 	width: 50%;
 
-	@media only screen and (max-width: $size-tablet) {
+	@media only screen and (max-width: $viewport-tablet) {
 		width: 75%;
 	}
 }
 
-/* Removes awkward default styles on some inputs for iOS */
-input[type="email"], input[type="number"], input[type="search"], input[type="text"], input[type="tel"], input[type="url"], input[type="password"], textarea {
-	appearance: none;
+input[type="email"]:focus, input[type="number"]:focus, input[type="search"]:focus, input[type="text"]:focus, input[type="tel"]:focus, input[type="url"]:focus, input[type="password"]:focus, textarea:focus, select:focus {
+	border: 1px solid $color-blue;
+	outline: 0;
+}
+
+input[type="checkbox"], input[type="radio"] {
+	display: inline;
 }
 
 textarea {
@@ -35,13 +43,8 @@ textarea {
 	padding-bottom: 6px;
 }
 
-input[type="email"]:focus, input[type="number"]:focus, input[type="search"]:focus, input[type="text"]:focus, input[type="tel"]:focus, input[type="url"]:focus, input[type="password"]:focus, textarea:focus, select:focus {
-	border: 1px solid $blue;
-	outline: 0;
-}
-
 label, legend {
-	font-size: $font__size--xs;
+	font-size: $font-size-xs;
 	display: block;
 	margin-bottom: .5em;
 	font-weight: 600;
@@ -52,27 +55,4 @@ fieldset {
 	margin: 0;
 	padding: 0;
 	border-width: 0;
-}
-
-input[type="checkbox"], input[type="radio"] {
-	display: inline;
-}
-
-.form__requirements {
-	font-size: $font__size--xs;
-	padding: 0;
-	margin: 0 0 $margin / 2 0;
-
-	/*
-	height: 0;
-	font-family: $font__family--base;
-	clear: both;
-	text-align: center;
-	background-color: $orange;
-	color: transparent;
-	user-select: none;
-	pointer-events: none;
-	padding: 0;
-	transition: .2s;
-	*/
 }

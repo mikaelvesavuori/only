@@ -14,7 +14,7 @@ noscript {
 	}
 }
 
-.error--browserUnsupported {
+.error--is-unsupported {
 	display: none;
 
 	& > p {
@@ -25,7 +25,7 @@ noscript {
 .error--message {
 	margin: 0 auto;
 	padding: 0;
-	max-width: $size-tablet;
+	max-width: $viewport-tablet;
 	display: flex;
 	align-items: center;
 	justify-content: center;

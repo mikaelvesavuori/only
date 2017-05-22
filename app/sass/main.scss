@@ -1,11 +1,24 @@
 // MAIN: [Sitename], using Only Framework 3.0
-
+@charset "utf-8";
 @import "../../bower_components/compass-mixins/lib/compass";
+@import "../../node_modules/include-media/dist/include-media";
+
+// Tokens
+@import "tokens/aliases";
+@import "tokens/app";
+@import "tokens/colors";
+@import "tokens/fontfamily";
+@import "tokens/fontsizes";
+@import "tokens/fontweights";
+@import "tokens/lineheights";
+@import "tokens/sizing";
+@import "tokens/spacing";
+@import "tokens/viewport";
 
 // Base
+@import "global/breakpoints";
 @import "global/colors";
 @import "global/reset";
-@import "global/variables";
 @import "global/fonts";
 @import "global/animations";
 @import "global/mixins";
@@ -14,7 +27,14 @@
 @import "global/media";
 @import "global/navigation";
 @import "global/typography";
-@import "global/grids";
+
+// Layout
+@import "layout/layout";
+@import "layout/wrapper";
+@import "layout/grid";
+@import "layout/gridflex";
+@import "layout/article";
+@import "layout/section";
 
 // Subcomponents
 //@import "subcomponents/name";
@@ -24,10 +44,7 @@
 @import "components/footer";
 @import "components/forms";
 @import "components/buttons";
-@import "components/tables";
-
-// Compositions
-@import "compositions/layout";
+@import "components/table";
 
 // Pages
 //@import "pages/name";

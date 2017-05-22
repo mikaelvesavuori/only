@@ -1,0 +1,19 @@
+/*doc
+---
+title: Article
+name: article
+category: Components
+---
+
+The article is the standard container for almost all content.
+*/
+
+article {
+	width: 100%;
+	max-width: $viewport-desktop-wide;
+	min-width: 320px;
+	margin: 0 auto;
+	margin-top: -5px; // Adjust to avoid margin edge
+	margin-bottom: $spacing-m * 2;
+	border-bottom: $size-hairline solid $color-lightgray;
+}

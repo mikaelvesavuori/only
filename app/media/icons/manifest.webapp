@@ -1,0 +1,14 @@
+{
+  "version": 1,
+  "name": "My App",
+  "description": "This is my application",
+  "icons": {
+    "60": "media/icons/firefox_app_60x60.png",
+    "128": "media/icons/firefox_app_128x128.png",
+    "512": "media/icons/firefox_app_512x512.png"
+  },
+  "developer": {
+    "name": "Your Name",
+    "url": "https://yoursitename.com/"
+  }
+}
