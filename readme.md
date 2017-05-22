@@ -1,7 +1,7 @@
 # Only Framework (Web Development Boilerplate @ Being)
 
 ## Current version
-Version: 2.3.1 (20160918)
+Version: 3.0 (Development version)
 
 ## Author
 [Mikael Vesavuori](http://www.mikaelvesavuori.se) for [Being](http://www.being.se), 2015-2016
@@ -112,11 +112,11 @@ Most of the heavy features are expected to be incrementally added throughout ver
 
 ### 2.3 (20160821)
 - Added rules to the Stylelint configuration and ran all of the Sass through it, doing some cleaning where needed.
-- Added rules to ESLint (you'll find these in `.eslintrc.js` in the root folder) and checked to make sure they work reasonably well. ESLint won't do linting of files in the `app/scripts/only` folder because they are minified and simply just don't conform to the rest of the config standards. 
+- Added rules to ESLint (you'll find these in `.eslintrc.js` in the root folder) and checked to make sure they work reasonably well. ESLint won't do linting of files in the `app/scripts/only` folder because they are minified and simply just don't conform to the rest of the config standards.
 - The `sass` task no longer minifies the output file as it's expected to go to the production (`/app`) folder where optimization isn't needed. You will have to do minification through another task or rewrite the task.
 - Did further testing of the `babel`/`optimize:scripts` tasks: as the intended workflow is to let `useref` do the file concatenation (which happens through the HTML file) I found that Babel is better off for pre-testing any JS compilation. At the moment, you will end up with a large and unwieldy JS file. The solution has been...
 - Added `babel-postprocess` task to the end of the `build:production` task to run Babel and minify useref-generated files.
-- Added `gulp-uncss`, which is automatically run in the `optimize:css` task. It's set to use the styleguide file as a resource to grab as much CSS as possible, but you may want to change that if your CSS works differently from the Only boilerplate. 
+- Added `gulp-uncss`, which is automatically run in the `optimize:css` task. It's set to use the styleguide file as a resource to grab as much CSS as possible, but you may want to change that if your CSS works differently from the Only boilerplate.
 - Replaced `gulp-cssnano` with `gulp-clean-css`.
 - Adjusted some of the settings for `critical` so it now outputs CSS for multiple screen resolutions.
 
@@ -126,7 +126,7 @@ Most of the heavy features are expected to be incrementally added throughout ver
 - Added [gulp-zip](https://github.com/sindresorhus/gulp-zip) for backing up the `dist` folder to a ZIP archive.
 - Added [gulp-connect-php](https://github.com/micahblu/gulp-connect-php) so you can use PHP files. This gets connected through the browsersync task.
 - Fixed semantic versioning to correct formatting as this returned an error when installing dependencies.
-- Minification now handled exclusively by [gulp-cssnano](https://github.com/ben-eb/gulp-cssnano): removed `cssnano` because it was an unnecessary oversight from me to have two modules doing the same things. 
+- Minification now handled exclusively by [gulp-cssnano](https://github.com/ben-eb/gulp-cssnano): removed `cssnano` because it was an unnecessary oversight from me to have two modules doing the same things.
 
 ### 2.1 (20160814)
 - Gulp has replaced Codekit as the primary intended workflow/task runner (added gulp folder and `gulpfile.js`).
@@ -196,7 +196,7 @@ A huge number of changes have happened for this release. Some of the most import
 - Cleaned and separated the framework from the scaffold to reduce duplicate files and to make it all really super smooth for you to use.
 - Switched to BEM style notation in `_global.scss` which may break dependencies if you've used those globals (for typography and sizing etc).
 - There is now automatic font scaling for tablet, mobile and desktop in `_global.scss`. Easy to use: just edit the percentage number and you should be all clear.
-- Added two "hide" helper classes for print and mobile in `_layout.scss` if you want to remove visibility on such devices for any reason. 
+- Added two "hide" helper classes for print and mobile in `_layout.scss` if you want to remove visibility on such devices for any reason.
 - Added a few more scaffold elements in `_global.scss` so you can adjust sizing, selection color and other colors a bit quicker if you use the scaffold.
 - Added another breakpoint: $break-mobilexl, which is used for devices up to iPhone 6 Plus in landscape mode. Please note that the breakpoints are always set to 1 pixel below the actual size of a display.
 
