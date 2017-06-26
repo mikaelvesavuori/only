@@ -4,7 +4,8 @@
 Version: 3.0 (Development version)
 
 ## Author
-[Mikael Vesavuori](http://www.mikaelvesavuori.se) for [Being](http://www.being.se), 2015-2016
+[Mikael Vesavuori](https://www.mikaelvesavuori.se) for [Being](https://www.being.se), 2015-2017.
+Additional support and graphic development by [Niklas Persson](http://www.niklaspersson.com).
 
 ## What is Only Framework?
 Only Framework is a framework that provides:
