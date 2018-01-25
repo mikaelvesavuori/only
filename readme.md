@@ -95,7 +95,7 @@ Only 2.1 and later versions have a Gulp workflow in mind, but it works just as w
 ## Roadmap to Only 3.0
 The main goal of Only 3.0 is to provide a framework that is just as well suited to static web design and development as it is to small-scale and mid-scale web application development. I feel like Only 2.0 is good at the more static or classic side, but want to make sure it scales to modern and more complex development just as well.
 
-Most of the heavy features are expected to be incrementally added throughout version 2, with focus post 2.5 (or so) being stabilization and more frequent daily use of the framework to provide leads on what should be fixed, removed, improved and otherwise changed before the final Only 3.0 release (expected winter 2016/2017).
+The development version of Only 3.0 is probably the last one. Only is succeeded by [Hiperf](https://github.com/mikaelvesavuori/hiperf).
 
 ### Some kind of backlog of stuff to add or do
 - Add React
